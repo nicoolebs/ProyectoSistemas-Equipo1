@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+.backAzul{
+  background-color: #242e63;
+}
+
+.backGris{
+  background-color: #aaa;
+}
+
+.textAzul{
+  color: #242e63;
+}
+
+@font-face {
+  font-family: NotoSerif;
+  src: url(assets/NotoSerif-Regular.ttf) format("opentype");
+}

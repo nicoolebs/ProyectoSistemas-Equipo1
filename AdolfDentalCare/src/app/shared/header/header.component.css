@@ -1,0 +1,14 @@
+header {
+    background-color: khaki;
+    border-radius: 0 0 1em 1em;
+}
+
+.contactos {
+    background-color: grey;
+    height: 70px;
+    margin-top: 10px;
+}
+
+.imagen {
+    width: 64px;
+}
