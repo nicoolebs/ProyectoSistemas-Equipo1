@@ -1,14 +1,25 @@
 header {
-    background-color: khaki;
+    background-color:#242e63;
     border-radius: 0 0 1em 1em;
 }
 
 .contactos {
-    background-color: grey;
+    background-color:#c4c4c4;
     height: 70px;
     margin-top: 10px;
+    border-radius: 0 0 1em 1em;
 }
 
 .imagen {
     width: 64px;
 }
+
+
+.btn-light{
+    border-color: #c4c4c4;
+    width: 100%;
+    height: 100%;
+
+    background-color:#e9168b;
+}
+
