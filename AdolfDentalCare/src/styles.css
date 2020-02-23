@@ -13,5 +13,12 @@
 @font-face {
   font-family: NotoSerif;
   src: url(assets/NotoSerif-Regular.ttf) format("opentype");
+}.textoBlanco{
+  color: #ffff;
 }
-
+.fondoGris{
+  background-color: #c4c4c4;
+}
+.textoAzul{
+  color: #242e63;
+}
