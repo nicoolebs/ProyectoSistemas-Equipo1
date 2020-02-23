@@ -1,10 +1,10 @@
 header {
-    background-color:#242e63;
+    background-color: #242e63;
     border-radius: 0 0 1em 1em;
 }
 
 .contactos {
-    background-color:#c4c4c4;
+    background-color: #c4c4c4;
     height: 70px;
     margin-top: 10px;
     border-radius: 0 0 1em 1em;
@@ -15,11 +15,22 @@ header {
 }
 
 
-.btn-light{
+/* Este es para los elementos en general */
+
+.navbar-light .navbar-nav .nav-link {
+    color: #c4c4c4;
+}
+
+
+/*  Este es para el elemento activo lo puedes omitir si asi deseas */
+
+.navbar-light .navbar-nav .active>.nav-link {
+    color: #e9168b;
+}
+
+.btn-light {
     border-color: #c4c4c4;
     width: 100%;
     height: 100%;
-
-    background-color:#e9168b;
+    background-color: #e9168b;
 }
-
