@@ -12,32 +12,17 @@
 
             <div class="contactos row justify-content-between d-none d-lg-flex">
 
-                <div class="col-2 align-self-center">
-                    <!-- Imagen correo -->
-                    <img src="../../../assets/mail.png" class="imagen align-self-center mr-3 img-fluid p-1" alt="...">
-                </div>
 
                 <div class="col-4 align-self-center">
                     <!-- Correo -->
                     <h5>AdolfDC@gmail.com</h5>
                 </div>
 
-                <div class="col-2 align-self-center">
-                    <!-- Instagram -->
-                    <img src="../../../assets/instagram-2.png" class="imagen align-self-center mr-3 img-fluid p-1" alt="...">
+                <div *ngFor="let red of redesSociales" class="col-2 align-self-center">
+                    <!-- Redes Sociales -->
+                    <img [src]='red' class="imagen align-self-center mr-3 img-fluid p-1" alt="...">
 
                 </div>
-                <div class="col-2 align-self-center">
-                    <!-- Twitter -->
-                    <img src="../../../assets/twitter.png" class="imagen align-self-center mr-3 img-fluid p-1" alt="...">
-
-                </div>
-                <div class="col-2 align-self-center">
-                    <!-- Wha-->
-                    <img src="../../../assets/whatsapp.png" class="imagen align-self-center mr-3 img-fluid p-1" alt="...">
-
-                </div>
-
 
             </div>
 
@@ -48,28 +33,17 @@
                         <div class="col-8 d-md-none align-self-center">
                             <img class="align-self-center img-fluid" src="../../../assets/logoHorizontal.png" alt="">
                         </div>
+
                         <button class="navbar-toggler self" data-toggle="collapse" data-target="#menu-header" aria-controls="menu-header" aria-expanded="false" aria-label="Menu">
                             <span class="navbar-toggler-icon"></span>
                         </button>
 
                         <div class="collapse navbar-collapse" id="menu-header">
                             <ul class="navbar-nav w-100 nav-justified d-flex align-items-center">
-                                <li class="nav-item h-100">
-                                    <a href="" class="nav-link active">INICIO</a>
+                                <li *ngFor="let navegacion of navbar" class="nav-item h-100">
+                                    <a href="" class="nav-link active">{{navegacion}}</a>
                                 </li>
-                                <li class="nav-item h-100">
-                                    <a href="" class="nav-link">SOBRE NOSOTROS</a>
-                                </li>
-                                <li class="nav-item h-100">
-                                    <a href="" class="nav-link">NUESTRO PORTAL</a>
-                                </li>
-                                <li class="nav-item h-100">
-                                    <a href="" class="nav-link">SERVICIOS</a>
-                                </li>
-                                <li class="nav-item h-100">
-                                    <a href="" class="nav-link">CONTACTO</a>
-                                </li>
-                                <li class="nav-item d-flex d-md-none">
+                                <li class="nav-item d-md-none">
                                     <button type="button" class="btn btn-light">INGRESAR</button>
                                 </li>
                             </ul>

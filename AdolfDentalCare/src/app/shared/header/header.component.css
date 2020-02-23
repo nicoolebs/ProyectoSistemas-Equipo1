@@ -14,18 +14,8 @@ header {
     width: 64px;
 }
 
-
-/* Este es para los elementos en general */
-
 .navbar-light .navbar-nav .nav-link {
     color: #c4c4c4;
-}
-
-
-/*  Este es para el elemento activo lo puedes omitir si asi deseas */
-
-.navbar-light .navbar-nav .active>.nav-link {
-    color: #e9168b;
 }
 
 .btn-light {
