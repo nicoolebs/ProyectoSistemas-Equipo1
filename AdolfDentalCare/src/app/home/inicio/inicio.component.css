@@ -1,1 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 
+.btn-dark{
+    background-color: #e9168b;
+  }
