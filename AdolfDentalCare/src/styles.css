@@ -1,17 +1,45 @@
-.backAzul{
-  background-color: #242e63;
+* {
+    box-sizing: border-box;
 }
 
-.backGris{
-  background-color: #aaa;
+.backAzul {
+    background-color: #242e63;
 }
 
-.textAzul{
-  color: #242e63;
+.backGris {
+    background-color: #aaa;
+}
+
+.textAzul {
+    color: #242e63;
 }
 
 @font-face {
-  font-family: NotoSerif;
-  src: url(assets/NotoSerif-Regular.ttf) format("opentype");
+    font-family: NotoSerif;
+    src: url(assets/NotoSerif-Regular.ttf) format("opentype");
 }
 
+.titulosRosa {
+    color: #e9168b;
+}
+
+.textoALaIzquierda {
+    text-align: left;
+}
+
+.textoAzul {
+    color: #242e63;
+}
+
+.textoBlanco {
+    color: #ffff;
+}
+
+.tamañoImagen {
+    max-height: 600px;
+    ;
+}
+
+.fondoGris {
+    background-color: #c4c4c4;
+}

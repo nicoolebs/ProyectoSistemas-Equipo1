@@ -10,6 +10,7 @@ import { SobreNosotrosComponent } from './home/sobre-nosotros/sobre-nosotros.com
 import { ServiciosComponent } from './home/servicios/servicios.component';
 import { NuestroPortalComponent } from './home/nuestro-portal/nuestro-portal.component';
 import { ContactoComponent } from './home/contacto/contacto.component';
+import { SliderComponent } from './home/inicio/slider/slider.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ContactoComponent } from './home/contacto/contacto.component';
     ServiciosComponent,
     NuestroPortalComponent,
     ContactoComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
