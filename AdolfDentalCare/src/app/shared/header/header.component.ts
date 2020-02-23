@@ -14,6 +14,7 @@ export class HeaderComponent {
     {nombre: 'NUESTRO PORTAL', url: 'nuestro-portal'},
     {nombre: 'CONTACTO', url: 'contacto'},
   ];
+
   redesSociales: string[] = [
     '../../../assets/mail.png', '../../../assets/instagram-2.png', '../../../assets/twitter.png', '../../../assets/whatsapp.png'
   ];
