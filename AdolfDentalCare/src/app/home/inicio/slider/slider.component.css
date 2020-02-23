@@ -26,13 +26,15 @@
     right: auto;
     width: 50%;
     height: 100%;
-    background-color: transparent;
     text-align: center;
-    opacity: 0.8;
     bottom: 0;
     right: 0;
     z-index: 0;
-    color: #e9168b;
-    background-color:#ffff;
     margin-right: 10%;
+}
+
+.enlace {
+    color: #242e63;
+    display: block;
+    text-decoration: none;
 }
