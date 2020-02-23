@@ -41,7 +41,7 @@
                         <div class="collapse navbar-collapse" id="menu-header">
                             <ul class="navbar-nav w-100 nav-justified d-flex align-items-center">
                                 <li *ngFor="let navegacion of navbar" class="nav-item h-100">
-                                    <a href="" class="nav-link active">{{navegacion}}</a>
+                                    <a [href]="navegacion.url" class="nav-link active">{{navegacion.nombre}}</a>
                                 </li>
                                 <li class="nav-item d-md-none">
                                     <button type="button" class="btn btn-light">INGRESAR</button>
