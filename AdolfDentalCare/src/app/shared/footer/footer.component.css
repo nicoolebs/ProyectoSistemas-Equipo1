@@ -1,0 +1,17 @@
+.footer{
+    background-color: #242E63;
+}
+.texto{
+color: #c4c4c4c4;
+text-align: justify;
+}
+.resaltado{
+color: #E9168B;
+font-size: 130%;
+}
+
+.footer .imagen{
+    height: 50%;
+    width: 65%;
+}
+
