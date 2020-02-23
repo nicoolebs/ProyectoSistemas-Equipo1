@@ -9,7 +9,7 @@
                 <!-- Cuadro gris de contactos -->
                 <div class="contactos col-8 d-none d-md-flex">
                     <div class="media col">
-                        <img src="../../../assets/mail .png" class="imagen align-self-center mr-3 col-4" alt="...">
+                        <img src="../../../assets/mail.png" class="imagen align-self-center mr-3 col-4" alt="...">
                         <div class="media-body">
                             <h6 class="mt-0"><a href="">AdolfDC@gmail.com</a></h6>
                         </div>
@@ -33,9 +33,13 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+
+
+                                <li *ngFor="let item of navegador; index as i;" class="nav-item">
+                                    <a class="nav-link" href="#">{{navegador[i]}} <span class="sr-only">(current)</span></a>
                                 </li>
+
+
                             </ul>
                         </div>
                     </nav>

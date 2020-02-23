@@ -1,0 +1,38 @@
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    height: 100px;
+    width: 100px;
+    outline: transparent;
+    background-size: 100%, 100%;
+    border-radius: 50%;
+    background-image: none;
+}
+
+.carousel-control-next-icon:after {
+    content: '>';
+    font-size: 4em;
+    color: #242e63;
+}
+
+.carousel-control-prev-icon:after {
+    content: '<';
+    font-size: 4em;
+    color: #242e63;
+}
+
+.carousel-caption {
+    position: absolute;
+    left: auto;
+    right: auto;
+    width: 50%;
+    height: 100%;
+    background-color: transparent;
+    text-align: center;
+    opacity: 0.8;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+    color: black;
+    background-color: brown;
+    margin-right: 10%;
+}
