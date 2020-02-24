@@ -2,10 +2,12 @@
 margin: 0;
 padding: 0;
 }
-.jumbotron{
-    background-image: url(../../../assets/fondousuario.jpg);
+.fondoNuestroPortal{
+    background-image: url(../../../assets/fondoDegradado.jpg);
+
 }
 .btn-primary{
     background-color: #e9168b;
+    width: 10em;
     
 }
