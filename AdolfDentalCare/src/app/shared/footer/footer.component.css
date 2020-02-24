@@ -4,7 +4,7 @@
 }
 .footer{
     background-color: #242E63;
-    text-align: justify;
+   text-align: left;
 }
 .footer .texto{
 color: #c4c4c4c4;
@@ -12,7 +12,6 @@ color: #c4c4c4c4;
 .footer .resaltado{
 color: #E9168B;
 font-size: 120%;
-text-align: center;
 }
 
 .copyrights{
