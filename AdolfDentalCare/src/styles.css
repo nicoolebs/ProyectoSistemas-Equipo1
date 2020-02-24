@@ -71,3 +71,9 @@ div>hr {
 .centrar {
     justify-self: center;
 }
+
+.formularios {
+    font-size: 1.3em;
+    font-style: oblique;
+    color: #242e63;
+}
