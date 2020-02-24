@@ -1,17 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 .footer{
     background-color: #242E63;
+    text-align: justify;
 }
-.texto{
+.footer .texto{
 color: #c4c4c4c4;
-text-align: justify;
 }
-.resaltado{
+.footer .resaltado{
 color: #E9168B;
-font-size: 130%;
+font-size: 120%;
+text-align: center;
 }
 
-.footer .imagen{
-    height: 50%;
-    width: 65%;
+.copyrights{
+    text-align: right;
 }
 
