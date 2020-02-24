@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 .backAzul {
@@ -44,10 +46,16 @@
     background-color: #c4c4c4;
 }
 
+.btn,
 .btn-light {
     border-color: #c4c4c4 !important;
     width: 50%;
     height: 20%;
     background-color: #e9168b !important;
     font-size: 1.5em !important;
+}
+
+div>hr {
+    height: 3px;
+    background-color: #c4c4c4;
 }

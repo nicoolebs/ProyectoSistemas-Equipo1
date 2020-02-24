@@ -1,8 +1,12 @@
-*{
-    margin: 0;
-    padding: 0;
+.adolf {
+    padding-top: 20%;
 }
 
-.btn-dark{
-    background-color: #e9168b;
-  }
+.incisible {
+    background-color: transparent;
+    color: transparent;
+}
+
+.separar {
+    margin-bottom: 10px;
+}
