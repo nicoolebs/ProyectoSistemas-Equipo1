@@ -4,7 +4,7 @@
 
         <!-- Logo -->
         <div class="col-3">
-            <a href="inicio">
+            <a routerLink="/inicio">
                 <img class="img-fluid d-none d-md-flex" src="../../../assets/logoAdolfDentalCare.png" alt="">
             </a>
         </div>
@@ -45,12 +45,12 @@
 
                                 <!-- Items del menu -->
                                 <li *ngFor="let navegacion of navbar" class="nav-item h-100">
-                                    <a [href]="navegacion.url" class="nav-link active">{{navegacion.nombre}}</a>
+                                    <a routerLink={{navegacion.url}} class="nav-link active">{{navegacion.nombre}}</a>
                                 </li>
 
                                 <!-- Boton integrado ingresar -->
                                 <li class="nav-item d-md-none">
-                                    <button type="button" class="btn btn-light"><a href="iniciar-sesion">INGRESAR</a></button>
+                                    <button type="button" class="btn btn-light"><a routerLink="/iniciar-sesion">INGRESAR</a></button>
                                 </li>
 
                             </ul>
@@ -62,10 +62,10 @@
 
         <div class="col-2 align-self-center d-none d-md-flex">
             <!-- Btn ingresar -->
-            <a href="iniciar-sesion">
+            <a routerLink="/iniciar-sesion">
                 <img src="../../../assets/ingresar.png" class="img-fluid d-none d-md-flex" alt="">
             </a>
-            <button type="button" class="btn btn-light d-md-none"><a href="iniciar-sesion">INGRESAR</a></button>
+            <button type="button" class="btn btn-light d-md-none"><a routerLink="/iniciar-sesion">INGRESAR</a></button>
         </div>
 
     </div>
