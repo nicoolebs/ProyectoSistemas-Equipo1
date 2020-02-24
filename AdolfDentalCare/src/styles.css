@@ -60,10 +60,20 @@ div>hr {
     background-color: #c4c4c4;
 }
 
-.textoBlanco{
-  color: #ffff;
+.textoBlanco {
+    color: #ffff;
 }
 
-.fondoRosado{
-  background-color:#e9168b ;
+.fondoRosado {
+    background-color: #e9168b;
+}
+
+.centrar {
+    justify-self: center;
+}
+
+.formularios {
+    font-size: 1.3em;
+    font-style: oblique;
+    color: #242e63;
 }
