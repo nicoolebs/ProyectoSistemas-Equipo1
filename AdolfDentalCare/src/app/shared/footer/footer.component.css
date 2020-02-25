@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.footer{
+    background-color: #242E63;
+   text-align: left;
+}
+.footer .texto{
+color: #c4c4c4c4;
+}
+.footer .resaltado{
+color: #E9168B;
+font-size: 120%;
+}
+
+.copyrights{
+    text-align: right;
+}
+
