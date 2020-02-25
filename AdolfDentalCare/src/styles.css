@@ -8,14 +8,6 @@
     background-color: #242e63;
 }
 
-.backGris {
-    background-color: #aaa;
-}
-
-.textAzul {
-    color: #242e63;
-}
-
 @font-face {
     font-family: NotoSerif;
     src: url(assets/NotoSerif-Regular.ttf) format("opentype");
@@ -29,7 +21,8 @@
     text-align: left;
 }
 
-.textoAzul {
+.textoAzul,
+.textAzul {
     color: #242e63;
 }
 
@@ -39,10 +32,10 @@
 
 .tamañoImagen {
     max-height: 600px;
-    ;
 }
 
-.fondoGris {
+.fondoGris,
+.backGris {
     background-color: #c4c4c4;
 }
 
@@ -82,4 +75,10 @@ div>hr {
     color: #ffffff;
     display: block;
     text-decoration: none;
+}
+
+.navbar-light,
+.navbar-nav,
+.nav-link {
+    color: #c4c4c4;
 }

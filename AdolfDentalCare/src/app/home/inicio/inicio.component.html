@@ -3,10 +3,8 @@
 <div class="container-fluid">
 
     <!-- Slider Componente -->
-    <div class="row">
-        <div class="col d-none d-lg-flex justify-content-center">
-            <app-slider></app-slider>
-        </div>
+    <div class="row d-none d-lg-flex justify-content-center">
+        <app-slider></app-slider>
     </div>
 
     <!-- Introduccion -->
@@ -74,84 +72,62 @@
             </div>
         </div>
 
-    </div>
+        <!-- Algunas razones para escogernos-->
+        <div class="row fondoGris mt-4">
 
-    <!-- Separador invisible -->
-    <div class="row">
-        <div class="col">
-            <hr class="invisible">
-        </div>
-    </div>
-
-    <!-- Algunas razones para escogernos-->
-    <div class="row fondoGris">
-
-        <div class="col">
-            <div class="row">
-                <div class="col text-center m-4">
-                    <h3 class="textoBlanco">Algunas razones</h3>
-                    <h1 class="textoAzul">PARA ESCOGERNOS</h1>
+            <div class="col">
+                <div class="row">
+                    <div class="col text-center m-4">
+                        <h3 class="textoBlanco">Algunas razones</h3>
+                        <h1 class="textoAzul">PARA ESCOGERNOS</h1>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row">
+                <div class="row">
 
-                <div *ngFor="let razon of razones" class="col-12 col-sm-6 col col-lg-4">
-                    <img [src]=razon class="img-fluid" alt="">
+                    <div *ngFor="let razon of razones" class="col-12 col-sm-6 col col-lg-4">
+                        <img [src]=razon class="img-fluid" alt="">
+                    </div>
+
                 </div>
 
             </div>
 
         </div>
 
-    </div>
+        <!-- Parte de nuestros servicios-->
+        <div class="row mt-3">
 
-    <!-- Separador invisible -->
-    <div class="row">
-        <div class="col">
-            <hr class="invisible">
-        </div>
-    </div>
+            <div class="col">
 
-    <!-- Parte de nuestros servicios-->
-    <div class="row">
+                <div class="row">
 
-        <div class="col">
+                    <div class="col-12 col-md-9 text-center text-md-left">
+                        <h1 class="textoAzul">NUESTROS SERVICIOS</h1>
+                    </div>
 
-            <div class="row">
+                    <div class="col-12 col-md-3">
+                        <a href="servicios" class="enlace btn btn-primary h-100 w-100">VER TODOS</a>
+                    </div>
 
-                <div class="col-12 col-md-9 text-center text-md-left">
-                    <h1 class="textoAzul">NUESTROS SERVICIOS</h1>
-                </div>
-
-                <div class="col-12 col-md-3">
-                    <a href="servicios" class="enlace btn btn-primary h-100 w-100">VER TODOS</a>
                 </div>
 
             </div>
 
-        </div>
-
-    </div>
-
-    <div class="row">
-        <div class="col">
-            <hr>
-        </div>
-    </div>
-
-    <div class="row">
-        <div *ngFor="let servicio of servicios" class="col-12 col-md-6 col-lg-3">
-            <div class="card">
-                <img [src]=servicio.imagen class="card-img-top img-fluid" alt="...">
-                <div class="card-body">
-                    <h4 class="card-title titulosRosa">{{ servicio.titulo }}</h4>
-                    <h6 class="card-text textoAzul text-justify">{{ servicio.descripcion }}</h6>
+            <div class="row m-2">
+                <div *ngFor="let servicio of servicios" class="col-12 col-md-6 col-lg-3">
+                    <div class="card">
+                        <img [src]=servicio.imagen class="card-img-top img-fluid" alt="...">
+                        <div class="card-body">
+                            <h4 class="card-title titulosRosa">{{ servicio.titulo }}</h4>
+                            <h6 class="card-text textoAzul text-justify">{{ servicio.descripcion }}</h6>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
     </div>
-
 </div>
 
 <app-footer></app-footer>
