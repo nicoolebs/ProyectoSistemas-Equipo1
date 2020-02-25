@@ -1,3 +1,4 @@
+import { ClienteModule } from './cliente/cliente.module';
 import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './home/home.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,7 +18,8 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     AutentificacionModule,
     HomeModule,
-    SharedModule
+    SharedModule,
+    ClienteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

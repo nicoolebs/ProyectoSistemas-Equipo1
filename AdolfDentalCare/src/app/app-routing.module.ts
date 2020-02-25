@@ -8,6 +8,9 @@ import { ServiciosComponent } from './home/servicios/servicios.component';
 import { NuestroPortalComponent } from './home/nuestro-portal/nuestro-portal.component';
 import { IniciarSesionComponent } from './autentificacion/iniciar-sesion/iniciar-sesion.component';
 import { RegistroComponent } from './autentificacion/registro/registro.component';
+import { MisCitasComponent } from './cliente/mis-citas/mis-citas.component';
+import { MiHistoriaComponent } from './cliente/mi-historia/mi-historia.component';
+import { MisPagosComponent } from './cliente/mis-pagos/mis-pagos.component';
 
 
 const routes: Routes = [
@@ -19,6 +22,9 @@ const routes: Routes = [
   {path: 'iniciar-sesion', component: IniciarSesionComponent},
   {path: 'registro', component: RegistroComponent},
   {path: 'dashboard-paciente', component: MiPerfilComponent},
+  {path: 'mis-citas-paciente', component: MisCitasComponent},
+  {path: 'mi-historia-paciente', component: MiHistoriaComponent},
+  {path: 'mis-pagos-paciente', component: MisPagosComponent},
   {path: '', component: InicioComponent}
 ];
 
