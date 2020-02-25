@@ -1,3 +1,4 @@
+import { MiPerfilComponent } from './cliente/mi-perfil/mi-perfil.component';
 import { ContactoComponent } from './home/contacto/contacto.component';
 import { InicioComponent } from './home/inicio/inicio.component';
 import { NgModule } from '@angular/core';
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'contacto', component: ContactoComponent},
   {path: 'iniciar-sesion', component: IniciarSesionComponent},
   {path: 'registro', component: RegistroComponent},
+  {path: 'dashboard-paciente', component: MiPerfilComponent},
   {path: '', component: InicioComponent}
 ];
 

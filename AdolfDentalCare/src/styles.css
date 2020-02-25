@@ -77,3 +77,9 @@ div>hr {
     font-style: oblique;
     color: #242e63;
 }
+
+.enlace {
+    color: #ffffff;
+    display: block;
+    text-decoration: none;
+}

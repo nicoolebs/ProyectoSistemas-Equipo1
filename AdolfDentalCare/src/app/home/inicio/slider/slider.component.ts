@@ -25,7 +25,6 @@ export class SliderComponent implements OnInit {
     boton: 'SERVICIOS'},
   ];
 
-
   constructor() { }
 
   ngOnInit(): void {
