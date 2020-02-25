@@ -1,4 +1,4 @@
-header {
+.header {
     background-color: #242e63;
     border-radius: 0 0 1em 1em;
 }
@@ -7,7 +7,7 @@ header {
     background-color: #c4c4c4;
     height: 70px;
     margin-top: 10px;
-    border-radius: 0 0 1em 1em;
+    border-radius: 1em;
 }
 
 .imagen {

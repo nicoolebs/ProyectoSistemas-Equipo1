@@ -1,20 +1,16 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-.footer{
-    background-color: #242E63;
-   text-align: left;
-}
-.footer .texto{
-color: #c4c4c4c4;
-}
-.footer .resaltado{
-color: #E9168B;
-font-size: 120%;
+.copyrights {
+    font-size: 1.3em;
 }
 
-.copyrights{
-    text-align: right;
+.navbar-light .navbar-nav .nav-link {
+    color: #c4c4c4;
+    font-size: 1.4em;
 }
 
+.foot {
+    border-radius: 1em 1em 0 0;
+}
+
+.imagen {
+    width: 56px;
+}
