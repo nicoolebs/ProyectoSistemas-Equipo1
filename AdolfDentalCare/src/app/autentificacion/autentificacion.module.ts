@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { RegistroComponent } from './registro/registro.component';
 import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @NgModule({
   imports: [
@@ -21,6 +22,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
   exports: [
     IniciarSesionComponent,
     RegistroComponent
+  ],
+  providers: [
+    AngularFireAuth
   ]
 })
 export class AutentificacionModule { }
