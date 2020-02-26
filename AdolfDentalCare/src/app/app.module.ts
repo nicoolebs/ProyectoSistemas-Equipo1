@@ -8,6 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AutentificacionModule } from './autentificacion/autentificacion.module';
 
 import { AppComponent } from './app.component';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { AppComponent } from './app.component';
     AutentificacionModule,
     HomeModule,
     SharedModule,
-    ClienteModule
+    ClienteModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
