@@ -4,12 +4,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RegistroComponent } from './registro/registro.component';
 import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   declarations: [
     RegistroComponent,
