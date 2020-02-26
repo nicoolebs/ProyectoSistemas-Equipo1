@@ -1,0 +1,14 @@
+.card-img-top{
+    width:100%;
+    height: 250px;
+  }
+  .card-block{
+      width: 100%;
+      height: 100%;
+  }
+ 
+
+  img{
+    width:100%;
+    height:auto;
+  }
