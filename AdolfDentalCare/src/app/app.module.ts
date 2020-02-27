@@ -8,8 +8,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AutentificacionModule } from './autentificacion/autentificacion.module';
 
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
+
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -22,7 +27,11 @@ import { environment } from '../environments/environment';
     HomeModule,
     SharedModule,
     ClienteModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

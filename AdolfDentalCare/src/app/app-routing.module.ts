@@ -14,6 +14,7 @@ import { MisPagosComponent } from './cliente/mis-pagos/mis-pagos.component';
 
 
 const routes: Routes = [
+  {path: '', component: InicioComponent},
   {path: 'inicio', component: InicioComponent},
   {path: 'sobre-nosotros', component: SobreNosotrosComponent},
   {path: 'servicios', component: ServiciosComponent},
@@ -24,8 +25,7 @@ const routes: Routes = [
   {path: 'dashboard-paciente', component: MiPerfilComponent},
   {path: 'mis-citas-paciente', component: MisCitasComponent},
   {path: 'mi-historia-paciente', component: MiHistoriaComponent},
-  {path: 'mis-pagos-paciente', component: MisPagosComponent},
-  {path: '', component: InicioComponent}
+  {path: 'mis-pagos-paciente', component: MisPagosComponent}
 ];
 
 @NgModule({
