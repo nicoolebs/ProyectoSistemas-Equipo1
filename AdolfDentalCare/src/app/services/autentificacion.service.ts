@@ -17,7 +17,10 @@ export class AutentificacionService {
   private eventError = new BehaviorSubject<string>("");
   eventError$ = this.eventError.asObservable();
 
-  constructor( private router: Router, private autentificacion: AngularFireAuth, private baseDatos: AngularFirestore) { }
+  constructor(
+    private router: Router,
+    private autentificacion: AngularFireAuth,
+    private baseDatos: AngularFirestore) { }
 
   registrarUser(usuario) {
 
@@ -25,7 +28,10 @@ export class AutentificacionService {
     .then( credencialUsuario => {
       this.nuevoUsuario = usuario;
       credencialUsuario.user.updateProfile({
-        displayName: usuario.Nombre + '' + usuario.Apellido,
+        displayName: usuario.nombre,
+      }).catch((error) => {
+        console.log(error);
+        this.eventError.next(error);
       });
 
       this.insertarDatosUsuario(credencialUsuario)
@@ -40,7 +46,7 @@ export class AutentificacionService {
   }
 
   insertarDatosUsuario(credencialUsuario: firebase.auth.UserCredential) {
-    return this.baseDatos.doc(`Usuarios/${credencialUsuario.user.uid}`).set({
+    return this.baseDatos.collection('Usuarios').doc(credencialUsuario.user.uid).set({
       email: this.nuevoUsuario.email,
       nombre: this.nuevoUsuario.nombre,
       apellido: this.nuevoUsuario.apellido,
@@ -59,6 +65,10 @@ export class AutentificacionService {
       this.autentificacion.auth.signInWithEmailAndPassword(email, clave).
       then(userData => resolve(userData), err => reject(err));
     });
+  }
+
+  getEstadoUsuario() {
+    return this.autentificacion.authState;
   }
 
   // AGREGAR ESTO CUANDO ESTÉ LISTO EL NAVBAR DEL DASHBOARD
