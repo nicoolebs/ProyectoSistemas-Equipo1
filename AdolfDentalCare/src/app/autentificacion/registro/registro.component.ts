@@ -1,5 +1,8 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormControl } from '@angular/forms';
+import { AutentificacionService } from '../../services/autentificacion.service';
 
 @Component({
   selector: 'app-registro',
@@ -7,34 +10,35 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
-  public formGroup: FormGroup;
+  public registro: FormGroup;
+  authError: any;
 
-  constructor( private formBuilder: FormBuilder ) { }
+  constructor( private formBuilder: FormBuilder, private router: Router, private autentificacion: AutentificacionService ) { }
 
   public ngOnInit() {
     this.buildForm();
+    this.autentificacion.eventError$.subscribe( data => {
+      this.authError = data;
+    });
   }
-  private buildForm(){
-    const today = new Date().toISOString().substring(0, 10);
-    this.formGroup = this.formBuilder.group({
-    registeredOn: today,
-    email: ['', Validators.required, Validators.email],
-    contrasena: ['', Validators.required, Validators.minLength(8)],
-    vContrasena: ['', Validators.required],
-    nombre: ['', Validators.required],
-    apellido: ['', Validators.required],
-    nacimiento: ['', Validators.required],
-    telefono: ['', Validators.required],
-    direccion: ['', Validators.required],
-    antecedentes: ['', Validators.required],
-    alergias: ['', Validators.required],
-    genero: ['', Validators.required],
-  });
-}
 
-public registrar(){
-console.log("Diste clic");
+  private buildForm() {
+    this.registro = this.formBuilder.group({
+      email: [''],
+      contrasena: [''],
+      vContrasena: [''],
+      nombre: [''],
+      apellido: [''],
+      nacimiento: [''],
+      telefono: [''],
+      direccion: [''],
+      antecedentes: [''],
+      alergias: [''],
+      genero: ['']
+    });
+  }
 
-}
-
+  public registrar(formulario) {
+    this.autentificacion.registrarUser(formulario.value);
+  }
 }
