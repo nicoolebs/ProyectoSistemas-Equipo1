@@ -36,7 +36,7 @@
                                 </div>
                             </li>
                             <li class="nav-item h-100 d-flex d-md-none">
-                                <a class="nav-link btn btn-light h-100 w-100" href='/iniciar-sesion'>SALIR</a>
+                                <a class="nav-link btn btn-light h-100 w-100" href='/iniciar-sesion' (click)='salir()'>SALIR</a>
                             </li>
 
                         </ul>
@@ -51,6 +51,6 @@
         <img class="img-fluid d-none d-md-flex" src="../../../assets/logoHorizontal.png" alt="" routerLink="/inicio">
     </div>
     <div class="col-2 align-content-center text-center">
-        <a routerLink="/iniciar-sesion" class="btn btn-light h-75 w-100 d-none d-md-block">SALIR</a>
+        <a routerLink="/iniciar-sesion" class="btn btn-light h-75 w-100 d-none d-md-block" (click)='salir()'>SALIR</a>
     </div>
 </div>
