@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-dash.component.css']
 })
 export class NavDashComponent implements OnInit {
+  
+  navbar = [
+    {nombre: 'PERFIL', url: 'dashboard-paciente'},
+    {nombre: 'HISTORIAL', url: 'mi-historia-paciente'},
+    {nombre: 'PAGOS', url: 'mis-pagos-paciente'},
+  ];
 
   constructor() { }
 
@@ -13,3 +19,4 @@ export class NavDashComponent implements OnInit {
   }
 
 }
+

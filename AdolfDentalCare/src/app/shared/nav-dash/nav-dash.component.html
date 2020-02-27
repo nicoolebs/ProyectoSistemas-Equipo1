@@ -1,23 +1,53 @@
-<div class="container-fluid h-100">
-    <div class="row">
-        <div class="col">
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a class="nav-link" href="/dashboard-paciente">MI PERFIL</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/mis-citas-paciente">MIS CITAS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/mi-historia-paciente">MI HISTORIA</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/mis-pagos-paciente">MIS PAGOS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/iniciar-sesion">SALIR</a>
-                </li>
-            </ul>
+<div class="row dashboard">
+
+    <div class="col-md-9"><!-- Menu Responsive de dashboard/tipo hamburguesa -->
+
+        <div class="row">
+
+            <div class="col">
+
+                <!-- Menu -->
+                <nav class="navbar navbar-expand-md navbar-light text-center">
+                    <div class="col-8 d-md-none align-self-center">
+                        <img class="align-self-center img-fluid" src="../../../assets/logoHorizontal.png" alt="">
+                    </div>
+
+                    <button class="navbar-toggler self" data-toggle="collapse" data-target="#menu-header" aria-controls="menu-header" aria-expanded="false" aria-label="Menu">
+                            <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="menu-header">
+                        <ul class="navbar-nav w-100 nav-justified d-flex align-items-center">
+
+                            <!-- Items del menu -->
+                            <li *ngFor="let navegacion of navbar" class="nav-item h-100">
+                                <a class="nav-link" href={{navegacion.url}}>{{navegacion.nombre}}</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  CITAS
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                  <a class="dropdown-item" href="mis-citas-paciente">Crear cita</a>
+                                  <a class="dropdown-item" href="mis-citas-paciente">Cancelar cita</a>
+                                   <a class="dropdown-item" href="mis-citas-paciente">Consultar cita</a>
+                                </div>
+                              </li>
+
+                            <!-- Boton integrado ingresar -->
+                            <li class="nav-item d-md-none">
+                                <button type="button" class="btn btn-light"><a routerLink="/iniciar-sesion">INGRESAR</a></button>
+                            </li>
+
+                        </ul>
+                    </div>
+                </nav>
+            </div>
         </div>
+    </div>
+
+    <div class="col-3"><!-- Logo -->
+        <img class="img-fluid d-none d-md-flex" src="../../../assets/logoHorizontal.png" alt="" routerLink="/inicio">
     </div>
 </div>
