@@ -3,15 +3,10 @@
     border-radius: 0 0 1em 1em;
 }
 
-
 .imagen {
     width: 64px;
 }
 
 .navbar-light .navbar-nav .nav-link {
     color: #c4c4c4;
-}
-
-.btn-light {
-    width: 100%;
 }

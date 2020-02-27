@@ -1,6 +1,7 @@
-<div class="row dashboard">
+<div class="row dashboard sticky-top">
 
-    <div class="col-md-7 col-xs-2 col-sm-2"><!-- Menu Responsive de dashboard/tipo hamburguesa -->
+    <div class="col-md-7 col-xs-2 col-sm-2">
+        <!-- Menu Responsive de dashboard/tipo hamburguesa -->
 
         <div class="row">
 
@@ -8,7 +9,7 @@
 
                 <!-- Menu -->
                 <nav class="navbar navbar-expand-md navbar-light text-center">
-                    <div class="col-8 d-md-none align-self-center">
+                    <div class="col-md-8 d-sm-none align-self-center">
                         <img class="align-self-center img-fluid" src="../../../assets/logoHorizontal.png" alt="">
                     </div>
 
@@ -17,7 +18,7 @@
                     </button>
 
                     <div class="collapse navbar-collapse" id="menu-header">
-                        <ul class="navbar-nav w-100 nav-justified d-flex align-items-center">
+                        <ul class="navbar-nav nav-justified d-flex align-items-center">
 
                             <!-- Items del menu -->
                             <li *ngFor="let navegacion of navbar" class="nav-item h-100">
@@ -26,16 +27,17 @@
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  CITAS
-                                </a>
+                                CITAS
+                              </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                  <a class="dropdown-item" href="mis-citas-paciente">Crear cita</a>
-                                  <a class="dropdown-item" href="mis-citas-paciente">Cancelar cita</a>
-                                   <a class="dropdown-item" href="mis-citas-paciente">Consultar cita</a>
+                                    <a class="dropdown-item" href="mis-citas-paciente">Crear cita</a>
+                                    <a class="dropdown-item" href="mis-citas-paciente">Cancelar cita</a>
+                                    <a class="dropdown-item" href="mis-citas-paciente">Consultar cita</a>
                                 </div>
-                              </li>
-
-                        
+                            </li>
+                            <li class="nav-item h-100 d-flex d-md-none">
+                                <a class="nav-link btn btn-light h-100 w-100" href='/iniciar-sesion'>SALIR</a>
+                            </li>
 
                         </ul>
                     </div>
@@ -44,10 +46,11 @@
         </div>
     </div>
 
-    <div class="col-3"><!-- Logo -->
+    <div class="col-3">
+        <!-- Logo -->
         <img class="img-fluid d-none d-md-flex" src="../../../assets/logoHorizontal.png" alt="" routerLink="/inicio">
     </div>
-    <div class="col-2  text-center">
-        <button type="button" class="btn btn-light"><a routerLink="/iniciar-sesion">SALIR</a></button>
+    <div class="col-2 align-content-center text-center">
+        <a routerLink="/iniciar-sesion" class="btn btn-light h-75 w-100 d-none d-md-block">SALIR</a>
     </div>
 </div>
