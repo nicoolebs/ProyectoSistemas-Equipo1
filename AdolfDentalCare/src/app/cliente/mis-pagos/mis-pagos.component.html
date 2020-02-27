@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
     <div class="row">
         <div class="col-3">
             <app-nav-dash></app-nav-dash>
@@ -8,3 +8,8 @@
         </div>
     </div>
 </div>
+ -->
+
+<input type="number" [(ngModel)]="finalAmount" style="padding-bottom: 10px;">
+<h2 *ngIf="paypalLoad">Paypal button is loading</h2>
+<div id="paypal-checkout-btn"></div>
