@@ -5,6 +5,7 @@ import { MiPerfilComponent } from './mi-perfil/mi-perfil.component';
 import { MisCitasComponent } from './mis-citas/mis-citas.component';
 import { MisPagosComponent } from './mis-pagos/mis-pagos.component';
 import { MiHistoriaComponent } from './mi-historia/mi-historia.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -12,7 +13,8 @@ import { MiHistoriaComponent } from './mi-historia/mi-historia.component';
   declarations: [MiPerfilComponent, MisCitasComponent, MisPagosComponent, MiHistoriaComponent],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ],
   exports: [
     MiPerfilComponent,
