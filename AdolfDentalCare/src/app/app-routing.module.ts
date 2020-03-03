@@ -1,16 +1,16 @@
-import { MiPerfilComponent } from './cliente/mi-perfil/mi-perfil.component';
-import { ContactoComponent } from './home/contacto/contacto.component';
-import { InicioComponent } from './home/inicio/inicio.component';
+import { MiPerfilComponent } from './components/cliente/mi-perfil/mi-perfil.component';
+import { ContactoComponent } from './components/home/contacto/contacto.component';
+import { InicioComponent } from './components/home/inicio/inicio.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SobreNosotrosComponent } from './home/sobre-nosotros/sobre-nosotros.component';
-import { ServiciosComponent } from './home/servicios/servicios.component';
-import { NuestroPortalComponent } from './home/nuestro-portal/nuestro-portal.component';
-import { IniciarSesionComponent } from './autentificacion/iniciar-sesion/iniciar-sesion.component';
-import { RegistroComponent } from './autentificacion/registro/registro.component';
-import { MisCitasComponent } from './cliente/mis-citas/mis-citas.component';
-import { MiHistoriaComponent } from './cliente/mi-historia/mi-historia.component';
-import { MisPagosComponent } from './cliente/mis-pagos/mis-pagos.component';
+import { SobreNosotrosComponent } from './components/home/sobre-nosotros/sobre-nosotros.component';
+import { ServiciosComponent } from './components/home/servicios/servicios.component';
+import { NuestroPortalComponent } from './components/home/nuestro-portal/nuestro-portal.component';
+import { IniciarSesionComponent } from './components/autentificacion/iniciar-sesion/iniciar-sesion.component';
+import { RegistroComponent } from './components/autentificacion/registro/registro.component';
+import { MisCitasComponent } from './components/cliente/mis-citas/mis-citas.component';
+import { MiHistoriaComponent } from './components/cliente/mi-historia/mi-historia.component';
+import { MisPagosComponent } from './components/cliente/mis-pagos/mis-pagos.component';
 
 
 const routes: Routes = [

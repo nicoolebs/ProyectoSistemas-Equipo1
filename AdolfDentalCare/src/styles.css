@@ -8,11 +8,6 @@
     background-color: #242e63;
 }
 
-@font-face {
-    font-family: NotoSerif;
-    src: url(assets/NotoSerif-Regular.ttf) format("opentype");
-}
-
 .titulosRosa {
     color: #e9168b;
 }

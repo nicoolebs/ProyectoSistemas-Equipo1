@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.fondoNuestroPortal {
+    background-image: url(../../../../assets/images/fondoDegradado.jpg);
+}
+
+.btn-primary {
+    background-color: #e9168b;
+    width: 10em;
+}
