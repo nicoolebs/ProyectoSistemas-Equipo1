@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AdministracionCitasComponent } from './administracion-citas/administracion-citas.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [AdministracionCitasComponent],
   imports: [
     CommonModule
   ]

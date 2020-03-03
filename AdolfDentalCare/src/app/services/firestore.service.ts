@@ -8,23 +8,23 @@ import { firestore } from 'firebase';
 })
 export class FirestoreService {
   constructor(
-    private firestore: AngularFirestore
+    private fire: AngularFirestore
   ) {}
 
   public createCat(data: {nombre: string, url: string}) {
-    return this.firestore.collection('cats').add(data);
+    return this.fire.collection('cats').add(data);
   }
-  //Obtiene un gato
+  // Obtiene un gato
   public getDocumento(documentId: string, coleccion: string) {
-    return this.firestore.collection(coleccion).doc(documentId).snapshotChanges();
+    return this.fire.collection(coleccion).doc(documentId).get();
   }
-  //Obtiene todos los gatos
+  // Obtiene todos los gatos
   public getCats() {
-    return this.firestore.collection('Usuarios').snapshotChanges();
+    return this.fire.collection('Usuarios').snapshotChanges();
   }
-  //Actualiza un gato
+  // Actualiza un gato
   public updateCat(documentId: string, data: any) {
-    return this.firestore.collection('cats').doc(documentId).set(data);
+    return this.fire.collection('cats').doc(documentId).set(data);
   }
 
 

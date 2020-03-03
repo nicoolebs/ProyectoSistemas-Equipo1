@@ -59,7 +59,7 @@
             <div class="row">
                 <!--Nombre y apellido-->
                 <div class="col-12">
-                    <h4 *ngIf="usuario" class="textAzul textoALaIzquierda">####</h4>
+                    <h4 *ngIf="usuario" class="textAzul textoALaIzquierda">{{ dataUsuario.nombre}} {{ dataUsuario.apellido}}</h4>
                 </div>
             </div>
             <hr>
@@ -67,35 +67,35 @@
             <div class="row">
                 <!--correo-->
                 <div class="col-12">
-                    <h4 *ngIf="usuario" class="textAzul textoALaIzquierda">{{ usuario?.email}}</h4>
+                    <h4 *ngIf="usuario" class="textAzul textoALaIzquierda">{{ dataUsuario.email}}</h4>
                 </div>
             </div>
             <hr>
             <div class="row">
                 <!--direccion-->
                 <div class="col-12">
-                    <h4 class="textAzul textoALaIzquierda">####</h4>
+                    <h4 class="textAzul textoALaIzquierda">{{ dataUsuario.direccion }}</h4>
                 </div>
             </div>
             <hr>
             <div class="row">
                 <!--fecha-->
                 <div class="col-12">
-                    <h4 class="textAzul textoALaIzquierda">###</h4>
+                    <h4 class="textAzul textoALaIzquierda">{{ dataUsuario.nacimiento }}</h4>
                 </div>
             </div>
             <hr>
             <div class="row">
                 <!--sexo-->
                 <div class="col-12">
-                    <h4 class="textAzul textoALaIzquierda">###</h4>
+                    <h4 class="textAzul textoALaIzquierda">{{ dataUsuario.genero }}</h4>
                 </div>
             </div>
             <hr>
             <div class="row">
                 <!--teléfono-->
                 <div class="col-12">
-                    <h4 class="textAzul textoALaIzquierda">###</h4>
+                    <h4 class="textAzul textoALaIzquierda">{{ dataUsuario.telefono }}</h4>
                 </div>
             </div>
             <hr>

@@ -34,7 +34,8 @@ export class RegistroComponent implements OnInit {
       direccion: [''],
       antecedentes: [''],
       alergias: [''],
-      genero: ['']
+      genero: [''],
+      tipo: ['paciente']
     });
   }
 

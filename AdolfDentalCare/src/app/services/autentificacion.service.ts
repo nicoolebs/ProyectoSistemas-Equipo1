@@ -22,10 +22,14 @@ export class AutentificacionService {
     private autentificacion: AngularFireAuth,
     private baseDatos: AngularFirestore) { }
 
-  registrarUser(usuario) {
+    getEstadoUsuario() {
+      return this.autentificacion.authState;
+    }
 
-    this.autentificacion.auth.createUserWithEmailAndPassword(usuario.email, usuario.contrasena)
-    .then( credencialUsuario => {
+    registrarUser(usuario) {
+
+      this.autentificacion.auth.createUserWithEmailAndPassword(usuario.email, usuario.contrasena)
+      .then( credencialUsuario => {
       this.nuevoUsuario = usuario;
       credencialUsuario.user.updateProfile({
         displayName: usuario.nombre,
@@ -55,8 +59,8 @@ export class AutentificacionService {
       direccion: this.nuevoUsuario.direccion,
       antecedentes: this.nuevoUsuario.antecedentes,
       alergias: this.nuevoUsuario.alergias,
-      genero: this.nuevoUsuario.genero
-      // rol: this.nuevoUsuario.tipoUsuario
+      genero: this.nuevoUsuario.genero,
+      tipo: this.nuevoUsuario.tipo
     });
   }
 
@@ -67,9 +71,6 @@ export class AutentificacionService {
     });
   }
 
-  getEstadoUsuario() {
-    return this.autentificacion.authState;
-  }
 
   // AGREGAR ESTO CUANDO ESTÉ LISTO EL NAVBAR DEL DASHBOARD
   estaLoggeado() {

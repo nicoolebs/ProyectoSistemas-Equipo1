@@ -7,8 +7,6 @@ import { MisPagosComponent } from './mis-pagos/mis-pagos.component';
 import { MiHistoriaComponent } from './mi-historia/mi-historia.component';
 import { FormsModule } from '@angular/forms';
 
-
-
 @NgModule({
   declarations: [MiPerfilComponent, MisCitasComponent, MisPagosComponent, MiHistoriaComponent],
   imports: [

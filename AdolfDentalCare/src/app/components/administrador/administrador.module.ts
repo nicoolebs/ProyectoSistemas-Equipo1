@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PrincipalComponent } from './principal/principal.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [PrincipalComponent],
   imports: [
     CommonModule
   ]
