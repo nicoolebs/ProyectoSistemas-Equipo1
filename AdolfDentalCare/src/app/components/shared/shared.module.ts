@@ -1,4 +1,3 @@
-import { AppRoutingModule } from './../../app-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -12,8 +11,7 @@ import { NavDashComponent } from './nav-dash/nav-dash.component';
     NavDashComponent
   ],
   imports: [
-    CommonModule,
-    AppRoutingModule
+    CommonModule
   ],
   exports: [
     HeaderComponent,

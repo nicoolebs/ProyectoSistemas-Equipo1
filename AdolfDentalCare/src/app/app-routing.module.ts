@@ -15,14 +15,12 @@ import { AutentificacionComponent } from './components/autentificacion/autentifi
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, children: [
-    { path: 'home', loadChildren: () => import(`./components/home/home.module`).then(m => m.HomeModule) },
-  ]},
-  { path: '', component: AutentificacionComponent, children: [
-    { path: 'login', loadChildren: () => import(`./components/autentificacion/autentificacion.module`).then(m => m.AutentificacionModule) },
-  ]},
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/inicio', pathMatch: 'full' },
 
+    { path: 'home',
+    loadChildren: () => import(`./components/home/home.module`).then(m => m.HomeModule) },
+
+    { path: 'login', loadChildren: () => import(`./components/autentificacion/autentificacion.module`).then(m => m.AutentificacionModule) },
 
   // {path: '', component: InicioComponent},
   // {path: 'iniciar-sesion', component: IniciarSesionComponent},

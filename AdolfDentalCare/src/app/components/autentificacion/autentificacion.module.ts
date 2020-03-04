@@ -1,6 +1,5 @@
 import { AngularFireAuth } from '@angular/fire/auth';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { AppRoutingModule } from './../../app-routing.module';
 import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -15,7 +14,6 @@ import { AutentificacionComponent } from './autentificacion.component';
   imports: [
     CommonModule,
     SharedModule,
-    AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
     AutentificacionRoutingModule

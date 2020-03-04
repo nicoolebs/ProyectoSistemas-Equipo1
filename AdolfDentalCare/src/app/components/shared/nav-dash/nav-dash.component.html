@@ -22,7 +22,7 @@
 
                             <!-- Items del menu -->
                             <li *ngFor="let navegacion of navbar" class="nav-item h-100">
-                                <a class="nav-link" href={{navegacion.url}}>{{navegacion.nombre}}</a>
+                                <a class="nav-link" (click)="open(navegacion.url)">{{navegacion.nombre}}</a>
                             </li>
 
                             <li class="nav-item dropdown">
@@ -30,13 +30,13 @@
                                 CITAS
                               </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="mis-citas-paciente">Crear cita</a>
-                                    <a class="dropdown-item" href="mis-citas-paciente">Cancelar cita</a>
-                                    <a class="dropdown-item" href="mis-citas-paciente">Consultar cita</a>
+                                    <a class="dropdown-item" href="citas-paciente">Crear cita</a>
+                                    <a class="dropdown-item" href="citas-paciente">Cancelar cita</a>
+                                    <a class="dropdown-item" href="citas-paciente">Consultar cita</a>
                                 </div>
                             </li>
                             <li class="nav-item h-100 d-flex d-md-none">
-                                <a class="nav-link btn btn-light h-100 w-100" href='/iniciar-sesion' (click)='salir()'>SALIR</a>
+                                <a class="nav-link btn btn-light h-100 w-100" (click)='salir()'>SALIR</a>
                             </li>
 
                         </ul>

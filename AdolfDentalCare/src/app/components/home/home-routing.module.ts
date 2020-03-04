@@ -10,6 +10,11 @@ import { HomeComponent } from './home.component';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: '/inicio',
+    pathMatch: 'full'
+  },
+  {
     path: '', component: HomeComponent, children: [
       {
         path: 'inicio',
@@ -32,12 +37,7 @@ const routes: Routes = [
         component: ContactoComponent
       }
     ]
-  },
-{
-  path: '',
-  redirectTo: '/home/inicio',
-  pathMatch: 'full'
-}
+  }
 ];
 
 @NgModule({

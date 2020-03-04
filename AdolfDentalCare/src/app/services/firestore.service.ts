@@ -14,7 +14,8 @@ export class FirestoreService {
   public createCat(data: {nombre: string, url: string}) {
     return this.fire.collection('cats').add(data);
   }
-  // Obtiene un gato
+
+  // Obtiene un documento
   public getDocumento(documentId: string, coleccion: string) {
     return this.fire.collection(coleccion).doc(documentId).get();
   }

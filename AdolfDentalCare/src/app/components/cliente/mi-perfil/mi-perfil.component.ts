@@ -28,6 +28,7 @@ export class MiPerfilComponent implements OnInit {
         });
       }
     });
+
   }
 
 }

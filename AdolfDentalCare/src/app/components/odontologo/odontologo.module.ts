@@ -1,13 +1,16 @@
+import { AdministracionCitasComponent } from './administracion-citas/administracion-citas.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AdministracionCitasComponent } from './administracion-citas/administracion-citas.component';
 
+import { OdontologoRoutingModule } from './odontologo-routing.module';
+import { OdontologoComponent } from './odontologo.component';
 
 
 @NgModule({
-  declarations: [AdministracionCitasComponent],
+  declarations: [AdministracionCitasComponent, OdontologoComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    OdontologoRoutingModule
   ]
 })
 export class OdontologoModule { }

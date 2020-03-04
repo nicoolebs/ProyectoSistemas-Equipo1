@@ -1,5 +1,5 @@
+import { OdontologoModule } from './components/odontologo/odontologo.module';
 import { ClienteModule } from './components/cliente/cliente.module';
-import { SharedModule } from './components/shared/shared.module';
 import { HomeModule } from './components/home/home.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -25,8 +25,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     AppRoutingModule,
     AutentificacionModule,
     HomeModule,
-    SharedModule,
     ClienteModule,
+    OdontologoModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,

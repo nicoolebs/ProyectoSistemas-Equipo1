@@ -45,11 +45,12 @@ export class IniciarSesionComponent implements OnInit {
             this.dataUsuario = user.data();
 
             if (this.dataUsuario.tipo === 'paciente') {
-              this.router.navigate(['/dashboard-paciente']);
+              this.open('dashboard-paciente');
             } else if (this.dataUsuario.tipo === 'doctor' ) {
-              this.router.navigate(['/dashboard-odontologo']);
+              this.open('dashboard-odontologo');
             } else if (this.dataUsuario.tipo === 'admin') {
-              this.router.navigate(['/dashboard-administrador']);
+              this.open('dashboard-administrador');
+              console.log('clic');
             }
           });
       });
