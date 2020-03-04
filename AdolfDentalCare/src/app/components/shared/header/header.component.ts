@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 
 @Component({
@@ -22,6 +23,9 @@ export class HeaderComponent {
     '../../../assets/images/whatsapp.png'
   ];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
+  open(enlace) {
+    this.router.navigate([enlace]);
+  }
 }

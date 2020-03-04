@@ -1,11 +1,15 @@
+import { AngularFireAuth } from '@angular/fire/auth';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './../../app-routing.module';
 import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+import { AutentificacionRoutingModule } from './autentificacion-routing.module';
 import { RegistroComponent } from './registro/registro.component';
 import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.component';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AutentificacionComponent } from './autentificacion.component';
+
 
 @NgModule({
   imports: [
@@ -13,11 +17,13 @@ import { AngularFireAuth } from '@angular/fire/auth';
     SharedModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    AutentificacionRoutingModule
   ],
   declarations: [
     RegistroComponent,
-    IniciarSesionComponent
+    IniciarSesionComponent,
+    AutentificacionComponent
   ],
   exports: [
     IniciarSesionComponent,

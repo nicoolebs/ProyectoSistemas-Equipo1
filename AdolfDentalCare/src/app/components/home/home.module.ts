@@ -1,5 +1,4 @@
-import { AppRoutingModule } from './../../app-routing.module';
-import { SharedModule } from './../../components/shared/shared.module';
+import { SharedModule } from './../shared/shared.module';
 import { SliderComponent } from './inicio/slider/slider.component';
 import { SobreNosotrosComponent } from './sobre-nosotros/sobre-nosotros.component';
 import { ServiciosComponent } from './servicios/servicios.component';
@@ -9,6 +8,10 @@ import { InicioComponent } from './inicio/inicio.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { HomeRoutingModule } from './home-routing.module';
+import { HomeComponent } from './home.component';
+
+
 @NgModule({
   declarations: [
     InicioComponent,
@@ -16,11 +19,13 @@ import { CommonModule } from '@angular/common';
     ContactoComponent,
     ServiciosComponent,
     SobreNosotrosComponent,
-    SliderComponent
+    SliderComponent,
+    HomeComponent,
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    HomeRoutingModule
   ],
   exports: [
     InicioComponent,

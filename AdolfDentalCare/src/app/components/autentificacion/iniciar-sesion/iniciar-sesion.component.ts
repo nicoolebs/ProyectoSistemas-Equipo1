@@ -56,4 +56,8 @@ export class IniciarSesionComponent implements OnInit {
 
     }).catch(err => alert(err));
   }
+
+  open(enlace) {
+    this.router.navigate([enlace]);
+  }
 }
