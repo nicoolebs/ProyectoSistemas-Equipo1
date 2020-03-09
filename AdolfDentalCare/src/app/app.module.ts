@@ -15,6 +15,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AdministradorModule } from './components/administrador/administrador.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     AppRoutingModule,
     AutentificacionModule,
     HomeModule,
+    AdministradorModule,
     ClienteModule,
     OdontologoModule,
     FormsModule,
