@@ -10,25 +10,19 @@ import { AutentificacionService } from '../../../services/autentificacion.servic
 })
 export class MiPerfilComponent implements OnInit {
 
-  usuario: firebase.User;
-  public dataUsuario;
+  usuarioActivo;
 
   constructor(
     private autentificacion: AutentificacionService,
     private firestore: FirestoreService,
     private router: Router
-  ) { }
+  ) {
+    this.usuarioActivo = autentificacion.usuarioLogg;
+    console.log(autentificacion.usuarioLogg);
+
+  }
 
   ngOnInit(): void {
-    this.autentificacion.getEstadoUsuario().subscribe( usuario => {
-      if (usuario) {
-          this.usuario = usuario;
-          this.firestore.getDocumento(usuario.uid, 'Usuarios').subscribe( user => {
-          this.dataUsuario = user.data();
-        });
-      }
-    });
-
   }
 
 }

@@ -17,9 +17,6 @@ export class RegistroComponent implements OnInit {
 
   public ngOnInit() {
     this.buildForm();
-    this.autentificacion.eventError$.subscribe( data => {
-      this.authError = data;
-    });
   }
 
   private buildForm() {

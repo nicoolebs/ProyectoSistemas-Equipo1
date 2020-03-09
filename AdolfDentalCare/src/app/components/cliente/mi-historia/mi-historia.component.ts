@@ -21,12 +21,12 @@ export class MiHistoriaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.autentificacion.getEstadoUsuario()
-    .subscribe( usuario => {
-      if(usuario){
-        this.usuario = usuario;
-      }
-    });
+    // this.autentificacion.getEstadoUsuario()
+    // .subscribe( usuario => {
+    //   if(usuario){
+    //     this.usuario = usuario;
+    //   }
+    // });
   }
 
 }

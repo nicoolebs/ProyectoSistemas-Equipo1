@@ -38,27 +38,16 @@ export class IniciarSesionComponent implements OnInit {
   iniciarSesion() {
     this.autentificacion.iniciarSesion(this.email, this.contrasena)
     .then(res => {
-
-      this.autentificacion.getEstadoUsuario().subscribe( usuario => {
-          this.usuario = usuario;
-          this.firestore.getDocumento(usuario.uid, 'Usuarios').subscribe( user => {
-            this.dataUsuario = user.data();
-
-            if (this.dataUsuario.tipo === 'paciente') {
-              this.open('dashboard-paciente');
-            } else if (this.dataUsuario.tipo === 'doctor' ) {
-              this.open('dashboard-odontologo');
-            } else if (this.dataUsuario.tipo === 'admin') {
-              this.open('dashboard-administrador');
-              console.log('clic');
-            }
-          });
-      });
-
     }).catch(err => alert(err));
   }
 
   open(enlace) {
     this.router.navigate([enlace]);
+  }
+
+  salir() {
+    this.autentificacion.cerrarSesion();
+    console.log(this.autentificacion.usuarioLogg);
+
   }
 }
