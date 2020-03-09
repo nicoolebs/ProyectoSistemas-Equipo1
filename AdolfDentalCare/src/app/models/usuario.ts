@@ -4,4 +4,6 @@ export interface Usuario {
   email: string;
   tipo: string;
   paciente?: Paciente;
+  admin?: Paciente;
+  doctor?: Paciente;
 }

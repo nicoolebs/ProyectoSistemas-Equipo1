@@ -66,35 +66,61 @@ export class AutentificacionService {
   //   });
   // }
 
+
+
   // Método para iniciar sesión
   iniciarSesion(email: string, clave: string) {
-    return new Promise((resolve, reject) => {
-      this.autentificacion.auth.signInWithEmailAndPassword(email, clave).
-      then(userData => {
-        this.baseDatos.getDocumento(userData.user.uid, 'Usuarios').subscribe(data => {
-          if (data.data().tipo === 'paciente') {
-            this.usuarioLogg = {
-              uid: userData.user.uid,
-              email: userData.user.email,
-              tipo: data.data().tipo,
-              paciente: {
-                nombre: data.data().nombre,
-                apellido: data.data().apellido,
-                nacimiento: data.data().nacimiento,
-                telefono: data.data().telefono,
-                genero: data.data().genero,
-                direccion: data.data().direccion,
-                antecedentes: data.data().antecedentes,
-                alergias: data.data().alergias
-              }
-            };
-            this.router.navigate(['dashboard-paciente']);
-          } else if(data.data().tipo === 'doctor') {
 
+    // Crea una promesa para resolver el inicio de sesión
+    return new Promise((resolve, reject) => {
+
+      // Llama al método de autentificación de firebase
+      this.autentificacion.auth.signInWithEmailAndPassword(email, clave).then( usuario => {
+
+        // Busca el documento en la base de datos
+        this.baseDatos.getDocumento(usuario.user.uid, 'Usuarios').subscribe( documento => {
+
+          // Si la data de documento en el atributo tipo es igual a paciente
+          if (documento.data().tipo === 'paciente') {
+
+            // Entonces crea la interfaz del usuario con su atributo paciente
+            this.usuarioLogg = {
+              uid: usuario.user.uid,
+              email: usuario.user.email,
+              tipo: documento.data().tipo,
+              // Como es un paciente se activa el atributo de paciente y se establecen los atributos propios de la interfaz paciente
+              paciente: {
+                nombre: documento.data().nombre,
+                apellido: documento.data().apellido,
+                nacimiento: documento.data().nacimiento,
+                telefono: documento.data().telefono,
+                genero: documento.data().genero,
+                direccion: documento.data().direccion,
+                antecedentes: documento.data().antecedentes,
+                alergias: documento.data().alergias
+              }
+
+            };
+
+            // Luego de crear el usuario navega a la vista del dashboard del paciente
+            this.router.navigate(['dashboard-paciente']);
+
+            // En cambio, si el atributo data del documento es igual a doctor
+          } else if (documento.data().tipo === 'doctor') {
+
+            // Navega a la ruta del dashboard del administrador
+            this.router.navigate(['dashboard-odontologo']);
+
+            // En cambio, si el atributo data del documento es igual a admin
+          } else {
+
+            // Navega a la ruta del administrador
+            this.router.navigate(['dashboard-admin']);
           }
         });
 
-        resolve(userData);
+        resolve(usuario);
+
       }, err => {
         reject(err);
       });

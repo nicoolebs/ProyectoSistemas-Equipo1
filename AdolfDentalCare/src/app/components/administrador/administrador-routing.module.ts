@@ -7,13 +7,13 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard-administrador',
+    redirectTo: '/dashboard-admin',
     pathMatch: 'full'
   },
   {
     path: '', component: AdministradorComponent, children: [
       {
-        path: 'dashboard-administrador',
+        path: 'dashboard-admin',
         component: PrincipalComponent
       }
     ]
