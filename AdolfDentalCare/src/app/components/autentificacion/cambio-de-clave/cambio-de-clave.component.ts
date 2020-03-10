@@ -1,4 +1,6 @@
+import { AutentificacionService } from './../../../services/autentificacion.service';
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cambio-de-clave',
@@ -7,9 +9,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CambioDeClaveComponent implements OnInit {
 
-  constructor() { }
+  cambioClave: FormGroup;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private auth: AutentificacionService) {
+      this.cambioClave = this.formBuilder.group({
+        email: [''],
+        contrasena: [''],
+        nuevaContrasena: [''],
+        rNuevaContrasena: ['']
+      });
+    }
 
   ngOnInit(): void {
   }
+
+  cambiarClave() {
+
+    let valida = this.auth.validarClave(this.cambioClave.value.nuevaContrasena, this.cambioClave.value.rNuevaContrasena);
+
+    if (valida) {
+
+      console.log(this.cambioClave.value.email, this.cambioClave.value.contrasena);
+
+      this.auth.cambiarClave(this.cambioClave.value.nuevaContrasena, this.cambioClave.value.email, this.cambioClave.value.contrasena);
+
+    } else {
+
+      alert('Claves incongruentes');
+    }
+
+  }
+
+
+
 
 }

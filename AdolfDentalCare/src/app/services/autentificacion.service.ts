@@ -88,14 +88,14 @@ export class AutentificacionService {
               tipo: documento.data().tipo,
               // Como es un paciente se activa el atributo de paciente y se establecen los atributos propios de la interfaz paciente
               paciente: {
-                nombre: documento.data().nombre,
-                apellido: documento.data().apellido,
-                nacimiento: documento.data().nacimiento,
-                telefono: documento.data().telefono,
-                genero: documento.data().genero,
-                direccion: documento.data().direccion,
-                antecedentes: documento.data().antecedentes,
-                alergias: documento.data().alergias
+                nombre: documento.data().paciente.nombre,
+                apellido: documento.data().paciente.apellido,
+                nacimiento: documento.data().paciente.nacimiento,
+                telefono: documento.data().paciente.telefono,
+                genero: documento.data().paciente.genero,
+                direccion: documento.data().paciente.direccion,
+                antecedentes: documento.data().paciente.antecedentes,
+                alergias: documento.data().paciente.alergias
               }
 
             };
@@ -124,11 +124,6 @@ export class AutentificacionService {
     });
   }
 
-  // Método para establecer el usuario activo
-  setUsuario() {
-    let usuario = this.autentificacion.auth.currentUser;
-  }
-
   // Método para cerrar sesión
   cerrarSesion() {
 
@@ -141,6 +136,35 @@ export class AutentificacionService {
     // Llamada a metodo de cerrar sesión de firebase
     return this.autentificacion.auth.signOut();
   }
+
+  // Método para validar que dos claves son iguales
+  validarClave(clave: string, claveRepetida: string) {
+    if (clave === claveRepetida) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  cambiarClave(newPassword: string, email: string, contrasena: string) {
+
+    this.autentificacion.auth.signInWithEmailAndPassword(email, contrasena).then(user => {
+
+      let usuario = this.autentificacion.auth.currentUser;
+
+      usuario.updatePassword(newPassword).then(res => {
+        alert('Clave actualizada con éxito!');
+      }).catch(error => {
+        alert('Error, no se pudo actualizar la clave');
+      });
+
+    }).catch(error => {
+      console.log(error);
+
+    });
+
+  }
+
 
 
 }
