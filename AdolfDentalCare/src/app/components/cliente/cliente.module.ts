@@ -9,10 +9,11 @@ import { MisPagosComponent } from './mis-pagos/mis-pagos.component';
 import { MiHistoriaComponent } from './mi-historia/mi-historia.component';
 import { FormsModule } from '@angular/forms';
 import { ClienteComponent } from './cliente.component';
+import { PagarComponent } from './pagar/pagar.component';
 
 
 @NgModule({
-  declarations: [MiPerfilComponent, MisCitasComponent, MisPagosComponent, MiHistoriaComponent, ClienteComponent],
+  declarations: [MiPerfilComponent, MisCitasComponent, MisPagosComponent, MiHistoriaComponent, ClienteComponent, PagarComponent],
   imports: [
     CommonModule,
     SharedModule,

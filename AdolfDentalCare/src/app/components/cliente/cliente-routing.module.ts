@@ -5,31 +5,36 @@ import { ClienteComponent } from './cliente.component';
 import { MiHistoriaComponent } from './mi-historia/mi-historia.component';
 import { MisPagosComponent } from './mis-pagos/mis-pagos.component';
 import { MisCitasComponent } from './mis-citas/mis-citas.component';
+import { PagarComponent } from './pagar/pagar.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard-paciente',
+    redirectTo: 'dashboard-paciente/mi-perfil',
     pathMatch: 'full'
   },
   {
     path: '', component: ClienteComponent, children: [
       {
-        path: 'dashboard-paciente',
+        path: 'dashboard-paciente/mi-perfil',
         component: MiPerfilComponent
       },
       {
-        path: 'historia-paciente',
+        path: 'dashboard-paciente/mi-historia',
         component: MiHistoriaComponent
       },
       {
-        path: 'pagos-paciente',
+        path: 'dashboard-paciente/mis-pagos',
         component: MisPagosComponent
       },
       {
-        path: 'citas-paciente',
+        path: 'dashboard-paciente/citas-paciente',
         component: MisCitasComponent
+      },
+      {
+        path: 'dashboard-paciente/mis-pagos/pagar',
+        component: PagarComponent
       },
     ]
   }

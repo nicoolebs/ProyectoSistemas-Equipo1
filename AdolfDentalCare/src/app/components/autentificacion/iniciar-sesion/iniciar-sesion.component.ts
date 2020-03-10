@@ -44,10 +44,4 @@ export class IniciarSesionComponent implements OnInit {
   open(enlace) {
     this.router.navigate([enlace]);
   }
-
-  salir() {
-    this.autentificacion.cerrarSesion();
-    console.log(this.autentificacion.usuarioLogg);
-
-  }
 }

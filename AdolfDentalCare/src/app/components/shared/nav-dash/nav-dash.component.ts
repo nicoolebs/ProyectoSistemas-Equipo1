@@ -30,7 +30,7 @@ export class NavDashComponent implements OnInit {
 
     // Navegación de doctor
     {nombre: 'Administrar Citas', url: 'dashboard-odontólogo/administrar-citas', tipo: 'doctor', sub: null},
-    {nombre: 'Cronograma', url: 'dashboard-odontólogo/cronogramas', tipo: 'doctor', sub: null},
+    {nombre: 'Cronograma', url: 'dashboard-odontólogo/cronograma', tipo: 'doctor', sub: null},
     {nombre: 'Mis pacientes', url: 'dashboard-odontólogo/mis-pacientes', tipo: 'doctor', sub: null},
     {nombre: 'Administrar Historias', url: 'dashboard-odontólogo/administrar-historias', tipo: 'doctor', sub: null},
     {nombre: 'Mis Consultas', url: 'dashboard-odontólogo/mis-consultas', tipo: 'doctor', sub: null},

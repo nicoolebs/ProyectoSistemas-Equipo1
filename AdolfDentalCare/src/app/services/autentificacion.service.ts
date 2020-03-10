@@ -103,13 +103,13 @@ export class AutentificacionService {
             };
 
             // Luego de crear el usuario navega a la vista del dashboard del paciente
-            this.router.navigate(['dashboard-paciente']);
+            this.router.navigate(['dashboard-paciente/mi-perfil']);
 
             // En cambio, si el atributo data del documento es igual a doctor
           } else if (documento.data().tipo === 'doctor') {
 
             // Navega a la ruta del dashboard del administrador
-            this.router.navigate(['dashboard-odontologo']);
+            this.router.navigate(['dashboard-odontólogo/administrar-citas']);
 
             // En cambio, si el atributo data del documento es igual a admin
           } else {
