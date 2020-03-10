@@ -37,6 +37,6 @@ export class RegistroComponent implements OnInit {
   }
 
   public registrar(formulario) {
-    this.autentificacion.registrarUser(formulario.value);
+    this.autentificacion.registrarUser(formulario.value, formulario.value.tipo);
   }
 }

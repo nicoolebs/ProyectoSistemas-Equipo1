@@ -11,8 +11,9 @@ export class FirestoreService {
     private fire: AngularFirestore
   ) {}
 
-  public createCat(data: {nombre: string, url: string}) {
-    return this.fire.collection('cats').add(data);
+  // Método para crear un documento
+  public createDocumento(data, coleccion, uid) {
+    return this.fire.collection(coleccion).doc(uid).set(data);
   }
 
   // Obtiene un documento

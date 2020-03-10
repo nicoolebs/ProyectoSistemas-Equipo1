@@ -2,12 +2,7 @@ import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 
 import { AngularFireAuth } from '@angular/fire/auth';
-import { auth } from 'firebase/app';
-import { map } from 'rxjs/operators';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { BehaviorSubject, Observable } from 'rxjs';
 import { Usuario } from '../models/usuario';
-import { Paciente } from '../models/paciente';
 import { FirestoreService } from './firestore.service';
 
 @Injectable({
@@ -17,56 +12,59 @@ import { FirestoreService } from './firestore.service';
 export class AutentificacionService {
 
   // Variable para almacenar un registro
-  nuevoUsuario: any;
+  nuevoUsuario: Usuario;
 
   // Variable para usuario logueado
   usuarioLogg: Usuario;
-
-  // Variable que se activa según el tipo de usuario
-  paciente: Paciente;
 
   constructor(
     private router: Router,
     private autentificacion: AngularFireAuth,
     private baseDatos: FirestoreService) { }
 
-    registrarUser(usuario) {
+    // Método para registrar un usuario nuevo
+    registrarUser(usuario, tipo) {
 
-      this.autentificacion.auth.createUserWithEmailAndPassword(usuario.email, usuario.contrasena)
-      .then( credencialUsuario => {
-      this.nuevoUsuario = usuario;
-      credencialUsuario.user.updateProfile({
-        displayName: usuario.nombre,
+      // Método de firebase autentificación que crea un nuevo usuario
+      this.autentificacion.auth.createUserWithEmailAndPassword(usuario.email, usuario.contrasena).then( credencialUsuario => {
+
+        // Si el tipo de usuario que se registra es paciente
+        if (tipo === 'paciente') {
+
+          // Establece que el nuevo usuario es un paciente y guarda sus datos
+          this.nuevoUsuario = {
+            uid: credencialUsuario.user.uid,
+            email: credencialUsuario.user.email,
+            tipo: 'paciente',
+            paciente: {
+              nombre: usuario.nombre,
+              apellido: usuario.apellido,
+              nacimiento: usuario.nacimiento,
+              telefono: usuario.telefono,
+              genero: usuario.genero,
+              direccion: usuario.direccion,
+              antecedentes: usuario.antecedentes,
+              alergias: usuario.alergias
+            }
+          };
+
+          // Log de proceso exitoso
+          console.log('Usuario creado exitosamente');
+
+        }
+
+        // Se crea el documento en la base de datos con la información del perfil del usuario
+        this.baseDatos.createDocumento(this.nuevoUsuario, 'Usuarios', this.nuevoUsuario.uid).then( res => {
+          console.log('Documento creado exitosamente');
+        });
+
+        this.router.navigate(['']);
+
+        // Si existe algún error entonces muestra en consola el error
       }).catch((error) => {
         console.log(error);
       });
-
-    //   this.insertarDatosUsuario(credencialUsuario)
-    //   .then(() => {
-    //     alert('Usuario Creado Correctamente');
-    //     this.router.navigate(['/inicio']);
-    //   });
-    // }).catch((error) => {
-    //   console.log(error);
-    });
   }
-
-  // insertarDatosUsuario(credencialUsuario: firebase.auth.UserCredential) {
-  //   return this.baseDatos.collection('Usuarios').doc(credencialUsuario.user.uid).set({
-  //     email: this.nuevoUsuario.email,
-  //     nombre: this.nuevoUsuario.nombre,
-  //     apellido: this.nuevoUsuario.apellido,
-  //     nacimiento: this.nuevoUsuario.nacimiento,
-  //     telefono: this.nuevoUsuario.telefono,
-  //     direccion: this.nuevoUsuario.direccion,
-  //     antecedentes: this.nuevoUsuario.antecedentes,
-  //     alergias: this.nuevoUsuario.alergias,
-  //     genero: this.nuevoUsuario.genero,
-  //     tipo: this.nuevoUsuario.tipo
-  //   });
-  // }
-
-
 
   // Método para iniciar sesión
   iniciarSesion(email: string, clave: string) {
@@ -119,10 +117,9 @@ export class AutentificacionService {
           }
         });
 
-        resolve(usuario);
-
+        // Si ocurre algun error, lo muestra en consola
       }, err => {
-        reject(err);
+        console.log(err);
       });
     });
   }
@@ -134,8 +131,14 @@ export class AutentificacionService {
 
   // Método para cerrar sesión
   cerrarSesion() {
+
+    // Log de información
     console.log('Estás cerrando sesión');
+
+    // Redireccionamiento
     this.router.navigate(['']);
+
+    // Llamada a metodo de cerrar sesión de firebase
     return this.autentificacion.auth.signOut();
   }
 
