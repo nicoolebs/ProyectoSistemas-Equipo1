@@ -1,15 +1,23 @@
-import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { Usuario } from './../models/usuario';
+import { Injectable } from '@angular/core';
+import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
+
 import { firestore } from 'firebase';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirestoreService {
+ 
+  usuarioCollection : AngularFirestoreCollection<Usuario>;
+  usuario: Observable<Usuario[]>;
+  
   constructor(
     private fire: AngularFirestore
-  ) {}
+  ) {
+    this.setDocuments();
+  }
 
   // Método para crear un documento
   public createDocumento(data, coleccion, uid) {
@@ -29,5 +37,12 @@ export class FirestoreService {
     return this.fire.collection('cats').doc(documentId).set(data);
   }
 
+  private setDocuments () {
+    this.usuario = this.fire.collection('Usuarios').valueChanges();
+  }
+
+ getUsuarios(){
+   return this.usuario;
+ }
 
 }
