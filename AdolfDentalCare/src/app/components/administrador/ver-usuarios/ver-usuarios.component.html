@@ -9,20 +9,16 @@
         <table class="table table-hover text-center">
             <thead>
                 <tr>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
                     <th scope="col">Email</th>
                     <th scope="col">Tipo de Usuario</th>
                     <th scope="col">Ver Perfil</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row"></th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                <tr *ngFor="let usuario of listaUsuarios">
+                    <td scope="row">{{ usuario.data.email }}</td>
+                    <td>{{ usuario.data.tipo.toUpperCase() }}</td>
+                    <td class="d-flex justify-content-center"> <span class="h-75 w-75 btn btn-primary btn-block">PERFIL</span> </td>
                 </tr>
             </tbody>
         </table>

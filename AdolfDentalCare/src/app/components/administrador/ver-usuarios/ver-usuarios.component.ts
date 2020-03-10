@@ -8,13 +8,22 @@ import { FirestoreService } from '../../../services/firestore.service';
 })
 export class VerUsuariosComponent implements OnInit {
 
-  listaUsuarios: any[];
+  listaUsuarios: any[] = [];
 
   constructor(private baseDatos: FirestoreService) { }
 
   ngOnInit(): void {
-    this.baseDatos.getDocuementos('Usuarios').subscribe( lista => {
-      this.listaUsuarios = lista;
+    this.baseDatos.getDocumentos('Usuarios').subscribe( lista => {
+
+      for (let index = 0; index < lista.length; index++) {
+
+        this.listaUsuarios.push({
+          id: lista[index].payload.doc.id,
+          data: lista[index].payload.doc.data()
+        });
+
+      }
+
     });
   }
 

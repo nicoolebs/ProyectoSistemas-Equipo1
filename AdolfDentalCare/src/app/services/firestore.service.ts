@@ -22,7 +22,7 @@ export class FirestoreService {
   }
 
   // Obtiene todos los documentos de una colección
-  public getDocuementos(coleccion) {
+  public getDocumentos(coleccion) {
     return this.fire.collection(coleccion).snapshotChanges();
   }
 
