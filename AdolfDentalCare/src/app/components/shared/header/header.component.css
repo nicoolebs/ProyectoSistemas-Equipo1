@@ -1,6 +1,7 @@
 .header {
     background-color: #242e63;
     border-radius: 0 0 1em 1em;
+    min-height: 100px;
 }
 
 .contactos {
