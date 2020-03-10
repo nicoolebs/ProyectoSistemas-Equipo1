@@ -9,6 +9,7 @@ import { FirestoreService } from '../../../services/firestore.service';
 export class VerUsuariosComponent implements OnInit {
 
   listaUsuarios: any[] = [];
+  perfilActivo: boolean[] = [];
 
   constructor(private baseDatos: FirestoreService) { }
 
@@ -21,10 +22,14 @@ export class VerUsuariosComponent implements OnInit {
           id: lista[index].payload.doc.id,
           data: lista[index].payload.doc.data()
         });
-
+        this.perfilActivo[index] = false;
       }
-
     });
+  }
+
+  mostrarPerfil(index) {
+    this.perfilActivo[index] = !this.perfilActivo[index];
+
   }
 
 }

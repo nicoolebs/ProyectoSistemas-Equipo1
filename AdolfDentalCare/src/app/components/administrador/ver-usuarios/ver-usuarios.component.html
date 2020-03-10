@@ -4,23 +4,72 @@
     </div>
 </div>
 
-<div class="row">
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let usuario of listaUsuarios; let i = index">
+        <div class="row">
+            <div class="col-7 col-sm-8">
+                <h5>Email: {{ usuario.data.email }}</h5>
+                <h5>Tipo de usuario: {{ usuario.data.tipo.toUpperCase() }}</h5>
+            </div>
+            <div class="col-5 col-sm-4 d-flex ">
+                <button class="h-75 w-100 btn btn-primary text-center align-self-center" (click)="mostrarPerfil(i)">PERFIL</button>
+            </div>
+        </div>
+        <div class="row" *ngIf="perfilActivo[i]">
+            <div class="col" *ngIf="usuario.data.tipo === 'paciente'">
+                <div class="mt-3">
+                    <div class="row align-items-center">
+                        <div class="col-6">
+                            <h5>Nombre: {{ usuario.data.paciente.nombre }}</h5>
+                            <h5>Apellido: {{ usuario.data.paciente.apellido }}</h5>
+                        </div>
+                        <div class="col-6">
+                            <h5>Género: {{ usuario.data.paciente.genero }}</h5>
+                            <h5>Nacimiento: {{ usuario.data.paciente.nacimiento }}</h5>
+                            <h5>Teléfono: {{ usuario.data.paciente.telefono }}</h5>
+                        </div>
+                    </div>
+                    <div class="row text-justify">
+                        <div class="col">
+                            <h5>Dirección: {{ usuario.data.paciente.direccion }}</h5>
+                            <h5>Antecedentes: {{ usuario.data.paciente.antecedentes }}</h5>
+                            <h5>Alergias: {{ usuario.data.paciente.alergias }}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col" *ngIf="usuario.data.tipo === 'doctor'">
+                <h1>Soy un doctor</h1>
+            </div>
+            <div class="col" *ngIf="usuario.data.tipo === 'admin'">
+                <h1>Soy un administrador</h1>
+            </div>
+        </div>
+    </li>
+</ul>
+
+<!-- <div class="row">
     <div class="col table-responsive">
+        <div *ngIf="perfilActivo[]; then perfilAct"></div>
+        <ng-template class="row" #perfilAct>
+            <h1>Hola</h1>
+        </ng-template>
+
         <table class="table table-hover text-center">
             <thead>
                 <tr>
-                    <th scope="col">Email</th>
-                    <th scope="col">Tipo de Usuario</th>
-                    <th scope="col">Ver Perfil</th>
+                    <th scope="col">EMAIL</th>
+                    <th scope="col">TIPO DE USUARIO</th>
+                    <th scope="col">VER PERFIL</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let usuario of listaUsuarios">
+                <tr *ngFor="let usuario of listaUsuarios; let i = index">
                     <td scope="row">{{ usuario.data.email }}</td>
                     <td>{{ usuario.data.tipo.toUpperCase() }}</td>
-                    <td class="d-flex justify-content-center"> <span class="h-75 w-75 btn btn-primary btn-block">PERFIL</span> </td>
+                    <td class="d-flex justify-content-center" (click)="mostrarPerfil(i)"> <span class="h-75 w-100 btn btn-primary btn-block">PERFIL</span> </td>
                 </tr>
             </tbody>
         </table>
     </div>
-</div>
+</div> -->
