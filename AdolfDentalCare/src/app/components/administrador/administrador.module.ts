@@ -1,3 +1,4 @@
+import { SharedModule } from './../shared/shared.module';
 import { PrincipalComponent } from './principal/principal.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -10,7 +11,8 @@ import { AdministradorComponent } from './administrador.component';
   declarations: [PrincipalComponent, AdministradorComponent],
   imports: [
     CommonModule,
-    AdministradorRoutingModule
+    AdministradorRoutingModule,
+    SharedModule
   ]
 })
 export class AdministradorModule { }

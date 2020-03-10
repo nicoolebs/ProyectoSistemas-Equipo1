@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OdontologoComponent implements OnInit {
 
+  tipo = 'doctor';
+
   constructor() { }
 
   ngOnInit(): void {

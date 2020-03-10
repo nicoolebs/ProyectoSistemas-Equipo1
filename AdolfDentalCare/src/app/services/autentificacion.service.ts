@@ -134,7 +134,9 @@ export class AutentificacionService {
 
   // Método para cerrar sesión
   cerrarSesion() {
-  return this.autentificacion.auth.signOut();
+    console.log('Estás cerrando sesión');
+    this.router.navigate(['']);
+    return this.autentificacion.auth.signOut();
   }
 
 

@@ -1,17 +1,14 @@
-<div class="row dashboard sticky-top">
+<div class="row dashboard sticky-top d-flex justify-content-center">
 
-    <div class="col-md-7 col-xs-2 col-sm-2">
+    <div class="col-md-10 col-xs-4 col-sm-4">
         <!-- Menu Responsive de dashboard/tipo hamburguesa -->
 
         <div class="row">
 
-            <div class="col">
+            <div class="col-12 col-lg-10">
 
                 <!-- Menu -->
-                <nav class="navbar navbar-expand-md navbar-light text-center">
-                    <div class="col-md-8 d-sm-none align-self-center">
-                        <img class="align-self-center img-fluid" src="../../../assets/images/logoHorizontal.png" alt="">
-                    </div>
+                <nav class="altura navbar navbar-expand-lg navbar-light text-center">
 
                     <button class="navbar-toggler self" data-toggle="collapse" data-target="#menu-header" aria-controls="menu-header" aria-expanded="false" aria-label="Menu">
                             <span class="navbar-toggler-icon"></span>
@@ -21,20 +18,29 @@
                         <ul class="navbar-nav nav-justified d-flex align-items-center">
 
                             <!-- Items del menu -->
-                            <li *ngFor="let navegacion of navbar" class="nav-item h-100">
-                                <a class="nav-link" (click)="open(navegacion.url)">{{navegacion.nombre}}</a>
+                            <!-- ngFor en el que recorro el navegador del usuario que se esté desplegando -->
+                            <li *ngFor="let navegacion of navbarUsuario" class="nav-item h-100">
+
+                                <!-- ngIf que verifica si hay o no un submenú -->
+                                <div *ngIf="navegacion.sub == null; then sinDrop else conDrop"></div>
+
+                                <!-- Si hay un submenú entonce despliega un navegador con dropdown -->
+                                <ng-template #conDrop>
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        {{ navegacion.nombre }}
+                                      </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a *ngFor="let subNav of navegacion.sub" class="dropdown-item" (click)="open(subNav.url)">{{ subNav.nombre }}</a>
+                                    </div>
+                                </ng-template>
+
+                                <!-- Si no hay un submenú solo despliega el título del menú -->
+                                <ng-template #sinDrop>
+                                    <a class="nav-link" (click)="open(navegacion.url)">{{navegacion.nombre}}</a>
+                                </ng-template>
+
                             </li>
 
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                CITAS
-                              </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="citas-paciente">Crear cita</a>
-                                    <a class="dropdown-item" href="citas-paciente">Cancelar cita</a>
-                                    <a class="dropdown-item" href="citas-paciente">Consultar cita</a>
-                                </div>
-                            </li>
                             <li class="nav-item h-100 d-flex d-md-none">
                                 <a class="nav-link btn btn-light h-100 w-100" (click)='salir()'>SALIR</a>
                             </li>
@@ -45,12 +51,8 @@
             </div>
         </div>
     </div>
+    <div class="col-12 col-md-2 d-flex align-items-center text-center">
+        <a class="btn btn-light h-50 w-100 d-none d-md-block text-center align-self-center" (click)='salir()'>SALIR</a>
+    </div>
 
-    <div class="col-3">
-        <!-- Logo -->
-        <img class="img-fluid d-none d-md-flex" src="../../../assets/images/logoHorizontal.png" alt="" routerLink="/inicio">
-    </div>
-    <div class="col-2 align-content-center text-center">
-        <a routerLink="/iniciar-sesion" class="btn btn-light h-75 w-100 d-none d-md-block" (click)='salir()'>SALIR</a>
-    </div>
 </div>

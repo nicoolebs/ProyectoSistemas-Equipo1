@@ -1,3 +1,4 @@
+import { SharedModule } from './../shared/shared.module';
 import { AdministracionCitasComponent } from './administracion-citas/administracion-citas.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -10,7 +11,8 @@ import { OdontologoComponent } from './odontologo.component';
   declarations: [AdministracionCitasComponent, OdontologoComponent],
   imports: [
     CommonModule,
-    OdontologoRoutingModule
+    OdontologoRoutingModule,
+    SharedModule
   ]
 })
 export class OdontologoModule { }

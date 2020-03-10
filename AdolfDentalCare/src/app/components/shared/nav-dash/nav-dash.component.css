@@ -10,3 +10,7 @@
 .navbar-light .navbar-nav .nav-link {
     color: #c4c4c4;
 }
+
+.altura {
+    min-height: 100px;
+}
