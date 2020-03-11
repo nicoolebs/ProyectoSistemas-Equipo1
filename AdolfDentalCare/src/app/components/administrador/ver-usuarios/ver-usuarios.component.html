@@ -1,12 +1,12 @@
 <div class="row">
-    <div class="col text-center">
+    <div class="col text-center textoAzul">
         <h1>LISTA DE USUARIOS</h1>
     </div>
 </div>
 
 <ul class="list-group">
     <li class="list-group-item" *ngFor="let usuario of listaUsuarios; let i = index">
-        <div class="row">
+        <div class="row textoAzul">
             <div class="col-7 col-sm-8">
                 <h5>Email: {{ usuario.data.email }}</h5>
                 <h5>Tipo de usuario: {{ usuario.data.tipo.toUpperCase() }}</h5>
@@ -59,7 +59,7 @@
                                 </tbody>
                               </table>
                         </div>
-                        
+
                     </div>
                     
                 </div>
