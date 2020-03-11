@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "adolfdentalcare-sistemasdeinfo"
+    "default": "adolfdentalcare-sistemasdeinfo",
+    "AdolfDentalCare": "adolfdentalcare-sistemasdeinfo"
   }
 }
