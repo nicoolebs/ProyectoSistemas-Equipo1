@@ -31,7 +31,7 @@ export class IniciarSesionComponent implements OnInit {
   private buildForm() {
     this.formGroup = this.formBuilder.group({
     email: ['', Validators.required, Validators.email],
-    contrasena: ['', Validators.required, Validators.minLength(8)]
+    contrasena: ['', Validators.required]
   });
 }
 

@@ -1,4 +1,6 @@
+import { AutentificacionService } from './../../../services/autentificacion.service';
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Form } from '@angular/forms';
 
 @Component({
   selector: 'app-administrar-historias',
@@ -7,9 +9,49 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdministrarHistoriasComponent implements OnInit {
 
-  constructor() { }
+  crear: boolean;
+
+  registro: any;
+  verificacion: any;
+
+  constructor(private auth: AutentificacionService) { }
 
   ngOnInit(): void {
+    this.crear = false;
+    this.registro = {
+      email: '',
+      contrasena: 'CoNtRaSeÑaRaNdOm',
+      nombre: '',
+      apellido: '',
+      nacimiento: '',
+      telefono: '',
+      direccion: '',
+      antecedentes: '',
+      alergias: '',
+      genero: '',
+      tipo: 'paciente'
+    };
+    this.verificacion = {
+      email: '',
+      contrasena: ''
+    };
   }
 
+  verForm() {
+    this.crear = !this.crear;
+  }
+
+  crearPaciente() {
+
+    console.log(this.registro);
+
+    this.auth.registrarUser(this.registro, 'paciente');
+
+    this.auth.iniciarSesion(this.verificacion.email, this.verificacion.contrasena).then(user => {
+      console.log(this.auth.current());
+
+    });
+
+
+  }
 }

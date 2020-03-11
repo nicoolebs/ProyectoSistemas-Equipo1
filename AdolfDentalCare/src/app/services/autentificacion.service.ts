@@ -22,6 +22,10 @@ export class AutentificacionService {
     private autentificacion: AngularFireAuth,
     private baseDatos: FirestoreService) { }
 
+    current() {
+       return this.autentificacion.auth.currentUser;
+    }
+
     // Método para registrar un usuario nuevo
     registrarUser(usuario, tipo) {
 
@@ -48,9 +52,39 @@ export class AutentificacionService {
             }
           };
 
+          this.cerrarSesion();
+
           // Log de proceso exitoso
           console.log('Usuario creado exitosamente');
 
+        } else if (tipo === 'doctor') {
+
+          // Establece que el nuevo usuario es un doctor y guarda sus datos
+          this.nuevoUsuario = {
+            uid: credencialUsuario.user.uid,
+            email: credencialUsuario.user.email,
+            tipo: 'doctor',
+            doctor: {
+              nombre: usuario.nombre,
+              apellido: usuario.apellido,
+              citas: [],
+              pacientes: [],
+              cronograma: [
+                {dia: 'Lunes', ocupado: false},
+                {dia: 'Martes', ocupado: false},
+                {dia: 'Miercoles', ocupado: false},
+                {dia: 'Jueves', ocupado: false},
+                {dia: 'Viernes', ocupado: false},
+              ],
+              mediosPago: [
+                'Paypal',
+                'Zelle',
+                'Banco'
+              ],
+            }
+          };
+
+          this.cerrarSesion();
         }
 
         // Se crea el documento en la base de datos con la información del perfil del usuario
@@ -88,14 +122,14 @@ export class AutentificacionService {
               tipo: documento.data().tipo,
               // Como es un paciente se activa el atributo de paciente y se establecen los atributos propios de la interfaz paciente
               paciente: {
-                nombre: documento.data().nombre,
-                apellido: documento.data().apellido,
-                nacimiento: documento.data().nacimiento,
-                telefono: documento.data().telefono,
-                genero: documento.data().genero,
-                direccion: documento.data().direccion,
-                antecedentes: documento.data().antecedentes,
-                alergias: documento.data().alergias
+                nombre: documento.data().paciente.nombre,
+                apellido: documento.data().paciente.apellido,
+                nacimiento: documento.data().paciente.nacimiento,
+                telefono: documento.data().paciente.telefono,
+                genero: documento.data().paciente.genero,
+                direccion: documento.data().paciente.direccion,
+                antecedentes: documento.data().paciente.antecedentes,
+                alergias: documento.data().paciente.alergias
               }
 
             };
@@ -106,7 +140,22 @@ export class AutentificacionService {
             // En cambio, si el atributo data del documento es igual a doctor
           } else if (documento.data().tipo === 'doctor') {
 
-            // Navega a la ruta del dashboard del administrador
+            this.usuarioLogg = {
+              uid: usuario.user.uid,
+              email: usuario.user.email,
+              tipo: documento.data().tipo,
+              // Como es un doctor se activa el atributo de doctor y se establecen los atributos propios de la interfaz paciente
+              doctor: {
+                nombre: documento.data().doctor.nombre,
+                apellido: documento.data().doctor.apellido,
+                citas: documento.data().doctor.citas,
+                pacientes: documento.data().doctor.pacientes,
+                cronograma: documento.data().doctor.cronograma,
+                mediosPago: documento.data().doctor.mediosPago,
+              }
+            };
+
+            // Navega a la ruta del dashboard del odontólogo
             this.router.navigate(['dashboard-odontólogo/administrar-citas']);
 
             // En cambio, si el atributo data del documento es igual a admin
@@ -122,11 +171,6 @@ export class AutentificacionService {
         console.log(err);
       });
     });
-  }
-
-  // Método para establecer el usuario activo
-  setUsuario() {
-    let usuario = this.autentificacion.auth.currentUser;
   }
 
   // Método para cerrar sesión
@@ -145,6 +189,35 @@ export class AutentificacionService {
   deleteUser(usuario : Usuario){
   
   }
+
+  // Método para validar que dos claves son iguales
+  validarClave(clave: string, claveRepetida: string) {
+    if (clave === claveRepetida) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  cambiarClave(newPassword: string, email: string, contrasena: string) {
+
+    this.autentificacion.auth.signInWithEmailAndPassword(email, contrasena).then(user => {
+
+      const usuario = this.autentificacion.auth.currentUser;
+
+      usuario.updatePassword(newPassword).then(res => {
+        alert('Clave actualizada con éxito!');
+      }).catch(error => {
+        alert('Error, no se pudo actualizar la clave');
+      });
+
+    }).catch(error => {
+      console.log(error);
+
+    });
+
+  }
+
 
 
 }

@@ -8,6 +8,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { AutentificacionComponent } from './autentificacion.component';
 import { OdontologoComponent } from '../odontologo/odontologo.component';
 import { AdministradorModule } from '../administrador/administrador.module';
+import { CambioDeClaveComponent } from './cambio-de-clave/cambio-de-clave.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
       {
         path: 'registro',
         component: RegistroComponent
+      },
+      {
+        path: 'cambio-de-clave',
+        component: CambioDeClaveComponent
       }
     ]
   },

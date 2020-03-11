@@ -8,6 +8,7 @@ import { AutentificacionRoutingModule } from './autentificacion-routing.module';
 import { RegistroComponent } from './registro/registro.component';
 import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.component';
 import { AutentificacionComponent } from './autentificacion.component';
+import { CambioDeClaveComponent } from './cambio-de-clave/cambio-de-clave.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { AutentificacionComponent } from './autentificacion.component';
   declarations: [
     RegistroComponent,
     IniciarSesionComponent,
-    AutentificacionComponent
+    AutentificacionComponent,
+    CambioDeClaveComponent
   ],
   exports: [
     IniciarSesionComponent,

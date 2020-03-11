@@ -1,1 +1,75 @@
-<p>ver-usuarios works!</p>
+<div class="row">
+    <div class="col text-center textoAzul">
+        <h1>LISTA DE USUARIOS</h1>
+    </div>
+</div>
+
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let usuario of listaUsuarios; let i = index">
+        <div class="row textoAzul">
+            <div class="col-7 col-sm-8">
+                <h5>Email: {{ usuario.data.email }}</h5>
+                <h5>Tipo de usuario: {{ usuario.data.tipo.toUpperCase() }}</h5>
+            </div>
+            <div class="col-5 col-sm-4 d-flex ">
+                <button class="h-75 w-100 btn btn-primary text-center align-self-center" (click)="mostrarPerfil(i)">PERFIL</button>
+            </div>
+        </div>
+        <div class="row" *ngIf="perfilActivo[i]">
+            <div class="col" *ngIf="usuario.data.tipo === 'paciente'">
+                <div class="mt-3">
+                    <div class="row align-items-center">
+
+                        <div class="col-12">
+                            <table class="table">
+                              <!-- tabla que muestra datos de usuario -->
+                                <tbody>
+                                  <tr>
+                                    <th scope="row">Nombre:</th>
+                                    <td>{{ usuario.data.paciente.nombre }}</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">Apellido:</th>
+                                    <td>{{ usuario.data.paciente.apellido }}</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">Género:</th>
+                                    <td>{{ usuario.data.paciente.genero }}</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">Nacimiento:</th>
+                                    <td>{{ usuario.data.paciente.nacimiento }}</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">Teléfono:</th>
+                                    <td>{{ usuario.data.paciente.telefono }}</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">Dirección:</th>
+                                    <td>{{ usuario.data.paciente.direccion }}</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">Antecedentes:</th>
+                                    <td>{{ usuario.data.paciente.antecedentes }}</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">Alergias:</th>
+                                    <td>{{ usuario.data.paciente.alergias }}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                        </div>
+
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col" *ngIf="usuario.data.tipo === 'doctor'">
+                <h1>Soy un doctor</h1>
+            </div>
+            <div class="col" *ngIf="usuario.data.tipo === 'admin'">
+                <h1>Soy un administrador</h1>
+            </div>
+        </div>
+    </li>
+</ul>
