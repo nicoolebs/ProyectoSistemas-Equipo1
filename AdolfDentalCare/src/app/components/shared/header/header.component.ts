@@ -16,12 +16,7 @@ export class HeaderComponent {
     {nombre: 'CONTACTO', url: 'contacto'},
   ];
 
-  redesSociales: string[] = [
-    '../../../assets/images/mail.png',
-    '../../../assets/images/instagram-2.png',
-    '../../../assets/images/twitter.png',
-    '../../../assets/images/whatsapp.png'
-  ];
+ 
 
   constructor(private router: Router) { }
 
