@@ -51,6 +51,33 @@ export class AutentificacionService {
           // Log de proceso exitoso
           console.log('Usuario creado exitosamente');
 
+        } else if (tipo === 'doctor') {
+
+          // Establece que el nuevo usuario es un doctor y guarda sus datos
+          this.nuevoUsuario = {
+            uid: credencialUsuario.user.uid,
+            email: credencialUsuario.user.email,
+            tipo: 'doctor',
+            doctor: {
+              nombre: usuario.nombre,
+              apellido: usuario.apellido,
+              citas: [],
+              pacientes: [],
+              cronograma: [
+                {dia: 'Lunes', ocupado: false},
+                {dia: 'Martes', ocupado: false},
+                {dia: 'Miercoles', ocupado: false},
+                {dia: 'Jueves', ocupado: false},
+                {dia: 'Viernes', ocupado: false},
+              ],
+              mediosPago: [
+                {nombre: 'Paypal'},
+                {nombre: 'Zelle'},
+                {nombre: 'Banco'},
+              ],
+            }
+          };
+
         }
 
         // Se crea el documento en la base de datos con la información del perfil del usuario
@@ -106,7 +133,22 @@ export class AutentificacionService {
             // En cambio, si el atributo data del documento es igual a doctor
           } else if (documento.data().tipo === 'doctor') {
 
-            // Navega a la ruta del dashboard del administrador
+            this.usuarioLogg = {
+              uid: usuario.user.uid,
+              email: usuario.user.email,
+              tipo: documento.data().tipo,
+              // Como es un doctor se activa el atributo de doctor y se establecen los atributos propios de la interfaz paciente
+              doctor: {
+                nombre: documento.data().doctor.nombre,
+                apellido: documento.data().doctor.apellido,
+                citas: documento.data().doctor.citas,
+                pacientes: documento.data().doctor.pacientes,
+                cronograma: documento.data().doctor.cronograma,
+                mediosPago: documento.data().doctor.mediosPago,
+              }
+            };
+
+            // Navega a la ruta del dashboard del odontólogo
             this.router.navigate(['dashboard-odontólogo/administrar-citas']);
 
             // En cambio, si el atributo data del documento es igual a admin
@@ -150,7 +192,7 @@ export class AutentificacionService {
 
     this.autentificacion.auth.signInWithEmailAndPassword(email, contrasena).then(user => {
 
-      let usuario = this.autentificacion.auth.currentUser;
+      const usuario = this.autentificacion.auth.currentUser;
 
       usuario.updatePassword(newPassword).then(res => {
         alert('Clave actualizada con éxito!');
