@@ -1,3 +1,5 @@
+import { AutentificacionService } from './../../../services/autentificacion.service';
+import { Usuario } from './../../../models/usuario';
 import { FirestoreService } from './../../../services/firestore.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,9 +11,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdministrarUsuariosComponent implements OnInit {
   
-  usuariosDelSistema;
+  usuariosDelSistema:Usuario[];
 
-  constructor(private fire : FirestoreService) { }
+  constructor(private fire : FirestoreService, private auth : AutentificacionService) { }
 
   ngOnInit(): void {
 
@@ -19,6 +21,11 @@ export class AdministrarUsuariosComponent implements OnInit {
      usuario => {
        this.usuariosDelSistema = usuario
        });      
+  }
+
+  deleteUserOfSistem(usuarioDelSistema){
+    this.fire.deleteUser(usuarioDelSistema);
+    this.auth.deleteUser(usuarioDelSistema);
   }
 
 }
