@@ -22,6 +22,10 @@ export class AutentificacionService {
     private autentificacion: AngularFireAuth,
     private baseDatos: FirestoreService) { }
 
+    current() {
+       return this.autentificacion.auth.currentUser;
+    }
+
     // Método para registrar un usuario nuevo
     registrarUser(usuario, tipo) {
 
@@ -47,6 +51,8 @@ export class AutentificacionService {
               alergias: usuario.alergias
             }
           };
+
+          this.cerrarSesion();
 
           // Log de proceso exitoso
           console.log('Usuario creado exitosamente');
@@ -78,6 +84,7 @@ export class AutentificacionService {
             }
           };
 
+          this.cerrarSesion();
         }
 
         // Se crea el documento en la base de datos con la información del perfil del usuario

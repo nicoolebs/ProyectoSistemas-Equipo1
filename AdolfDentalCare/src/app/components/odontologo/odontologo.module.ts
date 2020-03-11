@@ -15,6 +15,7 @@ import { MediosPagoComponent } from './medios-pago/medios-pago.component';
 import { ConfiPaypalComponent } from './confi-paypal/confi-paypal.component';
 import { ConfiZelleComponent } from './confi-zelle/confi-zelle.component';
 import { ConfiBancoComponent } from './confi-banco/confi-banco.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -22,7 +23,9 @@ import { ConfiBancoComponent } from './confi-banco/confi-banco.component';
   imports: [
     CommonModule,
     OdontologoRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class OdontologoModule { }
