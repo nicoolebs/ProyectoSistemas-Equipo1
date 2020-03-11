@@ -71,9 +71,9 @@ export class AutentificacionService {
                 {dia: 'Viernes', ocupado: false},
               ],
               mediosPago: [
-                {nombre: 'Paypal'},
-                {nombre: 'Zelle'},
-                {nombre: 'Banco'},
+                'Paypal',
+                'Zelle',
+                'Banco'
               ],
             }
           };
