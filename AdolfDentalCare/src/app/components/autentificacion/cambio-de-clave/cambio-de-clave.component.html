@@ -1,10 +1,10 @@
 <div class="container">
     <div class="row">
-        <div class="col text-center">
-            <h1>CAMBIO DE CLAVE</h1>
+        <div class="col text-center textoAzul mt-2">
+            <h4>CAMBIO DE CLAVE</h4>
         </div>
     </div>
-    <div class="row">
+    <div class="row textoAzul">
         <div class="col">
             <form [formGroup]="cambioClave">
                 <div class="form-group">
@@ -24,7 +24,7 @@
                     <input type="password" class="form-control" formControlName="rNuevaContrasena">
                 </div>
                 <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-primary" (click)="cambiarClave()">CAMBIAR CLAVE</button>
+                    <button type="submit" class="btn btn-primary mt-3" (click)="cambiarClave()">CAMBIAR CLAVE</button>
                 </div>
             </form>
         </div>
