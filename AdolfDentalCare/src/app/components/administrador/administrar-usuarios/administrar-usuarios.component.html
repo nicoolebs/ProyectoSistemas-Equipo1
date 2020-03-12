@@ -1,1 +1,13 @@
-<p>administrar-usuarios works!</p>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12" *ngFor="let usuario of usuariosDelSistema">
+            <p> Nombre : {{usuario.nombre}} </p> 
+            <p>  Apellido: {{usuario.apellido}} </p> 
+            <p> Correo electronico: {{usuario.email}}</p>
+            <button class="btn btn-secondary" (click)='deleteUserOfSistem(usuario.uid)'>Borrar</button>
+            <hr>
+        </div>
+    </div>
+</div>  

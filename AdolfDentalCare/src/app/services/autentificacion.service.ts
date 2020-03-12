@@ -1,8 +1,8 @@
+import { Usuario } from './../models/usuario';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 
 import { AngularFireAuth } from '@angular/fire/auth';
-import { Usuario } from '../models/usuario';
 import { FirestoreService } from './firestore.service';
 
 @Injectable({
