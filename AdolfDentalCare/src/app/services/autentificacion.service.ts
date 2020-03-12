@@ -186,10 +186,6 @@ export class AutentificacionService {
     return this.autentificacion.auth.signOut();
   }
 
-  deleteUser(usuario : Usuario){
-  
-  }
-
   // Método para validar que dos claves son iguales
   validarClave(clave: string, claveRepetida: string) {
     if (clave === claveRepetida) {

@@ -10,3 +10,12 @@ admin.initializeApp(functions.config().firebase);
 // exports.helloWorld = functions.https.onRequest((request, response) => {
 //  response.send("Hello from Firebase!");
 // });
+
+
+
+// Funcionalidad de clud function que no sabemos implementar 
+// export const onUserDelete = functions.database 
+// .ref('Usuario/{UsuarioId}')
+// .onDelete(async (snapshot, context) =>{
+// const userRef = snapshot.ref.parent.parent.child('') 
+// })

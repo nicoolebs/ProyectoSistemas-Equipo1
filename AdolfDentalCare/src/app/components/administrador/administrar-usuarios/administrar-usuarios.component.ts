@@ -23,9 +23,8 @@ export class AdministrarUsuariosComponent implements OnInit {
        });      
   }
 
-  deleteUserOfSistem(usuarioDelSistema){
-    this.fire.deleteUser(usuarioDelSistema);
-    this.auth.deleteUser(usuarioDelSistema);
+  deleteUserOfSistem(usuario){
+    this.fire.deleteUser(usuario);
   }
 
 }

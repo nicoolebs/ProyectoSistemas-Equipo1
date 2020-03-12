@@ -47,7 +47,7 @@ export class FirestoreService {
 
   //Método para borrar usuarios del FireStore
   deleteUser(usuario : Usuario){
-    this.usuarioDoc = this.fire.doc(`Usuarios/${usuario.uid}`);
+    this.usuarioDoc = this.fire.doc(`Usuarios/${usuario}`);
     this.usuarioDoc.delete();
   }
 
