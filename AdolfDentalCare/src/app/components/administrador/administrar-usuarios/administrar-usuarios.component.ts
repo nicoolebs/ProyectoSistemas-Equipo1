@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./administrar-usuarios.component.css']
 })
 export class AdministrarUsuariosComponent implements OnInit {
-  
+
   usuariosDelSistema:Usuario[];
 
   constructor(private fire : FirestoreService, private auth : AutentificacionService) { }
@@ -19,8 +19,8 @@ export class AdministrarUsuariosComponent implements OnInit {
 
      this.fire.getUsuarios().subscribe(
      usuario => {
-       this.usuariosDelSistema = usuario
-       });      
+       this.usuariosDelSistema = usuario;
+       });
   }
 
   deleteUserOfSistem(usuario){

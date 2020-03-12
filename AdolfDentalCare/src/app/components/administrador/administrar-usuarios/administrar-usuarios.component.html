@@ -1,14 +1,14 @@
-
-
 <div class="container-fluid">
     <div class="row textoAzul">
-        <div class="col-12 text-center mb-2"><h4>Administrar usuarios</h4></div>
+        <div class="col-12 text-center mb-2">
+            <h4>Administrar usuarios</h4>
+        </div>
         <div class="col-12" *ngFor="let usuario of usuariosDelSistema">
-            <p> Nombre : {{usuario.nombre}} </p> 
-            <p>  Apellido: {{usuario.apellido}} </p> 
+            <!-- <p> Nombre : {{usuario.nombre}} </p>
+            <p> Apellido: {{usuario.apellido}} </p> -->
             <p> Correo electronico: {{usuario.email}}</p>
-            <button class="btn btn-secondary" (click)='deleteUserOfSistem(usuario.uid)'>Borrar</button>
+            <a class="btn btn-dark h-50" (click)='deleteUserOfSistem(usuario.uid)'>Borrar</a>
             <hr>
         </div>
     </div>
-</div>  
+</div>
