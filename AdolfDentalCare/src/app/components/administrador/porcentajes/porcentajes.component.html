@@ -1,62 +1,70 @@
 <div class="conteiner">
 
-    <div class="row"><!-- título introducción -->
+    <div class="row">
+        <!-- título introducción -->
 
         <div class="col-12 textoAzul text-center">
             <h4>Porcentaje de cobro de Usuarios</h4>
             <br>
         </div>
-        
+
     </div>
 
 
-    <div class="row textoAzul"><!--selección usuario -->
+    <div class="row textoAzul">
+        <!--selección usuario -->
         <div class="col-4">
-            <p>Seleccione usuario:</p>
+            <p>Seleccione Odontólogo:</p>
         </div>
         <div class="col-8">
-            <h6>NO SE COMO TRABAJEN LOS USUARIOS PERO AQUI VA</h6>
+            <form action="">
+                <div class="form-group">
+                    <select class="form-control" [(ngModel)]="perfilActivo" [ngModelOptions]="{standalone: true}">
+                  <option></option>
+                  <option *ngFor="let doctor of doctores">{{ doctor.id }} - {{ doctor.data.doctor.nombre }} {{ doctor.data.doctor.apellido }}</option>
+                </select>
+                </div>
+            </form>
+            <button (click)="actualizar()" class="btn btn-dark h-50">VER</button>
         </div>
     </div>
-<!-- COLOCAR INVISIBLE HASTA QUE SE SELECCIONE USUARIO? O DEJAR ASI? -->
-    <div class="row textAzul"><!-- datos usuario-->
+
+    <div class="row textAzul" *ngIf="doctorcito != null">
+        <!-- datos usuario-->
         <div class="col-6">
             <br>
             <p>Nombre:</p>
             <hr>
-            <p>Consultas realizadas:</p>
+            <!-- <p>Consultas realizadas:</p>
             <hr>
             <p>Ganancias:</p>
-            <hr>
+            <hr> -->
             <p>Porcentaje de cobro actual:</p>
             <hr>
         </div>
         <div class="col-6">
             <br>
-            <p>###</p>
+            <p>{{ doctorcito[0].data.doctor.nombre }} {{ doctorcito[0].data.doctor.apellido }}</p>
             <hr>
-            <p>##</p>
-            <hr>
-            <p>##</p>
-            <hr>
-            <p>##</p>
+            <p>{{ doctorcito[0].data.doctor.porcentaje }}</p>
             <hr>
         </div>
 
     </div>
 
-    <div class="row textoAzul"><!-- cambio de porcentaje -->
+    <div class="row textoAzul">
+        <!-- cambio de porcentaje -->
         <div class="col-6 text-left">
             <br><br>
             <h4>Nuevo porcentaje:</h4>
         </div>
         <div class="col-6">
             <br><br>
-            <input type="text">
+            <input type="number" [(ngModel)]="nPorcentaje" [ngModelOptions]="{standalone: true}">
         </div>
         <div class="col-12">
             <br>
-            <button class="enlace h-100 w-100 btn btn-primary">Cambiar Porcentaje</button>
+            <button class="enlace h-100 w-100 btn btn-primary" (click)="cambiar()">Cambiar Porcentaje</button>
         </div>
     </div>
 

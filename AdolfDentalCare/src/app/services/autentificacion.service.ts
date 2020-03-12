@@ -81,6 +81,7 @@ export class AutentificacionService {
                 'Zelle',
                 'Banco'
               ],
+              porcentaje: 0
             }
           };
 
@@ -152,6 +153,7 @@ export class AutentificacionService {
                 pacientes: documento.data().doctor.pacientes,
                 cronograma: documento.data().doctor.cronograma,
                 mediosPago: documento.data().doctor.mediosPago,
+                porcentaje: documento.data().doctor.porcentaje
               }
             };
 

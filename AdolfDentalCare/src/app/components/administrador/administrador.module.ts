@@ -13,6 +13,7 @@ import { CitasPorOdontologoComponent } from './estadisticas/citas-por-odontologo
 import { CitasPorFechaComponent } from './estadisticas/citas-por-fecha/citas-por-fecha.component';
 import { CitasPendientesComponent } from './estadisticas/citas-pendientes/citas-pendientes.component';
 import { IngresosComponent } from './estadisticas/ingresos/ingresos.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,7 +21,9 @@ import { IngresosComponent } from './estadisticas/ingresos/ingresos.component';
   imports: [
     CommonModule,
     AdministradorRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class AdministradorModule { }
