@@ -2,7 +2,7 @@
 
     <div class="row m-4">
         <div class="col text-center">
-            <h1 class="titulosRosa display-4 font-weight-bold">INGRESAR AL SISTEMA</h1>
+            <h4 class="titulosRosa  font-weight-bold">INGRESAR AL SISTEMA</h4>
         </div>
     </div>
 
@@ -12,11 +12,11 @@
             <form (submit)='iniciarSesion()'>
                 <div class="form-group">
                     <label for="exampleInputEmail1" class="font-weight-bold textoAzul">Dirección de correo electrónico</label>
-                    <input [(ngModel)]="email" [ngModelOptions]="{standalone: true}" type="email" class="form-control" aria-describedby="emailHelp" required>
+                    <input  style="width : 500px" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" type="email" class="form-control" aria-describedby="emailHelp" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1" class="font-weight-bold textoAzul">Contraseña</label>
-                    <input [(ngModel)]="contrasena" [ngModelOptions]="{standalone: true}" type="password" class="form-control" required>
+                    <input style="width : 500px"[(ngModel)]="contrasena" [ngModelOptions]="{standalone: true}" type="password" class="form-control" required>
                 </div>
                 <div class="row m-2">
                     <div class="col-6">
