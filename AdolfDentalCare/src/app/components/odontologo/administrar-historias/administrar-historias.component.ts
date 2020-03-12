@@ -45,12 +45,7 @@ export class AdministrarHistoriasComponent implements OnInit {
 
     console.log(this.registro);
 
-    this.auth.registrarUser(this.registro, 'paciente');
-
-    this.auth.iniciarSesion(this.verificacion.email, this.verificacion.contrasena).then(user => {
-      console.log(this.auth.current());
-
-    });
+    this.auth.crearPaciente(this.registro);
 
 
   }

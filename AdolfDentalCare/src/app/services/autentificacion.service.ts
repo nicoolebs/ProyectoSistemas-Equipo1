@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FirestoreService } from './firestore.service';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,8 @@ export class AutentificacionService {
   constructor(
     private router: Router,
     private autentificacion: AngularFireAuth,
-    private baseDatos: FirestoreService) { }
+    private baseDatos: FirestoreService,
+    private fire: AngularFirestore) { }
 
     current() {
        return this.autentificacion.auth.currentUser;
@@ -52,8 +54,6 @@ export class AutentificacionService {
             }
           };
 
-          this.cerrarSesion();
-
           // Log de proceso exitoso
           console.log('Usuario creado exitosamente');
 
@@ -84,8 +84,6 @@ export class AutentificacionService {
               porcentaje: 0
             }
           };
-
-          this.cerrarSesion();
         }
 
         // Se crea el documento en la base de datos con la información del perfil del usuario
@@ -99,6 +97,46 @@ export class AutentificacionService {
       }).catch((error) => {
         console.log(error);
       });
+  }
+
+  crearPaciente(usuario) {
+
+    this.autentificacion.auth.createUserWithEmailAndPassword(usuario.email, usuario.contrasena).then( credencialUsuario => {
+
+      // Establece que el nuevo usuario es un paciente y guarda sus datos
+      this.nuevoUsuario = {
+        uid: credencialUsuario.user.uid,
+        email: credencialUsuario.user.email,
+        tipo: 'paciente',
+        paciente: {
+          nombre: usuario.nombre,
+          apellido: usuario.apellido,
+          nacimiento: usuario.nacimiento,
+          telefono: usuario.telefono,
+          genero: usuario.genero,
+          direccion: usuario.direccion,
+          antecedentes: usuario.antecedentes,
+          alergias: usuario.alergias
+        }
+      };
+
+      // Se crea el documento en la base de datos con la información del perfil del usuario
+      this.baseDatos.createDocumento(this.nuevoUsuario, 'Usuarios', this.nuevoUsuario.uid).then( res => {
+        console.log('Documento creado exitosamente');
+      });
+
+      this.guardarPacienteEnDoctor(credencialUsuario.user.uid);
+    });
+  }
+
+  guardarPacienteEnDoctor(uidP: string) {
+    console.log('Probando guardar');
+    console.log(uidP);
+
+    this.usuarioLogg.doctor.pacientes.push(uidP);
+    console.log(this.usuarioLogg);
+
+    this.baseDatos.updateCat(this.usuarioLogg.uid, this.usuarioLogg, 'Usuarios');
   }
 
   // Método para iniciar sesión
