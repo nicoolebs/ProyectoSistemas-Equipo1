@@ -1,9 +1,35 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12 m-5">
-            <input type="number" [(ngModel)]="finalAmount" style="padding-bottom: 10px;">
-            <h2 *ngIf="paypalLoad">Paypal button is loading</h2>
-            <div id="paypal-checkout-btn"></div>
+       
+        <div class="col-12 titulosRosa text-center"> <!-- titulo estado de cuenta -->
+            <br>
+          <h4>Estado de cuenta</h4>
+          <br>
         </div>
+
+        <div class="col-12"><!-- tabla estado de cuenta del paciente -->
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Razón de Pago</th>
+                    <th scope="col">Monto a Pagar</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">###</th>
+                    <td>###</td>
+                    <td>###</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">###</th>
+                    <td>###</td>
+                    <td>###</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        <div class="col-12 m-5">
     </div>
 </div>
