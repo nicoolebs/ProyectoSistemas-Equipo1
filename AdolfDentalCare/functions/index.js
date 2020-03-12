@@ -24,9 +24,9 @@ exports.sendEmailNotification = functions.firestore.document('submissions/{docId
     authData.sendMail({
         from: 'adolfdcare@gmail.com',
         to: `${data.email}`,
-        subject: 'Your submission info',
-        text : `${data.email}`,
-        html:`${data.email}`,
+        subject: `${data.subject}`,
+        text : `${data.text}`,
+        html:`${data.text}`,
     }).then(res=>
         console.log('successfuly sent that mail'))
         .catch(err=>

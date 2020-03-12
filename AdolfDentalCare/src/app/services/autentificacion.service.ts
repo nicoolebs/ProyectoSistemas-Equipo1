@@ -1,3 +1,4 @@
+import { Mensaje } from './../models/mensaje';
 import { Usuario } from './../models/usuario';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
@@ -126,6 +127,19 @@ export class AutentificacionService {
       });
 
       this.guardarPacienteEnDoctor(credencialUsuario.user.uid);
+
+      let mensaje: Mensaje = {
+        email: this.nuevoUsuario.email,
+        subject: 'Bienvenido a Adolf Dental Care',
+        text: 'Sea bienvenido a la página de Adolf Dental Care\nSu usuario es: ' 
+        + this.nuevoUsuario.paciente.nombre 
+        +'\nSu contraseña es: CoNtRaSeÑaRaNdOm' 
+        +'\nPor favor, antes de iniciar sesión cambie su clave.' 
+      };
+
+      this.baseDatos.createDocumento(mensaje, 'submissions', this.nuevoUsuario.uid).then(() => {
+        console.log('Documento mensaje creado');
+      });
     });
   }
 
