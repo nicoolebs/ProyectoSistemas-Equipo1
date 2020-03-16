@@ -1,37 +1,38 @@
 const functions = require('firebase-functions');
-
-// The Firebase Admin SDK to access the Firebase Realtime Database.
 const admin = require('firebase-admin');
-admin.initializeApp(functions.config().firebase);
-require('dotenv').config()
-const nodemailer= require('nodemailer')
-const {SENDER_EMAIL,SENDER_PASSWORD} = process.env;
+const nodemailer = require('nodemailer');
 
-exports.sendEmailNotification = functions.firestore.document('submissions/{docId}')
-.onCreate((snap,ctx)=>{
-    const data= snap.data();
+admin.initializeApp();
+require('dotenv').config();
 
-    let authData= nodemailer.createTransport({
-        host:'smtp.gamil.com',
-        port:465,
-        secure:true,
-        auth:{
-            user:'adolfdcare@gmail.com',
-            pass:'sistemistas' 
-        }
+const {
+    SENDER_EMAIL,
+    SENDER_PASSWORD
+} = process.env;
+
+exports.sendEmailNotification = functions.firestore.document('Correos/{docId}')
+    .onCreate((snapshot, context) => {
+        const data = snapshot.data();
+
+        let authData = nodemailer.createTransport({
+            host: 'smtp.gmail.com',
+            port: 465,
+            secure: true,
+            auth: {
+                user: SENDER_EMAIL,
+                pass: SENDER_PASSWORD
+            }
+        });
+
+        authData.sendMail({
+            from: 'adolfdcare@gmail.com',
+            to: `${data.email}`,
+            subject: `${data.asunto}`,
+            text: `${data.texto}`,
+            html: `${data.texto}`
+        }).then(res => console.log('Email enviado exitosamente')).catch(err => console.log(err));
+
     });
-
-    authData.sendMail({
-        from: 'adolfdcare@gmail.com',
-        to: `${data.email}`,
-        subject: `${data.subject}`,
-        text : `${data.text}`,
-        html:`${data.text}`,
-    }).then(res=>
-        console.log('successfuly sent that mail'))
-        .catch(err=>
-            console.log(err));
-})
 
 
 // // Create and Deploy Your First Cloud Functions
@@ -40,12 +41,3 @@ exports.sendEmailNotification = functions.firestore.document('submissions/{docId
 // exports.helloWorld = functions.https.onRequest((request, response) => {
 //  response.send("Hello from Firebase!");
 // });
-
-
-
-// Funcionalidad de clud function que no sabemos implementar 
-// export const onUserDelete = functions.database 
-// .ref('Usuario/{UsuarioId}')
-// .onDelete(async (snapshot, context) =>{
-// const userRef = snapshot.ref.parent.parent.child('') 
-// })

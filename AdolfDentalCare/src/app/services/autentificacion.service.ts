@@ -130,15 +130,15 @@ export class AutentificacionService {
 
       let mensaje: Mensaje = {
         email: this.nuevoUsuario.email,
-        subject: 'Bienvenido a Adolf Dental Care',
-        text: 'Sea bienvenido a la página de Adolf Dental Care\nSu usuario es: ' 
-        + this.nuevoUsuario.paciente.nombre 
-        +'\nSu contraseña es: CoNtRaSeÑaRaNdOm' 
-        +'\nPor favor, antes de iniciar sesión cambie su clave.' 
+        asunto: 'Bienvenido a Adolf Dental Care',
+        texto: 'Sea bienvenido a la página de Adolf Dental Care <br>Su usuario es: '
+        + this.nuevoUsuario.paciente.nombre
+        +'<br>Su contraseña es: CoNtRaSeÑaRaNdOm'
+        +'<br>Por favor, antes de iniciar sesión cambie su clave.'
       };
 
-      this.baseDatos.createDocumento(mensaje, 'submissions', this.nuevoUsuario.uid).then(() => {
-        console.log('Documento mensaje creado');
+      this.baseDatos.createDocumento(mensaje, 'Correos', this.nuevoUsuario.uid).then(() => {
+        console.log('Documento mensaje creado en Correos');
       });
     });
   }

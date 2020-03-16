@@ -1,5 +1,5 @@
 export interface Mensaje {
     email: string;
-    subject: string;
-    text: string;
+    asunto: string;
+    texto: string;
 }
