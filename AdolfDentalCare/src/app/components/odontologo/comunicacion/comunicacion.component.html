@@ -1,43 +1,82 @@
 <div class="container">
 
     <div class="row mb-4 mt-2">
-        <div class="col-12 titulosRosa text-center"><h4>Gestión de Comunicación</h4></div>
+        <div class="col-12 titulosRosa text-center">
+            <h4>Gestión de Comunicación</h4>
+        </div>
     </div>
 
 
     <div class="row textAzul ">
-        <div class="col-6"><h6>Seleccionar paciente:</h6></div>
-        <div class="col-6">VER CLIENTES AQUI</div>
+        <div class="col-6">
+            <h6>Seleccionar paciente:</h6>
+        </div>
+        <div class="col-6">
+            <form action="">
+                <div class="form-group">
+                    <select class="form-control" [(ngModel)]="perfilActivo" [ngModelOptions]="{standalone: true}">
+              <option></option>
+              <option *ngFor="let pac of pacientes">{{ pac.paciente.nombre }} {{ pac.paciente.apellido }}</option>
+            </select>
+                </div>
+            </form>
+            <button (click)="actualizar()" class="btn btn-dark h-50">VER PACIENTE</button>
+        </div>
     </div>
+
+    <!-- <div class="row textAzul" *ngIf="paciente != null">
+         datos usuario
+        <div class="col-6">
+            <br>
+            <p>Nombre:</p>
+            <hr>
+            <p>Consultas realizadas:</p>
+          <hr>
+          <p>Ganancias:</p>
+          <hr>
+            <p>Porcentaje de cobro actual:</p>
+            <hr>
+        </div>
+        <div class="col-6">
+            <br>
+            <p>{{ doctorcito[0].data.doctor.nombre }} {{ doctorcito[0].data.doctor.apellido }}</p>
+            <hr>
+            <p>{{ doctorcito[0].data.doctor.porcentaje }}</p>
+            <hr>
+        </div>
+
+    </div> -->
 
     <div class="row textAzul ">
-        <div class="col-6"><h6>Tipo de mensaje:</h6></div>
+        <div class="col-6">
+            <h6>Tipo de mensaje:</h6>
+        </div>
         <div class="col-6">VER CLIENTES AQUI</div>
     </div>
 
-<!-- AQUI DEBE SALIR EL CUADRO LUEGO DE SELECCIONAR EL TIPO DE MENSAJE CON LA ESTRURA -->
-    
+    <!-- AQUI DEBE SALIR EL CUADRO LUEGO DE SELECCIONAR EL TIPO DE MENSAJE CON LA ESTRURA -->
+
     <div class="row mt-4">
         <table class="table">
             <thead>
-              <tr>
-                <th scope="col">Asunto: </th>
-              </tr>
+                <tr>
+                    <th scope="col">Asunto: </th>
+                </tr>
             </thead>
             <tbody>
-              <tr>
-                <input style="width: 100%; height: 250px;"type="text">
-              </tr>
-             
+                <tr>
+                    <input style="width: 100%; height: 250px;" type="text">
+                </tr>
+
             </tbody>
-          </table>
+        </table>
     </div>
 
 
 
     <div class="row text-center mt-4">
         <div class="col">
-            <a class="btn btn-primary h-100" >Enviar Mensaje</a>
+            <a class="btn btn-primary h-100">Enviar Mensaje</a>
         </div>
     </div>
 
