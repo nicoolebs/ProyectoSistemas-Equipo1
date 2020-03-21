@@ -132,7 +132,7 @@ export class AutentificacionService {
         email: this.nuevoUsuario.email,
         asunto: 'Bienvenido a Adolf Dental Care',
         texto: 'Sea bienvenido a la página de Adolf Dental Care <br>Su usuario es: '
-        + this.nuevoUsuario.paciente.nombre
+        + this.nuevoUsuario.email
         +'<br>Su contraseña es: CoNtRaSeÑaRaNdOm'
         +'<br>Por favor, antes de iniciar sesión cambie su clave.'
       };
