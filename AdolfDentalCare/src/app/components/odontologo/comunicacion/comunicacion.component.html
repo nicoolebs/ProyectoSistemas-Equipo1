@@ -16,14 +16,20 @@
                 <div class="form-group">
                     <select class="form-control" [(ngModel)]="perfilActivo" [ngModelOptions]="{standalone: true}">
                       <option></option>
-                      <option *ngFor="let pac of pacientes" onclick="seleccionaPaciente()">{{ pac.paciente.nombre }} {{ pac.paciente.apellido }}</option>
+                      <option *ngFor="let pac of pacientes" onclick="seleccionaPaciente()">ID: {{pac.uid}} - {{ pac.paciente.nombre }} {{ pac.paciente.apellido }}</option>
                     </select>
                 </div>
             </form>
         </div>
     </div>
 
-    <div class="row textAzul ">
+    <div class="row mb-3">
+        <div class="col d-flex justify-content-center">
+            <button (click)="cambiarPaciente()" class="btn btn-dark h-100">SELECCIONAR PACIENTE</button>
+        </div>
+    </div>
+
+    <div class="row textAzul" *ngIf="seleccionoPaciente">
         <div class="col-6">
             <h5>Tipo de mensaje:</h5>
         </div>
@@ -40,7 +46,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row" *ngIf="seleccionoPaciente">
         <div class="col d-flex justify-content-center">
             <button (click)="cambiarMensaje()" class="btn btn-dark h-100">SELECCIONAR MENSAJE</button>
         </div>
@@ -48,30 +54,50 @@
 
     <!-- AQUI DEBE SALIR EL CUADRO LUEGO DE SELECCIONAR EL TIPO DE MENSAJE CON LA ESTRURA -->
 
-    <div class="row mt-4">
+    <div class="row mt-4" *ngIf="seleccionoPaciente && seleccionoMensaje">
         <div class="col-12 col-sm-3">
             <h5 class="text-left textoAzul">Asunto:</h5>
         </div>
         <div class="col-12 col-sm-9">
-            <input type="text" class="form-control">
+            <div *ngIf="mensaje.asunto != ''; then asunto else noAsunto"></div>
+
+            <ng-template #asunto>
+                <h6>{{mensaje.asunto}}</h6>
+            </ng-template>
+            <ng-template #noAsunto>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Inserte el asunto del mensaje aquí..." [(ngModel)]="asuntito" [ngModelOptions]="{standalone: true}">
+                </div>
+            </ng-template>
         </div>
     </div>
-    <div class="row mt-2">
+
+    <div class="row mt-2" *ngIf="seleccionoPaciente && seleccionoMensaje">
         <div class="col-12 col-sm-3">
             <h5 class="text-left textoAzul">Mensaje:</h5>
         </div>
         <div class="col-12 col-sm-9 form-group">
-            <textarea class="form-control" rows="5"></textarea>
+
+            <div *ngIf="mensaje.texto != ''; then mensajito else noMensajito"></div>
+
+            <ng-template #mensajito>
+                <h6 [innerHTML]="mensaje.texto"></h6>
+            </ng-template>
+            <ng-template #noMensajito>
+                <div class="form-group">
+                    <textarea class="form-control" rows="5" placeholder="Inserte el cuerpo de su mensaje aquí..." [(ngModel)]="texto" [ngModelOptions]="{standalone: true}"></textarea>
+                </div>
+            </ng-template>
+
         </div>
     </div>
 
-
-
-    <div class="row text-center mt-4">
+    <div class="row text-center mt-4" *ngIf="seleccionoPaciente && seleccionoMensaje">
         <div class="col">
-            <button class="btn btn-dark h-100">ENVIAR MENSAJE</button>
+            <button class="btn btn-dark h-100" (click)="enviarMensaje()">ENVIAR MENSAJE</button>
         </div>
     </div>
+
 
 
 
