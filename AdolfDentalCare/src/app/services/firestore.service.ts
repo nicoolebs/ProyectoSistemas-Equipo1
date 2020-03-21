@@ -9,16 +9,16 @@ import { firestore } from 'firebase';
   providedIn: 'root'
 })
 export class FirestoreService {
- 
+
   usuario: Observable<Usuario[]>;
   usuarioCollection : AngularFirestoreCollection<Usuario>;
   usuarioDoc: AngularFirestoreDocument<Usuario>;
-  
+
   constructor(
     private fire: AngularFirestore
   ) {
     this.setDocuments();
-    
+
   }
 
   // Método para crear un documento en una colección
@@ -46,10 +46,10 @@ export class FirestoreService {
   }
 
   //Método para borrar usuarios del FireStore
-  deleteUser(usuario : Usuario){
-    this.usuarioDoc = this.fire.doc(`Usuarios/${usuario}`);
-    this.usuarioDoc.delete();
-  }
+  // deleteUser(usuario : Usuario){
+  //   this.usuarioDoc = this.fire.doc(`Usuarios/${usuario}`);
+  //   this.usuarioDoc.delete();
+  // }
 
   getUsuarios(){
     return this.usuario;
