@@ -6,9 +6,13 @@
             <h4>Cromograma</h4>
         </div>
 
+    </div>
+
+    <div class="row">
+
         <div class="col-12 d-flex justify-content-center">
 
-            <table class="table table-light table-responsive-md text-center">
+            <table class="table table-responsive-md text-center">
                 <thead>
                     <tr class="titulosRosa">
                         <th scope="col">HORA</th>
@@ -24,96 +28,79 @@
                 <tbody>
                     <tr>
                         <th scope="row" class="titulosRosa">10:00</th>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
+                        <td><input type="checkbox" [checked]='cronograma[0].horas[0].libre' class="form-control" (change)="cronograma[0].horas[0].libre = !cronograma[0].horas[0].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[1].horas[0].libre' class="form-control" (change)="cronograma[1].horas[0].libre = !cronograma[1].horas[0].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[2].horas[0].libre' class="form-control" (change)="cronograma[2].horas[0].libre = !cronograma[2].horas[0].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[3].horas[0].libre' class="form-control" (change)="cronograma[3].horas[0].libre = !cronograma[3].horas[0].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[4].horas[0].libre' class="form-control" (change)="cronograma[4].horas[0].libre = !cronograma[4].horas[0].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[5].horas[0].libre' class="form-control" (change)="cronograma[5].horas[0].libre = !cronograma[5].horas[0].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[6].horas[0].libre' class="form-control" (change)="cronograma[6].horas[0].libre = !cronograma[6].horas[0].libre"></td>
                     </tr>
                     <tr>
                         <th scope="row" class="titulosRosa">11:00</th>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
+                        <td><input type="checkbox" [checked]='cronograma[0].horas[1].libre' class="form-control" (change)="cronograma[0].horas[1].libre = !cronograma[0].horas[1].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[1].horas[1].libre' class="form-control" (change)="cronograma[1].horas[1].libre = !cronograma[1].horas[1].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[2].horas[1].libre' class="form-control" (change)="cronograma[2].horas[1].libre = !cronograma[2].horas[1].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[3].horas[1].libre' class="form-control" (change)="cronograma[3].horas[1].libre = !cronograma[3].horas[1].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[4].horas[1].libre' class="form-control" (change)="cronograma[4].horas[1].libre = !cronograma[4].horas[1].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[5].horas[1].libre' class="form-control" (change)="cronograma[5].horas[1].libre = !cronograma[5].horas[1].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[6].horas[1].libre' class="form-control" (change)="cronograma[6].horas[1].libre = !cronograma[6].horas[1].libre"></td>
                     </tr>
                     <tr>
                         <th scope="row" class="titulosRosa">12:00</th>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
+                        <td><input type="checkbox" [checked]='cronograma[0].horas[2].libre' class="form-control" (change)="cronograma[0].horas[2].libre = !cronograma[0].horas[2].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[1].horas[2].libre' class="form-control" (change)="cronograma[1].horas[2].libre = !cronograma[1].horas[2].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[2].horas[2].libre' class="form-control" (change)="cronograma[2].horas[2].libre = !cronograma[2].horas[2].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[3].horas[2].libre' class="form-control" (change)="cronograma[3].horas[2].libre = !cronograma[3].horas[2].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[4].horas[2].libre' class="form-control" (change)="cronograma[4].horas[2].libre = !cronograma[4].horas[2].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[5].horas[2].libre' class="form-control" (change)="cronograma[5].horas[2].libre = !cronograma[5].horas[2].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[6].horas[2].libre' class="form-control" (change)="cronograma[6].horas[2].libre = !cronograma[6].horas[2].libre"></td>
                     </tr>
                     <tr>
                         <th scope="row" class="titulosRosa">13:00</th>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
+                        <td><input type="checkbox" [checked]='cronograma[0].horas[3].libre' class="form-control" (change)="cronograma[0].horas[3].libre = !cronograma[0].horas[3].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[1].horas[3].libre' class="form-control" (change)="cronograma[1].horas[3].libre = !cronograma[1].horas[3].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[2].horas[3].libre' class="form-control" (change)="cronograma[2].horas[3].libre = !cronograma[2].horas[3].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[3].horas[3].libre' class="form-control" (change)="cronograma[3].horas[3].libre = !cronograma[3].horas[3].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[4].horas[3].libre' class="form-control" (change)="cronograma[4].horas[3].libre = !cronograma[4].horas[3].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[5].horas[3].libre' class="form-control" (change)="cronograma[5].horas[3].libre = !cronograma[5].horas[3].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[6].horas[3].libre' class="form-control" (change)="cronograma[6].horas[3].libre = !cronograma[6].horas[3].libre"></td>
                     </tr>
                     <tr>
                         <th scope="row" class="titulosRosa">14:00</th>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
+                        <td><input type="checkbox" [checked]='cronograma[0].horas[4].libre' class="form-control" (change)="cronograma[0].horas[4].libre = !cronograma[0].horas[4].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[1].horas[4].libre' class="form-control" (change)="cronograma[1].horas[4].libre = !cronograma[1].horas[4].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[2].horas[4].libre' class="form-control" (change)="cronograma[2].horas[4].libre = !cronograma[2].horas[4].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[3].horas[4].libre' class="form-control" (change)="cronograma[3].horas[4].libre = !cronograma[3].horas[4].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[4].horas[4].libre' class="form-control" (change)="cronograma[4].horas[4].libre = !cronograma[4].horas[4].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[5].horas[4].libre' class="form-control" (change)="cronograma[5].horas[4].libre = !cronograma[5].horas[4].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[6].horas[4].libre' class="form-control" (change)="cronograma[6].horas[4].libre = !cronograma[6].horas[4].libre"></td>
                     </tr>
                     <tr>
                         <th scope="row" class="titulosRosa">15:00</th>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="titulosRosa">16:00</th>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
-                        <td><input type="checkbox" [checked]='true' class="form-control"></td>
+                        <td><input type="checkbox" [checked]='cronograma[0].horas[5].libre' class="form-control" (change)="cronograma[0].horas[5].libre = !cronograma[0].horas[5].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[1].horas[5].libre' class="form-control" (change)="cronograma[1].horas[5].libre = !cronograma[1].horas[5].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[2].horas[5].libre' class="form-control" (change)="cronograma[2].horas[5].libre = !cronograma[2].horas[5].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[3].horas[5].libre' class="form-control" (change)="cronograma[3].horas[5].libre = !cronograma[3].horas[5].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[4].horas[5].libre' class="form-control" (change)="cronograma[4].horas[5].libre = !cronograma[4].horas[5].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[5].horas[5].libre' class="form-control" (change)="cronograma[5].horas[5].libre = !cronograma[5].horas[5].libre"></td>
+                        <td><input type="checkbox" [checked]='cronograma[6].horas[5].libre' class="form-control" (change)="cronograma[6].horas[5].libre = !cronograma[6].horas[5].libre"></td>
                     </tr>
                 </tbody>
             </table>
 
-
-
-
-
-
         </div>
-
-
-
 
     </div>
 
+    <div class="row">
 
+        <div class="col mb-3 d-flex justify-content-center">
 
+            <button class="btn btn-dark h-100">GUARDAR</button>
 
+        </div>
 
-
-
-
-
+    </div>
 
 </div>

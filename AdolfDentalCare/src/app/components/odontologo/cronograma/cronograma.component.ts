@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AutentificacionService } from '../../../services/autentificacion.service';
 
 @Component({
   selector: 'app-cronograma',
@@ -7,75 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CronogramaComponent implements OnInit {
 
-  cronograma = [
-    {dia: 0, horas: [
-      {hora: '10:00', libre: true},
-      {hora: '11:00', libre: true},
-      {hora: '12:00', libre: true},
-      {hora: '13:00', libre: true},
-      {hora: '14:00', libre: true},
-      {hora: '15:00', libre: true},
-      {hora: '16:00', libre: true},
-    ]},
-    {dia: 1, horas: [
-      {hora: '10:00', libre: true},
-      {hora: '11:00', libre: true},
-      {hora: '12:00', libre: true},
-      {hora: '13:00', libre: true},
-      {hora: '14:00', libre: true},
-      {hora: '15:00', libre: true},
-      {hora: '16:00', libre: true},
-    ]},
-    {dia: 2, horas: [
-      {hora: '10:00', libre: true},
-      {hora: '11:00', libre: true},
-      {hora: '12:00', libre: true},
-      {hora: '13:00', libre: true},
-      {hora: '14:00', libre: true},
-      {hora: '15:00', libre: true},
-      {hora: '16:00', libre: true},
-    ]},
-    {dia: 3, horas: [
-      {hora: '10:00', libre: true},
-      {hora: '11:00', libre: true},
-      {hora: '12:00', libre: true},
-      {hora: '13:00', libre: true},
-      {hora: '14:00', libre: true},
-      {hora: '15:00', libre: true},
-      {hora: '16:00', libre: true},
-    ]},
-    {dia: 4, horas: [
-      {hora: '10:00', libre: true},
-      {hora: '11:00', libre: true},
-      {hora: '12:00', libre: true},
-      {hora: '13:00', libre: true},
-      {hora: '14:00', libre: true},
-      {hora: '15:00', libre: true},
-      {hora: '16:00', libre: true},
-    ]},
-    {dia: 5, horas: [
-      {hora: '10:00', libre: true},
-      {hora: '11:00', libre: true},
-      {hora: '12:00', libre: true},
-      {hora: '13:00', libre: true},
-      {hora: '14:00', libre: true},
-      {hora: '15:00', libre: true},
-      {hora: '16:00', libre: true},
-    ]},
-    {dia: 6, horas: [
-      {hora: '10:00', libre: true},
-      {hora: '11:00', libre: true},
-      {hora: '12:00', libre: true},
-      {hora: '13:00', libre: true},
-      {hora: '14:00', libre: true},
-      {hora: '15:00', libre: true},
-      {hora: '16:00', libre: true},
-    ]}
-  ];
+  cronograma: any[];
 
-  constructor() { }
+  constructor(private auth: AutentificacionService) { }
 
   ngOnInit(): void {
+    this.cronograma = this.auth.usuarioLogg.doctor.cronograma;
+    console.log(this.cronograma);
+
+  }
+
+  actualizarCronograma() {
+    console.log(this.cronograma);
+
   }
 
 }
