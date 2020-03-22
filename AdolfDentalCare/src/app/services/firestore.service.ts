@@ -9,16 +9,16 @@ import { firestore } from 'firebase';
   providedIn: 'root'
 })
 export class FirestoreService {
- 
+
   usuario: Observable<Usuario[]>;
   usuarioCollection : AngularFirestoreCollection<Usuario>;
   usuarioDoc: AngularFirestoreDocument<Usuario>;
-  
+
   constructor(
     private fire: AngularFirestore
   ) {
     this.setDocuments();
-    
+
   }
 
   // Método para crear un documento en una colección
@@ -37,7 +37,7 @@ export class FirestoreService {
   }
 
   // Actualiza un gato
-  public updateCat(documentId: string, data: any, coleccion) {
+  public updateDocumento(documentId: string, data: any, coleccion) {
     return this.fire.collection(coleccion).doc(documentId).set(data);
   }
   // Recupera la información de la base de datos de los usuarios

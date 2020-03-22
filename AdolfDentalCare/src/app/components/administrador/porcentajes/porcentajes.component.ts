@@ -54,7 +54,7 @@ export class PorcentajesComponent implements OnInit {
 
   cambiar() {
     this.doctorcito[0].data.doctor.porcentaje = this.nPorcentaje;
-    this.baseDatos.updateCat(this.doctorcito[0].id, this.doctorcito[0].data, 'Usuarios');
+    this.baseDatos.updateDocumento(this.doctorcito[0].id, this.doctorcito[0].data, 'Usuarios');
   }
 
 }
