@@ -19,3 +19,19 @@ admin.initializeApp(functions.config().firebase);
 // .onDelete(async (snapshot, context) =>{
 // const userRef = snapshot.ref.parent.parent.child('') 
 // })
+
+    exports.onDisableUser = functions.https.onCall(() =>{
+        return admin.auth().updateUser(uid,{
+            disabled : true
+        })
+    })
+    .then(function(userRecord){
+        console.log('Usuario desabilitado correctamente');
+      })
+      .catch(function(error){
+        console.log('Erro desabilitando al usuario:' , error );
+      });
+
+
+
+      

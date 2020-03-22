@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FirestoreService } from './firestore.service';
-import * as admin from 'firebase-admin';
+
 
 @Injectable({
   providedIn: 'root'
@@ -216,16 +216,8 @@ export class AutentificacionService {
   }
   
   disableUser(uid){
-
-    admin.auth().updateUser(uid,{
-      disabled : true
-    })
-    .then(function(userRecord){
-      console.log('Usuario desabilitado correctamente');
-    })
-    .catch(function(error){
-      console.log('Erro desabilitando al usuario:' , error );
-    });
+  
+    
   }
 
 
