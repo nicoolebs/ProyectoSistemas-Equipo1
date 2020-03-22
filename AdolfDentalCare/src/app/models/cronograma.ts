@@ -1,4 +1,4 @@
 export interface Cronograma {
-  dia: string;
-  ocupado: boolean;
+  dia: number;
+  horas: any[];
 }
