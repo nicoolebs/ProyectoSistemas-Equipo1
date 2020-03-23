@@ -8,4 +8,6 @@ export interface Odontologo {
   cronograma: Cronograma[];
   mediosPago: string[];
   porcentaje: number;
+  agendaCitas: any[];
+  historiaCitas: any[];
 }
