@@ -8,6 +8,6 @@ export interface Paciente {
   direccion: string;
   antecedentes: string;
   alergias: string;
-  citaProx?: string;
-  historia?: any[];
+  citaProx: string;
+  historia: any[];
 }

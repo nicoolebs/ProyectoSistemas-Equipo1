@@ -51,7 +51,9 @@ export class AutentificacionService {
               genero: usuario.genero,
               direccion: usuario.direccion,
               antecedentes: usuario.antecedentes,
-              alergias: usuario.alergias
+              alergias: usuario.alergias,
+              citaProx: '',
+              historia: [],
             }
           };
 
@@ -133,7 +135,9 @@ export class AutentificacionService {
                 'Zelle',
                 'Banco'
               ],
-              porcentaje: 0
+              porcentaje: 0,
+              agendaCitas: [],
+              historiaCitas: [],
             }
           };
         }
@@ -168,7 +172,9 @@ export class AutentificacionService {
           genero: usuario.genero,
           direccion: usuario.direccion,
           antecedentes: usuario.antecedentes,
-          alergias: usuario.alergias
+          alergias: usuario.alergias,
+          citaProx: '',
+          historia: []
         }
       };
 
@@ -233,7 +239,9 @@ export class AutentificacionService {
                 genero: documento.data().paciente.genero,
                 direccion: documento.data().paciente.direccion,
                 antecedentes: documento.data().paciente.antecedentes,
-                alergias: documento.data().paciente.alergias
+                alergias: documento.data().paciente.alergias,
+                citaProx: documento.data().paciente.citaProx,
+                historia: documento.data().paciente.historia
               }
 
             };
@@ -256,7 +264,9 @@ export class AutentificacionService {
                 pacientes: documento.data().doctor.pacientes,
                 cronograma: documento.data().doctor.cronograma,
                 mediosPago: documento.data().doctor.mediosPago,
-                porcentaje: documento.data().doctor.porcentaje
+                porcentaje: documento.data().doctor.porcentaje,
+                agendaCitas: documento.data().doctor.agendaCitas,
+                historiaCitas: documento.data().doctor.historiaCitas
               }
             };
 
