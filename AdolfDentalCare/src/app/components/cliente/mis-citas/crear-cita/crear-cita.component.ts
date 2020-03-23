@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrearCitaComponent implements OnInit {
 
+  doctorActivo: string;
+  doctores: any[];
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  actualizar() {
+
   }
 
 }
