@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MisCitasComponent implements OnInit {
 
+  cita = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  habilitarCita() {
+    this.cita = !this.cita;
+  }
 }

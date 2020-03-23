@@ -4,7 +4,13 @@
             <h4 class="textoAzul">MIS CITAS</h4>
         </div>
         <div class="col-12 col-md-6 d-flex justify-content-end">
-            <button class="btn btn-dark h-100">CREAR CITA</button>
+            <button class="btn btn-dark h-100" (click)="habilitarCita()">CREAR CITA</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col" *ngIf="cita">
+            <app-crear-cita></app-crear-cita>
         </div>
     </div>
 
