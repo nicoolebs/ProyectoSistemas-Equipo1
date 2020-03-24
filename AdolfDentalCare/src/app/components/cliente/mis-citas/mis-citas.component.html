@@ -9,14 +9,20 @@
     </div>
 
     <div class="row">
-        <div class="col" *ngIf="cita">
+        <div class="col" *ngIf="cita && noTieneCita">
             <app-crear-cita></app-crear-cita>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="!noTieneCita">
+        <div class="col titulosRosa text-center">
+            <h5>Estimado usuario, debido a que posee una cita pendiente no podrá crear otra nueva cita. Por favor, espere a que su consulta sea registrada o proceda a cancelar su cita pendiente.</h5>
         </div>
     </div>
 
     <div class="row">
         <div class="col text-center">
-            <h4>Tabla cita proxima</h4>
+            <app-citas></app-citas>
         </div>
     </div>
 </div>

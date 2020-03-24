@@ -1,0 +1,71 @@
+<div class="row">
+    <div class="col textoAzul">
+        <h4>PRÓXIMA CITA</h4>
+    </div>
+</div>
+
+<div class="row" *ngIf="tieneCita; then thenBlock else elseBlock">
+</div>
+
+<ng-template #thenBlock>
+
+    <li class="list-group-item">
+
+        <div class="row textoAzul">
+            <div class="col-7 col-sm-8">
+                <h5>Tratamiento: {{ cita.tratamiento }}</h5>
+                <h5>Fecha y hora: {{ cita.fecha }} a las {{ cita.hora }}</h5>
+            </div>
+            <div class="col-5 col-sm-4 d-flex ">
+                <button class="h-75 w-100 btn btn-primary text-center align-self-center" (click)="mostrarCita()">DETALLES</button>
+            </div>
+        </div>
+
+        <div class="row" *ngIf="citaActiva">
+            <div class="col">
+                <div class="row align-items-center mt-3">
+
+                    <div class="col-12">
+
+                        <table class="table">
+
+                            <!-- tabla que muestra datos de la cita -->
+                            <tbody>
+
+                                <tr>
+                                    <th scope="row">Doctor:</th>
+                                    <td>{{ doctor }}</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Cita confirmada:</th>
+                                    <td *ngIf="cita.confirmada; then confirmada else noConfirmada"></td>
+
+                                    <ng-template #confirmada>
+                                        Sí
+                                    </ng-template>
+                                    <ng-template #noConfirmada>
+                                        No
+                                    </ng-template>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Id de cita:</th>
+                                    <td>{{ cita.id }}</td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </li>
+</ng-template>
+
+<ng-template #elseBlock>
+    <div class="col textoAzul text-center">
+        <h5>No tiene citas próximas</h5>
+    </div>
+</ng-template>
