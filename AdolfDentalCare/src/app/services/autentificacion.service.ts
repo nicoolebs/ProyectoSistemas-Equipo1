@@ -70,7 +70,6 @@ export class AutentificacionService {
             doctor: {
               nombre: usuario.nombre,
               apellido: usuario.apellido,
-              citas: [],
               pacientes: [],
               cronograma: [
                 {dia: 0, horas: [
@@ -260,7 +259,6 @@ export class AutentificacionService {
               doctor: {
                 nombre: documento.data().doctor.nombre,
                 apellido: documento.data().doctor.apellido,
-                citas: documento.data().doctor.citas,
                 pacientes: documento.data().doctor.pacientes,
                 cronograma: documento.data().doctor.cronograma,
                 mediosPago: documento.data().doctor.mediosPago,
