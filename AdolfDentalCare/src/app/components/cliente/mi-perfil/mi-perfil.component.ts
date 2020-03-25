@@ -11,6 +11,7 @@ import { AutentificacionService } from '../../../services/autentificacion.servic
 export class MiPerfilComponent implements OnInit {
 
   usuarioActivo;
+  modificar = false;
 
   constructor(
     private autentificacion: AutentificacionService,
@@ -25,4 +26,8 @@ export class MiPerfilComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  modificarPerfil(){
+    this.modificar =!this.modificar
+    
+  }
 }
