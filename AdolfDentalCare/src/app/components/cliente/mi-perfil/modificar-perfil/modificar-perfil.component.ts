@@ -26,33 +26,81 @@ export class ModificarPerfilComponent implements OnInit {
   }
 
     guardarApellido() {
-      this.authentication.usuarioLogg.paciente.apellido = this.apellido;
-      this.firestore.updateDocumento(this.authentication.usuarioLogg.uid, this.authentication.usuarioLogg, 'Usuarios');
+
+      if (this.apellido === undefined || this.apellido === '') {
+
+        alert('ERROR, no puede dejar el campo vacío.');
+
+      } else {
+
+        this.authentication.usuarioLogg.paciente.apellido = this.apellido;
+        this.firestore.updateDocumento(this.authentication.usuarioLogg.uid, this.authentication.usuarioLogg, 'Usuarios');
+
+      }
+
     }
 
     guardarDireccion() {
-      this.authentication.usuarioLogg.paciente.direccion = this.direccion;
-      this.firestore.updateDocumento(this.authentication.usuarioLogg.uid, this.authentication.usuarioLogg, 'Usuarios');
+
+      if (this.direccion === undefined || this.direccion === '') {
+
+        alert('ERROR, no puede dejar el campo vacío.');
+
+      } else {
+
+        this.authentication.usuarioLogg.paciente.direccion = this.direccion;
+        this.firestore.updateDocumento(this.authentication.usuarioLogg.uid, this.authentication.usuarioLogg, 'Usuarios');
+
+      }
     }
 
     guardarFecha() {
-      this.authentication.usuarioLogg.paciente.nacimiento = this.fecha;
-      this.firestore.updateDocumento(this.authentication.usuarioLogg.uid, this.authentication.usuarioLogg, 'Usuarios');
+
+      if (this.fecha === undefined || this.fecha === '') {
+
+        alert('ERROR, no puede dejar el campo vacío.');
+
+      } else {
+
+        this.authentication.usuarioLogg.paciente.nacimiento = this.fecha;
+        this.firestore.updateDocumento(this.authentication.usuarioLogg.uid, this.authentication.usuarioLogg, 'Usuarios');
+      }
     }
 
     guardarSexo() {
-      this.authentication.usuarioLogg.paciente.genero = this.sexo;
-      this.firestore.updateDocumento(this.authentication.usuarioLogg.uid, this.authentication.usuarioLogg, 'Usuarios');
+      if (this.sexo === undefined || this.sexo === '') {
+
+        alert('ERROR, no puede dejar el campo vacío.');
+
+      } else {
+
+        this.authentication.usuarioLogg.paciente.genero = this.sexo;
+        this.firestore.updateDocumento(this.authentication.usuarioLogg.uid, this.authentication.usuarioLogg, 'Usuarios');
+      }
     }
 
     guardarTelefono() {
-      this.authentication.usuarioLogg.paciente.telefono = this.telefono;
-      this.firestore.updateDocumento(this.authentication.usuarioLogg.uid, this.authentication.usuarioLogg, 'Usuarios');
+      if (this.telefono === undefined || this.telefono === '') {
+
+        alert('ERROR, no puede dejar el campo vacío.');
+
+      } else {
+
+        this.authentication.usuarioLogg.paciente.telefono = this.telefono;
+        this.firestore.updateDocumento(this.authentication.usuarioLogg.uid, this.authentication.usuarioLogg, 'Usuarios');
+      }
     }
 
     guardarNombre() {
-      this.authentication.usuarioLogg.paciente.nombre = this.nombre;
-      this.firestore.updateDocumento(this.authentication.usuarioLogg.uid, this.authentication.usuarioLogg, 'Usuarios');
+      if (this.nombre === undefined || this.nombre === '') {
+
+        alert('ERROR, no puede dejar el campo vacío.');
+
+      } else {
+
+        this.authentication.usuarioLogg.paciente.nombre = this.nombre;
+        this.firestore.updateDocumento(this.authentication.usuarioLogg.uid, this.authentication.usuarioLogg, 'Usuarios');
+      }
     }
 
 }
