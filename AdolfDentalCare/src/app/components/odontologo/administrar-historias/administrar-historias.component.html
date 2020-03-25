@@ -6,12 +6,154 @@
 
 <div class="row">
     <div class="col col-12 d-flex justify-content-center mt-4">
-        <a class="btn btn-primary h-100" (click)="verForm()">Crear Historia / Crear Paciente</a>
+        <button class="btn btn-dark h-100" (click)="verForm()">CREAR PACIENTE</button>
     </div>
 </div>
 
 <div class="row" *ngIf="creacionPaciente">
     <div class="col">
         <app-crear-paciente></app-crear-paciente>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-12 textoAzul">
+        <h5>Seleccione el paciente del que desee ver la historia clínica:</h5>
+        <div class="col-12">
+            <form action="">
+                <div class="form-group">
+                    <select class="form-control" [(ngModel)]="pacienteActivo" [ngModelOptions]="{standalone: true}">
+            <option></option>
+            <option *ngFor="let paciente of pacientes">{{ paciente.uid }} - {{ paciente.paciente.nombre }} {{ paciente.paciente.apellido }}</option>
+          </select>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="row d-flex justify-content-center mt-2">
+    <div class="col-6">
+        <button class="btn btn-dark h-100 w-100" (click)="verHistoria()">VER HISTORIA</button>
+    </div>
+</div>
+
+<div class="row mt-3" *ngIf="seleccionado">
+    <div class="col-12">
+
+        <li class="list-group-item">
+
+            <div class="row">
+                <div class="col text-center textoAzul">
+                    <h5>PERFIL</h5>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <table class="table textoAzul">
+
+                        <tbody>
+
+                            <tr>
+                                <th scope="row">Nombre y Apellido:</th>
+                                <td>{{ paciente.paciente.nombre }} {{ paciente.paciente.apellido }}</td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">Email:</th>
+                                <td>{{ paciente.email }}</td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">Dirección:</th>
+                                <td>{{ paciente.paciente.direccion }}</td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">Nacimiento:</th>
+                                <td>{{ paciente.paciente.nacimiento }}</td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">Género:</th>
+                                <td>{{ paciente.paciente.genero }}</td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">Teléfono:</th>
+                                <td>{{ paciente.paciente.telefono }}</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </li>
+
+    </div>
+</div>
+
+<div class="row mt-3" *ngIf="seleccionado">
+    <div class="col">
+        <li class="list-group-item">
+
+            <div class="row">
+                <div class="col text-center textoAzul">
+                    <h5>HISTORIA CLÍNICA</h5>
+                </div>
+            </div>
+
+            <div class="row mt-3" *ngFor="let cita of historia; index as i">
+                <div class="col">
+                    <div class="row">
+                        <div class="col-12">
+
+                            <table class="table textoAzul table-responsive">
+
+                                <tbody>
+
+                                    <tr>
+                                        <th scope="row">ID:</th>
+                                        <td>{{ cita.id }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row">Fecha y Hora:</th>
+                                        <td>{{ cita.fecha }} a las {{ cita.hora }} hrs</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row">Tratamiento:</th>
+                                        <td>{{ cita.tratamiento }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row">Costo:</th>
+                                        <td>{{ cita.costo }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row">Récipe:</th>
+                                        <td>{{ cita.recipe }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Archivos:</th>
+                                        <td>Archivo.archivo</td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-12 col-md-6 text-center textoAzul">
+                            <button class="btn btn-dark h-100 w-100">AGREGAR ARCHIVO</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
     </div>
 </div>
