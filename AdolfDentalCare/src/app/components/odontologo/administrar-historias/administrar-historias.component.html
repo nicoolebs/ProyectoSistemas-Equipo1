@@ -1,5 +1,7 @@
 <div class="row">
-    <div class="col-12 text-center textoAzul mt-3"><h4>Administrar Historias</h4></div>
+    <div class="col-12 text-center textoAzul mt-3">
+        <h4>Administrar Historias</h4>
+    </div>
 </div>
 
 <div class="row">
@@ -8,61 +10,8 @@
     </div>
 </div>
 
-<div class="row" *ngIf="crear">
+<div class="row" *ngIf="creacionPaciente">
     <div class="col">
-        <form class="formularios m-2" (submit)="crearPaciente()">
-            <div class="form-row">
-                <div class="form-group col-12">
-                    <label for="inputEmail4">Correo electrónico</label>
-                    <input type="email" class="form-control" [(ngModel)]="registro.email" [ngModelOptions]="{standalone: true}">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputAddress">Nombre</label>
-                    <input type="text" class="form-control" [(ngModel)]="registro.nombre" [ngModelOptions]="{standalone: true}">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="inputAddress">Apellido</label>
-                    <input type="text" class="form-control" [(ngModel)]="registro.apellido" [ngModelOptions]="{standalone: true}">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <label for="inputAddress2">Fecha de nacimiento</label>
-                    <input type="date" class="form-control" [(ngModel)]="registro.nacimiento" [ngModelOptions]="{standalone: true}">
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="inputAddress2">Teléfono</label>
-                    <input type="text" class="form-control" [(ngModel)]="registro.telefono" [ngModelOptions]="{standalone: true}">
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="exampleFormControlSelect1">Género</label>
-                    <select class="form-control" [(ngModel)]="registro.genero" [ngModelOptions]="{standalone: true}">
-              <option>Masculino</option>
-              <option>Femenino</option>
-            </select>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col">
-                    <label for="inputCity">Dirección de habitación</label>
-                    <input type="text" class="form-control" [(ngModel)]="registro.direccion" [ngModelOptions]="{standalone: true}">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputAddress">Antecedentes médicos</label>
-                    <input type="text" class="form-control" [(ngModel)]="registro.antecedentes" [ngModelOptions]="{standalone: true}">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="inputAddress">Alergias medicamentosas</label>
-                    <input type="text" class="form-control" [(ngModel)]="registro.alergias" [ngModelOptions]="{standalone: true}">
-                </div>
-            </div>
-            <div class="form-row d-flex justify-content-center m-3">
-                <button type="submit" class="enlace h-100 w-100 btn btn-primary">GUARDAR</button>
-            </div>
-        </form>
+        <app-crear-paciente></app-crear-paciente>
     </div>
 </div>

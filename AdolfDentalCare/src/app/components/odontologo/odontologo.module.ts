@@ -16,10 +16,11 @@ import { ConfiPaypalComponent } from './confi-paypal/confi-paypal.component';
 import { ConfiZelleComponent } from './confi-zelle/confi-zelle.component';
 import { ConfiBancoComponent } from './confi-banco/confi-banco.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { CrearPacienteComponent } from './administrar-historias/crear-paciente/crear-paciente.component';
 
 
 @NgModule({
-  declarations: [AdministracionCitasComponent, OdontologoComponent, CronogramaComponent, MisPacientesComponent, AdministrarHistoriasComponent, MisConsultasComponent, ComunicacionComponent, EstadoDeCuentaComponent, MediosPagoComponent, ConfiPaypalComponent, ConfiZelleComponent, ConfiBancoComponent],
+  declarations: [AdministracionCitasComponent, OdontologoComponent, CronogramaComponent, MisPacientesComponent, AdministrarHistoriasComponent, MisConsultasComponent, ComunicacionComponent, EstadoDeCuentaComponent, MediosPagoComponent, ConfiPaypalComponent, ConfiZelleComponent, ConfiBancoComponent, CrearPacienteComponent],
   imports: [
     CommonModule,
     OdontologoRoutingModule,
