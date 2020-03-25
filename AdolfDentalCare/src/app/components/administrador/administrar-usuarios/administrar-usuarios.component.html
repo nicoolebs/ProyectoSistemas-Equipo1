@@ -1,13 +1,60 @@
 <div class="container-fluid">
+
     <div class="row textoAzul">
+
         <div class="col-12 text-center mb-2">
             <h4>Administrar usuarios</h4>
+            <hr class="separar">
         </div>
-        <div class="col-12" *ngFor="let usuario of usuariosDelSistema">
-            <!-- <p> Nombre : {{usuario.nombre}} </p>
-            <p> Apellido: {{usuario.apellido}} </p> -->
-            <p> Correo electronico: {{usuario.email}}</p>
-            <a class="btn btn-dark h-50" (click)='deleteUserOfSistem(usuario.uid)'>Borrar</a>
+
+        <div class="col-12" *ngFor="let usuario of usuariosDelSistema; index as i">
+
+            <div class="row">
+                <div class="col">
+                    <h6> Correo electronico: {{usuario.email}}</h6>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-4 d-flex justify-content-center mt-2">
+                    <button class="btn btn-dark h-100 w-100" (click)="bloquearUsuario(i)">BLOQUEAR</button>
+                </div>
+                <div class="col-12 col-md-4 d-flex justify-content-center mt-2">
+                    <button class="btn btn-dark h-100 w-100" (click)="cambiarRol(i)">CAMBIAR ROL</button>
+                </div>
+                <div class="col-12 col-md-4 d-flex justify-content-center mt-2">
+                    <button class="btn btn-dark h-100 w-100" (click)="cambiarClave(i)">CAMBIAR CLAVE</button>
+                </div>
+            </div>
+
+            <div class="row" *ngIf="accion[i] === 1">
+                <div class="col">
+
+                    <div class="row">
+                        <div class="col text-center">
+                            <h5>¿Está seguro que desea bloquear este usuario?</h5>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <button class="btn btn-dark h-100 w-100" (click)="inhabilitarUsuario(i)">SÍ</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-dark h-100 w-100" (click)="bloquearUsuario(i)">NO</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" *ngIf="accion[i] === 2">
+                <div class="col"></div>
+            </div>
+
+            <div class="row" *ngIf="accion[i] === 3">
+                <div class="col"></div>
+            </div>
+
             <hr>
         </div>
     </div>

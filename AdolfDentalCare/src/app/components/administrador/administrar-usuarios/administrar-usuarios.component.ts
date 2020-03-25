@@ -2,6 +2,7 @@ import { AutentificacionService } from './../../../services/autentificacion.serv
 import { Usuario } from './../../../models/usuario';
 import { FirestoreService } from './../../../services/firestore.service';
 import { Component, OnInit } from '@angular/core';
+import { AngularFireFunctions } from '@angular/fire/functions';
 
 
 @Component({
@@ -11,16 +12,63 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdministrarUsuariosComponent implements OnInit {
 
-  usuariosDelSistema:Usuario[];
+  usuariosDelSistema: any[] = [];
 
-  constructor(private fire : FirestoreService, private auth : AutentificacionService) { }
+  emailActivo: any;
+  contraseñaActiva: any;
+  accion: number[] = [];
+
+  constructor(private fire: FirestoreService, private auth: AutentificacionService, private functions: AngularFireFunctions) { }
 
   ngOnInit(): void {
 
-     this.fire.getUsuarios().subscribe(
+     this.fire.getDocumentos('Usuarios').subscribe(
      usuario => {
-       this.usuariosDelSistema = usuario;
+       for (let index = 0; index < usuario.length; index++) {
+         this.usuariosDelSistema.push(usuario[index].payload.doc.data());
+         this.accion.push(0);
+       }
+       console.log(this.usuariosDelSistema);
+
        });
+  }
+
+  bloquearUsuario(i: number) {
+    if (this.accion[i] === 1) {
+      this.accion[i] = 0;
+    } else {
+      this.accion[i] = 1;
+    }
+  }
+
+  inhabilitarUsuario(i: number) {
+
+  }
+
+  cambiarRol(i: number) {
+    if (this.accion[i] === 2) {
+      this.accion[i] = 0;
+    } else {
+      this.accion[i] = 2;
+    }
+  }
+
+  cambiarClave(i: number) {
+    if (this.accion[i] === 3) {
+      this.accion[i] = 0;
+    } else {
+      this.accion[i] = 3;
+    }
+  }
+
+  resetUserPassword() {
+
+        const userNewCredential = {email: this.emailActivo, password: this.contraseñaActiva};
+
+        this.functions.httpsCallable('resetUserPassword')
+        (userNewCredential).toPromise().then((updatedUser) => {
+          console.log(updatedUser);
+        }).catch((error) => console.log(error));
   }
 
   deleteUserOfSistem(usuario){

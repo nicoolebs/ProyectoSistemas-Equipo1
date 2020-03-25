@@ -14,6 +14,7 @@ import { CitasPorFechaComponent } from './estadisticas/citas-por-fecha/citas-por
 import { CitasPendientesComponent } from './estadisticas/citas-pendientes/citas-pendientes.component';
 import { IngresosComponent } from './estadisticas/ingresos/ingresos.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularFireFunctions } from '@angular/fire/functions';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SharedModule,
     FormsModule,
     ReactiveFormsModule
-  ]
+  ],
+  providers: [AngularFireFunctions]
 })
 export class AdministradorModule { }
