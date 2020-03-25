@@ -11,22 +11,25 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class MiHistoriaComponent implements OnInit {
 
-  usuario: firebase.User;
+  usuario: any;
+  citas: any[] = [];
 
   constructor(
     private autentificacion: AutentificacionService,
-    private baseDatos: AngularFirestore,
-    private firestore: FirestoreService,
+    private baseDatos: FirestoreService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
-    // this.autentificacion.getEstadoUsuario()
-    // .subscribe( usuario => {
-    //   if(usuario){
-    //     this.usuario = usuario;
-    //   }
-    // });
+    this.usuario = this.autentificacion.usuarioLogg;
+
+    for (let index = 0; index < this.autentificacion.usuarioLogg.paciente.historia.length; index++) {
+
+      this.baseDatos.getDocumento(this.autentificacion.usuarioLogg.paciente.historia[index], 'Citas').subscribe(cita => {
+        this.citas.push(cita.data());
+      });
+
+    }
   }
 
 }

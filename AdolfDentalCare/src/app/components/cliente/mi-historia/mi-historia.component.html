@@ -1,15 +1,14 @@
 <div class="container-fluid">
 
 
-    <div class="row justify-content-center">
+    <div class="row mt-3 justify-content-center">
         <!--datos dashboard histórico-->
-        <br>
         <div class="col-12">
-            <h1 class="titulosRosa text-center">HISTÓRICO</h1>
+            <h4 class="titulosRosa text-center">HISTÓRICO</h4>
         </div>
         <!--titulo-->
         <div class="col-12">
-            <h3 class="titulosRosa textoALaIzquierda">Antecedentes personales:</h3>
+            <h5 class="titulosRosa textoALaIzquierda">Antecedentes personales:</h5>
         </div>
         <!--titulo-->
 
@@ -20,35 +19,35 @@
             <div class="row">
                 <!--Nombre y apellido-->
                 <div class="col-12">
-                    <h4 class="textAzul textoALaIzquierda">Nombre y Apellido:</h4>
+                    <h5 class="textAzul textoALaIzquierda">Nombre y Apellido:</h5>
                 </div>
             </div>
             <hr>
             <div class="row">
                 <!--Nº historia-->
                 <div class="col-12">
-                    <h4 class="textAzul textoALaIzquierda">Ref. historia clínica:</h4>
+                    <h5 class="textAzul textoALaIzquierda">Ref. historia clínica:</h5>
                 </div>
             </div>
             <hr>
             <div class="row">
                 <!--fecha-->
                 <div class="col-12">
-                    <h4 class="textAzul textoALaIzquierda">Fecha de nacimiento:</h4>
+                    <h5 class="textAzul textoALaIzquierda">Fecha de nacimiento:</h5>
                 </div>
             </div>
             <hr>
             <div class="row">
                 <!--sexo-->
                 <div class="col-12">
-                    <h4 class="textAzul textoALaIzquierda">Sexo:</h4>
+                    <h5 class="textAzul textoALaIzquierda">Sexo:</h5>
                 </div>
             </div>
             <hr>
             <div class="row">
                 <!--teléfono-->
                 <div class="col-12">
-                    <h4 class="textAzul textoALaIzquierda">Teléfono:</h4>
+                    <h5 class="textAzul textoALaIzquierda">Teléfono:</h5>
                 </div>
             </div>
             <hr>
@@ -61,7 +60,7 @@
             <div class="row">
                 <!--Nombre y apellido-->
                 <div class="col-12">
-                    <h4 class="textAzul textoALaIzquierda">###</h4>
+                    <h5 class="textAzul textoALaIzquierda">{{ usuario.paciente.nombre }} {{ usuario.paciente.apellido }}</h5>
                 </div>
             </div>
             <hr>
@@ -69,28 +68,28 @@
             <div class="row">
                 <!--Nº historia-->
                 <div class="col-12">
-                    <h4 *ngIf="usuario" class="textAzul textoALaIzquierda">{{usuario.uid}}</h4>
+                    <h5 *ngIf="usuario" class="textAzul textoALaIzquierda">{{usuario.uid}}</h5>
                 </div>
             </div>
             <hr>
             <div class="row">
                 <!--fecha-->
                 <div class="col-12">
-                    <h4 class="textAzul textoALaIzquierda">###</h4>
+                    <h5 class="textAzul textoALaIzquierda">{{ usuario.paciente.nacimiento }}</h5>
                 </div>
             </div>
             <hr>
             <div class="row">
                 <!--sexo-->
                 <div class="col-12">
-                    <h4 class="textAzul textoALaIzquierda">###</h4>
+                    <h5 class="textAzul textoALaIzquierda">{{ usuario.paciente.genero }}</h5>
                 </div>
             </div>
             <hr>
             <div class="row">
                 <!--teléfono-->
                 <div class="col-12">
-                    <h4 class="textAzul textoALaIzquierda">###</h4>
+                    <h5 class="textAzul textoALaIzquierda">{{ usuario.paciente.telefono }}</h5>
                 </div>
             </div>
             <hr>
@@ -98,7 +97,7 @@
         </div>
 
         <div class="col-12">
-            <h3 class="titulosRosa textoALaIzquierda">Antecedentes clínicos:</h3>
+            <h4 class="titulosRosa textoALaIzquierda">Antecedentes clínicos:</h4>
         </div>
         <!--titulo-->
 
@@ -108,14 +107,14 @@
             <div class="row">
                 <!--antecedentes-->
                 <div class="col-12">
-                    <h4 class="textAzul textoALaIzquierda">Antecedente patológico:</h4>
+                    <h5 class="textAzul textoALaIzquierda">Antecedente patológico:</h5>
                 </div>
             </div>
             <hr>
             <div class="row">
                 <!--alergias-->
                 <div class="col-12">
-                    <h4 class="textAzul textoALaIzquierda">Alergias medicamentosas:</h4>
+                    <h5 class="textAzul textoALaIzquierda">Alergias medicamentosas:</h5>
                 </div>
             </div>
             <hr>
@@ -127,7 +126,7 @@
             <div class="row">
                 <!--antecedente-->
                 <div class="col-12">
-                    <h4 class="textAzul textoALaIzquierda">###</h4>
+                    <h5 class="textAzul textoALaIzquierda">{{ usuario.paciente.antecedentes }}</h5>
                 </div>
             </div>
             <hr>
@@ -135,7 +134,7 @@
             <div class="row">
                 <!--alergia-->
                 <div class="col-12">
-                    <h4 class="textAzul textoALaIzquierda">###</h4>
+                    <h5 class="textAzul textoALaIzquierda">{{ usuario.paciente.alergias }}</h5>
                 </div>
             </div>
             <hr>
@@ -146,32 +145,57 @@
 
     </div>
 
-
     <div class="row">
-        <!--tabla citas-->
-        <br><br>
-        <table class="table ">
-            <thead class="fondoGris titulosRosa">
-                <tr>
-                    <th scope="col">CONSULTAS</th>
-                    <th scope="col">FECHAS</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>##</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>##</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>##</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="col-12 text-center textoAzul">
+            <h4>HISTORIAL DE CITAS</h4>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="citas.length === 0">
+        <div class="col text-center titulosRosa">
+            <h5>No posee consultas registradas todavía.</h5>
+        </div>
+    </div>
+
+    <div class="row mt-3" *ngIf="citas.length !== 0">
+        <div class="col-12 mt-3" *ngFor="let cita of citas">
+
+            <table class="table textoAzul table-responsive  d-flex justify-content-center">
+
+                <tbody>
+
+                    <tr>
+                        <th scope="row">ID:</th>
+                        <td>{{ cita.id }}</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">Fecha y Hora:</th>
+                        <td>{{ cita.fecha }} a las {{ cita.hora }} hrs</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">Tratamiento:</th>
+                        <td>{{ cita.tratamiento }}</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">Costo:</th>
+                        <td>{{ cita.costo }}</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">Récipe:</th>
+                        <td>{{ cita.recipe }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Archivos:</th>
+                        <td>Archivo.archivo</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
     </div>
 
 </div>
