@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AutentificacionService } from '../../../services/autentificacion.service';
+import { FirestoreService } from '../../../services/firestore.service';
 
 @Component({
   selector: 'app-administracion-citas',
@@ -7,9 +9,97 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdministracionCitasComponent implements OnInit {
 
-  constructor() { }
+  idCitas: any[] = [];
+  agendaCitas: any[] = [];
+  citaActiva: boolean[] = [];
+  pacientes: any[] = [];
+  accion: number[] = [];
+  seleccionada: boolean[] = [];
+
+  fechaActiva: any;
+  horaActiva: any;
+  horario: any;
+
+  constructor(
+    private auth: AutentificacionService,
+    private baseDatos: FirestoreService
+  ) { }
 
   ngOnInit(): void {
+
+    this.idCitas = this.auth.usuarioLogg.doctor.agendaCitas;
+
+    for (let index = 0; index < this.idCitas.length; index++) {
+
+      this.baseDatos.getDocumento(this.idCitas[index], 'Citas').subscribe( cita => {
+
+        this.agendaCitas.push(cita.data());
+        this.citaActiva.push(false);
+        this.accion.push(0);
+        this.seleccionada.push(false);
+        this.baseDatos.getDocumento(cita.data().paciente, 'Usuarios').subscribe(paciente => {
+          this.pacientes.push(paciente.data());
+        });
+      });
+    }
+
+  }
+
+  mostrarCita(i: number) {
+
+    this.citaActiva[i] = !this.citaActiva[i];
+  }
+
+  cambiarFecha(i: number) {
+
+    if (this.accion[i] !== 1) {
+
+      this.accion[i] = 1;
+    } else {
+
+      this.accion[i] = 0;
+    }
+
+  }
+
+  cancelarCita(i: number) {
+
+    if (this.accion[i] !== 2) {
+
+      this.accion[i] = 2;
+    } else {
+
+      this.accion[i] = 0;
+    }
+
+  }
+
+  verHorario(i: number) {
+
+    this.fechaActiva = new Date(this.fechaActiva.substring(0, 4), this.fechaActiva.substring(5, 7) - 1, this.fechaActiva.substring(8, 10));
+
+    // Busco el horario del doctor ese dia
+    this.horario = this.auth.usuarioLogg.doctor.cronograma[this.fechaActiva.getDay()].horas;
+
+    // Filtrar horario para que solo salgan las horas disponibles
+    this.horario = this.horario.filter(horaLibre => horaLibre.libre);
+
+    this.seleccionada[i] = true;
+  }
+
+  cambiar(i: number) {
+
+    this.agendaCitas[i].fecha =
+    this.fechaActiva.getUTCFullYear().toString() + '-'
+    + (this.fechaActiva.getUTCMonth() + 1) + '-' +
+    this.fechaActiva.getUTCDate().toString();
+
+    this.agendaCitas[i].hora = this.horaActiva;
+
+    this.baseDatos.updateDocumento(this.agendaCitas[i].id, this.agendaCitas[i], 'Citas').then(corr => {
+      alert('La fecha de su cita ha sido modificada correctamente');
+    });
+
   }
 
 }
