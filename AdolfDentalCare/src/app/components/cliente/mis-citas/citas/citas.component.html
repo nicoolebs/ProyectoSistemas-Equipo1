@@ -73,11 +73,55 @@
             </div>
         </div>
 
-        <div class="row" *ngIf="accion === 1">
-            <p>cambiar</p>
+        <div class="row m-3" *ngIf="accion === 1">
+            <div class="col">
+
+                <div class="row">
+
+                    <div class="col-12 textoAzul">
+                        <h5>Seleccione una fecha:</h5>
+                        <input type="date" name="" id="" class="form-control" [(ngModel)]="fechaActiva" [ngModelOptions]="{standalone: true}" value="hoy">
+                    </div>
+
+
+                </div>
+
+                <div class="row mt-3">
+
+                    <div class="col d-flex justify-content-center">
+                        <button (click)="verHorario()" class="btn btn-dark h-100">VER HORAS</button>
+                    </div>
+
+                </div>
+
+                <div class="row m-3">
+
+                    <div class="col-12 textoAzul" *ngIf="seleccionada">
+                        <h5>Seleccione la hora de su cita:</h5>
+                        <form action="">
+                            <div class="form-group">
+                                <select class="form-control" [(ngModel)]="horaActiva" [ngModelOptions]="{standalone: true}">
+                                  <option *ngFor="let hora of horario">{{ hora.hora }}</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+                <div class="row" *ngIf="seleccionada">
+                    <div class="col d-flex justify-content-center">
+                        <button (click)="cambiar()" class="btn btn-dark h-100">CAMBIAR</button>
+                    </div>
+                </div>
+
+            </div>
         </div>
+
         <div class="row" *ngIf="accion === 2">
-            <h5>¿Está seguro que desea cancelar su cita?</h5>
+            <div class="col-12 text-center textoAzul">
+                <h5>¿Está seguro que desea cancelar su cita?</h5>
+            </div>
             <div class="col-12 col-md-6 mt-2">
                 <button class="btn btn-dark text-center h-100" (click)="cancelar()">SÍ</button>
             </div>

@@ -72,8 +72,6 @@ export class CrearCitaComponent implements OnInit {
         }
       }
 
-      console.log(this.doctor);
-
       // Convierto la fecha seleccionada en un Date
       // tslint:disable-next-line: max-line-length
       this.fechaActiva = new Date(this.fechaActiva.substring(0, 4), this.fechaActiva.substring(5, 7) - 1, this.fechaActiva.substring(8, 10));
@@ -125,7 +123,7 @@ export class CrearCitaComponent implements OnInit {
 
             alert('Su cita ha sido agendada con éxito.');
 
-            this.router.navigate(['dashboard-paciente/citas-paciente']);
+            this.router.navigate(['dashboard-paciente/mi-perfil']);
 
           }).catch(err => console.log(err));
 

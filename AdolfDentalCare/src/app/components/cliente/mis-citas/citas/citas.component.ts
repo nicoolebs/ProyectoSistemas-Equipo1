@@ -16,9 +16,11 @@ export class CitasComponent implements OnInit {
   cita: Cita;
   doctor: any;
   accion = 0;
+  seleccionada = false;
 
   fechaActiva: any;
   horaActiva: any;
+  horario: any[];
 
   constructor(
     private auth: AutentificacionService,
@@ -27,7 +29,7 @@ export class CitasComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.tieneCita = this.auth.usuarioLogg.paciente.citaProx != '';
+    this.tieneCita = this.auth.usuarioLogg.paciente.citaProx !== '';
 
     if (this.tieneCita) {
 
@@ -61,7 +63,7 @@ export class CitasComponent implements OnInit {
 
   cambiarFecha() {
 
-    if (this.accion != 1){
+    if (this.accion !== 1) {
 
       this.accion = 1;
     } else {
@@ -71,9 +73,22 @@ export class CitasComponent implements OnInit {
 
   }
 
+  verHorario() {
+
+    this.fechaActiva = new Date(this.fechaActiva.substring(0, 4), this.fechaActiva.substring(5, 7) - 1, this.fechaActiva.substring(8, 10));
+
+    // Busco el horario del doctor ese dia
+    this.horario = this.doctor.doctor.cronograma[this.fechaActiva.getDay()].horas;
+
+    // Filtrar horario para que solo salgan las horas disponibles
+    this.horario = this.horario.filter(horaLibre => horaLibre.libre);
+
+    this.seleccionada = true;
+  }
+
   cancelarCita() {
 
-    if (this.accion != 2){
+    if (this.accion !== 2) {
 
       this.accion = 2;
     } else {
@@ -84,13 +99,23 @@ export class CitasComponent implements OnInit {
 
   cambiar() {
 
+    this.cita.fecha =
+    this.fechaActiva.getUTCFullYear().toString() + '-'
+    + (this.fechaActiva.getUTCMonth() + 1) + '-' +
+    this.fechaActiva.getUTCDate().toString();
+
+    this.cita.hora = this.horaActiva;
+
+    this.baseDatos.updateDocumento(this.cita.id, this.cita, 'Citas').then(corr => {
+      alert('La fecha de su cita ha sido modificada correctamente');
+    });
   }
 
   cancelar() {
 
     this.auth.usuarioLogg.paciente.citaProx = '';
     this.baseDatos.updateDocumento(this.auth.usuarioLogg.uid, this.auth.usuarioLogg, 'Usuarios').then(corr => {
-      let citas = this.doctor.doctor.agendaCitas.filter(cita => cita != this.cita.id);
+      let citas = this.doctor.doctor.agendaCitas.filter(cita => cita !== this.cita.id);
       this.doctor.doctor.agendaCitas = citas;
 
       this.baseDatos.updateDocumento(this.doctor.uid, this.doctor, 'Usuarios').then(bien => {
