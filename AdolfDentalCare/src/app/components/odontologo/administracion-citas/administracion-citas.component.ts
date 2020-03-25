@@ -148,4 +148,13 @@ export class AdministracionCitasComponent implements OnInit {
     });
   }
 
+  confirmar(i: number) {
+
+    this.agendaCitas[i].confirmada = true;
+
+    this.baseDatos.updateDocumento(this.agendaCitas[i].id, this.agendaCitas[i], 'Citas').then(confir => {
+      alert('La cita ha sido confirmada con éxito');
+    });
+  }
+
 }
