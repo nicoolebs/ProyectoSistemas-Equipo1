@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MisConsultasComponent implements OnInit {
 
+  citaActiva = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  crearCita() {
+    this.citaActiva = !this.citaActiva;
   }
 
 }

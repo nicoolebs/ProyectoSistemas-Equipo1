@@ -1,0 +1,113 @@
+<div class="row">
+    <div class="col text-center titulosRosa">
+        <hr class="separar">
+        <h4>NUEVA CITA</h4>
+        <hr class="separar">
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-12 col-md-6">
+
+        <div class="row">
+
+            <div class="col textoAzul">
+                <h5>Seleccione un paciente:</h5>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col">
+                <form action="">
+                    <div class="form-group">
+                        <select class="form-control" [(ngModel)]="pacienteActivo" [ngModelOptions]="{standalone: true}">
+                        <option></option>
+                        <option *ngFor="let paciente of pacientes">{{ paciente.id }} - {{ paciente.data.paciente.nombre }} {{ paciente.data.paciente.apellido }}</option>
+                      </select>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-12 col-md-6">
+
+        <div class="row">
+            <div class="col textoAzul">
+                <h5>Seleccione una fecha:</h5>
+                <input type="date" name="" id="" class="form-control" [(ngModel)]="fechaActiva" [ngModelOptions]="{standalone: true}" value="hoy">
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+<div class="row mt-2">
+    <div class="col d-flex justify-content-center">
+        <button (click)="actualizar()" class="btn btn-dark h-100">VER HORARIO</button>
+    </div>
+</div>
+
+
+<div class="row mt-3 mb-3" *ngIf="seleccionado">
+
+    <div class="col-12 col-md-6">
+
+        <div class="row">
+            <div class="col textoAzul">
+                <h5>Seleccione la hora de su cita:</h5>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+
+                <form action="">
+                    <div class="form-group">
+                        <select class="form-control" [(ngModel)]="horaActiva" [ngModelOptions]="{standalone: true}">
+                        <option *ngFor="let hora of horario">{{ hora.hora }}</option>
+                      </select>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-12 col-md-6">
+
+        <div class="row">
+            <div class="col textoAzul">
+                <h5>Seleccione un tratamiento:</h5>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <form action="">
+                    <div class="form-group">
+                        <select class="form-control" [(ngModel)]="tratamientoActivo" [ngModelOptions]="{standalone: true}">
+                <option *ngFor="let tratamiento of tratamientos">{{ tratamiento }}</option>
+              </select>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="row" *ngIf="seleccionado">
+    <div class="col d-flex justify-content-center">
+        <button (click)="guardarCita()" class="btn btn-dark h-100">AGENDAR</button>
+    </div>
+</div>

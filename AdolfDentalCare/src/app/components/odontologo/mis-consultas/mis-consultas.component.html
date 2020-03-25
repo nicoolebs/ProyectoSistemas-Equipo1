@@ -10,7 +10,13 @@
             <h4>LISTA DE CONSULTAS</h4>
         </div>
         <div class="col-12 col-md-6 d-flex justify-content-end">
-            <button class="btn btn-dark h-100 w-100">CREAR CITA</button>
+            <button class="btn btn-dark h-100 w-100" (click)="crearCita()">CREAR CITA</button>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="citaActiva">
+        <div class="col">
+            <app-crear-cita></app-crear-cita>
         </div>
     </div>
 
@@ -26,4 +32,6 @@
             <app-lista-citas></app-lista-citas>
         </div>
     </div>
+
+
 </div>
