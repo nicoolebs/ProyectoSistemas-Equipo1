@@ -14,6 +14,10 @@ export class CitasComponent implements OnInit {
   citaActiva = false;
   cita: Cita;
   doctor: any;
+  accion = 0;
+
+  fechaActiva: any;
+  horaActiva: any;
 
   constructor(
     private auth: AutentificacionService,
@@ -48,6 +52,29 @@ export class CitasComponent implements OnInit {
   mostrarCita() {
 
     this.citaActiva = !this.citaActiva;
+  }
+
+  cambiarFecha() {
+
+    if (this.accion != 1){
+
+      this.accion = 1;
+    } else {
+
+      this.accion = 0;
+    }
+
+  }
+
+  cancelarCita() {
+
+    if (this.accion != 2){
+
+      this.accion = 2;
+    } else {
+
+      this.accion = 0;
+    }
   }
 
 }
