@@ -110,25 +110,14 @@
         <div class="row">
             <br>
             <div class="col-12">
-                <a class="btn btn-light w-100 h-100">MODIFICAR PERFIL</a>
+                <a class="btn btn-light w-100 h-100" (click)="modificarPerfil()">MODIFICAR PERFIL</a>
             </div>
         </div>
+        
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <div class="row">
+        <div class="col-12" *ngIf="modificar">
+            <app-modificar-perfil></app-modificar-perfil>
+        </div>
+    </div>
 </div>
