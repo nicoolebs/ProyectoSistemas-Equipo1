@@ -67,8 +67,7 @@ export class CrearCitaComponent implements OnInit {
           cronograma: doc[0].data.doctor.cronograma,
           mediosPago: doc[0].data.doctor.mediosPago,
           porcentaje: doc[0].data.doctor.porcentaje,
-          agendaCitas: doc[0].data.doctor.agendaCitas,
-          historiaCitas: doc[0].data.doctor.historiaCitas
+          agendaCitas: doc[0].data.doctor.agendaCitas
         }
       }
 

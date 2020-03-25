@@ -136,7 +136,6 @@ export class AutentificacionService {
               ],
               porcentaje: 0,
               agendaCitas: [],
-              historiaCitas: [],
             }
           };
         }
@@ -263,8 +262,7 @@ export class AutentificacionService {
                 cronograma: documento.data().doctor.cronograma,
                 mediosPago: documento.data().doctor.mediosPago,
                 porcentaje: documento.data().doctor.porcentaje,
-                agendaCitas: documento.data().doctor.agendaCitas,
-                historiaCitas: documento.data().doctor.historiaCitas
+                agendaCitas: documento.data().doctor.agendaCitas
               }
             };
 

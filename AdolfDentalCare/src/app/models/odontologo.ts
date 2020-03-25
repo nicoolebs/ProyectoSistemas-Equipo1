@@ -8,5 +8,4 @@ export interface Odontologo {
   mediosPago: string[];
   porcentaje: number;
   agendaCitas: any[];
-  historiaCitas: any[];
 }

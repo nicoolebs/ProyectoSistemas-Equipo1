@@ -1,1 +1,29 @@
-<p>mis-consultas works!</p>
+<div class="container-fluid">
+    <div class="row mt-3 mb-3">
+        <div class="col text-center textoAzul">
+            <h4>MIS CONSULTAS</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-md-6 text-center d-none d-md-flex align-self-center textoAzul">
+            <h4>LISTA DE CONSULTAS</h4>
+        </div>
+        <div class="col-12 col-md-6 d-flex justify-content-end">
+            <button class="btn btn-dark h-100 w-100">CREAR CITA</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col mt-3 titulosRosa text-center">
+            <h5>La siguiente lista muestra única y exclusivamente las citas que han sido confirmadas por usted. Si desea registrar la consulta de alguna cita que no aparezca en la siguiente lista, por favor diríjase a "Administrar Citas" y proceda a confirmar
+                la misma.</h5>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <app-lista-citas></app-lista-citas>
+        </div>
+    </div>
+</div>
