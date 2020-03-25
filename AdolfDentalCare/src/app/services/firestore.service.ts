@@ -36,16 +36,22 @@ export class FirestoreService {
     return this.fire.collection(coleccion).snapshotChanges();
   }
 
-  // Actualiza un gato
+  // Actualiza un documento
   public updateDocumento(documentId: string, data: any, coleccion) {
     return this.fire.collection(coleccion).doc(documentId).set(data);
   }
+
+  // Elimina un documento
+  public deleteDocumento(documentId: string, coleccion) {
+    return this.fire.collection(coleccion).doc(documentId).delete();
+  }
+
   // Recupera la información de la base de datos de los usuarios
-  private setDocuments () {
+  private setDocuments() {
     this.usuario = this.fire.collection('Usuarios').valueChanges();
   }
 
-  //Método para borrar usuarios del FireStore
+  // Método para borrar usuarios del FireStore
   deleteUser(usuario : Usuario){
     this.usuarioDoc = this.fire.doc(`Usuarios/${usuario}`);
     this.usuarioDoc.delete();
