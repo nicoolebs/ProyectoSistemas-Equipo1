@@ -9,7 +9,7 @@ import { FirestoreService } from '../../../services/firestore.service';
 })
 export class AdministracionCitasComponent implements OnInit {
 
-  idCitas: any[] = [];
+  idCitas: string[] = [];
   agendaCitas: any[] = [];
   citaActiva: boolean[] = [];
   pacientes: any[] = [];
@@ -74,6 +74,18 @@ export class AdministracionCitasComponent implements OnInit {
 
   }
 
+  confirmarCita(i: number) {
+
+    if (this.accion[i] !== 3) {
+
+      this.accion[i] = 3;
+    } else {
+
+      this.accion[i] = 0;
+    }
+
+  }
+
   verHorario(i: number) {
 
     this.fechaActiva = new Date(this.fechaActiva.substring(0, 4), this.fechaActiva.substring(5, 7) - 1, this.fechaActiva.substring(8, 10));
@@ -100,6 +112,40 @@ export class AdministracionCitasComponent implements OnInit {
       alert('La fecha de su cita ha sido modificada correctamente');
     });
 
+  }
+
+  cancelar(i) {
+
+    let cancelada: string = this.agendaCitas[i].id;
+
+    this.baseDatos.getDocumento(cancelada, 'Citas').subscribe(citaCancelada => {
+      let cita = citaCancelada.data();
+
+      this.agendaCitas = this.agendaCitas.filter(filtro => filtro.id !== cancelada);
+      this.idCitas = this.idCitas.filter(filtro => filtro !== cancelada);
+      console.log(this.idCitas);
+
+      this.auth.usuarioLogg.doctor.agendaCitas = this.idCitas;
+
+      this.baseDatos.updateDocumento(this.auth.usuarioLogg.uid, this.auth.usuarioLogg, 'Usuarios').then(corr => {
+
+        this.baseDatos.getDocumento(cita.paciente, 'Usuarios').subscribe(paciente => {
+
+          let pacientito = paciente.data();
+          pacientito.paciente.citaProx = '';
+
+          this.baseDatos.updateDocumento(pacientito.uid, pacientito, 'Usuarios').then(bien => {
+
+            this.baseDatos.deleteDocumento(cita.id, 'Citas').then(correcto => {
+              alert('Su cita ha sido cancelada correctamente');
+            });
+          });
+
+        });
+
+        });
+
+    });
   }
 
 }

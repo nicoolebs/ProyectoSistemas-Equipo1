@@ -65,11 +65,14 @@
             </div>
 
             <div class="row mt-3 mb-3">
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-4">
                     <button class="btn btn-dark text-center h-100" (click)="cambiarFecha(i)">CAMBIAR FECHA</button>
                 </div>
-                <div class="col-12 col-md-6 mt-2">
+                <div class="col-12 col-md-4 mt-2">
                     <button class="btn btn-dark text-center h-100" (click)="cancelarCita(i)">CANCELAR</button>
+                </div>
+                <div class="col-12 col-md-4 mt-2">
+                    <button class="btn btn-dark text-center h-100" (click)="confirmarCita(i)">CANCELAR</button>
                 </div>
             </div>
 
@@ -118,18 +121,30 @@
                 </div>
             </div>
 
-            <!-- <div class="row" *ngIf="accion === 2">
+            <div class="row" *ngIf="accion[i] === 2">
                 <div class="col-12 text-center textoAzul">
-                    <h5>¿Está seguro que desea cancelar su cita?</h5>
+                    <h5>¿Está seguro que desea cancelar esta cita?</h5>
                 </div>
                 <div class="col-12 col-md-6 mt-2">
-                    <button class="btn btn-dark text-center h-100" (click)="cancelar()">SÍ</button>
+                    <button class="btn btn-dark text-center h-100" (click)="cancelar(i)">SÍ</button>
                 </div>
                 <div class="col-12 col-md-6 mt-2">
-                    <button class="btn btn-dark text-center h-100" (click)="cancelarCita()">NO</button>
+                    <button class="btn btn-dark text-center h-100" (click)="cancelarCita(i)">NO</button>
                 </div>
             </div>
-        </li> -->
+
+            <div class="row" *ngIf="accion[i] === 3">
+                <div class="col-12 text-center textoAzul">
+                    <h5>¿Está seguro que desea confirmar esta cita?</h5>
+                </div>
+                <div class="col-12 col-md-6 mt-2">
+                    <button class="btn btn-dark text-center h-100" (click)="confirmar(i)">SÍ</button>
+                </div>
+                <div class="col-12 col-md-6 mt-2">
+                    <button class="btn btn-dark text-center h-100" (click)="confirmarCita(i)">NO</button>
+                </div>
+            </div>
+        </li>
     </ng-template>
 
     <ng-template #elseBlock>
