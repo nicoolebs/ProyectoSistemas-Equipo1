@@ -299,31 +299,21 @@ export class AutentificacionService {
     return this.autentificacion.auth.signOut();
   }
 
-  // Método para validar que dos claves son iguales
-  validarClave(clave: string, claveRepetida: string) {
-    if (clave === claveRepetida) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  cambiarClave(email: string) {
 
-  cambiarClave(newPassword: string, email: string, contrasena: string) {
+    if (email !== '' || email !== undefined) {
 
-    this.autentificacion.auth.signInWithEmailAndPassword(email, contrasena).then(user => {
-
-      const usuario = this.autentificacion.auth.currentUser;
-
-      usuario.updatePassword(newPassword).then(res => {
-        alert('Clave actualizada con éxito!');
-      }).catch(error => {
-        alert('Error, no se pudo actualizar la clave');
+      this.autentificacion.auth.sendPasswordResetEmail(email).then(corr => {
+        alert('Estimado usuario, le hemos enviado un correo electrónico para que restablezca su contraseña');
+      }).catch(err => {
+        alert(err);
       });
 
-    }).catch(error => {
-      console.log(error);
+    } else {
 
-    });
+      alert('Por favor, rellene el campo del email.');
+
+    }
 
   }
 

@@ -15,10 +15,7 @@ export class CambioDeClaveComponent implements OnInit {
     private formBuilder: FormBuilder,
     private auth: AutentificacionService) {
       this.cambioClave = this.formBuilder.group({
-        email: [''],
-        contrasena: [''],
-        nuevaContrasena: [''],
-        rNuevaContrasena: ['']
+        email: ['']
       });
     }
 
@@ -27,22 +24,8 @@ export class CambioDeClaveComponent implements OnInit {
 
   cambiarClave() {
 
-    let valida = this.auth.validarClave(this.cambioClave.value.nuevaContrasena, this.cambioClave.value.rNuevaContrasena);
-
-    if (valida) {
-
-      console.log(this.cambioClave.value.email, this.cambioClave.value.contrasena);
-
-      this.auth.cambiarClave(this.cambioClave.value.nuevaContrasena, this.cambioClave.value.email, this.cambioClave.value.contrasena);
-
-    } else {
-
-      alert('Claves incongruentes');
-    }
+      this.auth.cambiarClave(this.cambioClave.value.email);
 
   }
-
-
-
 
 }
