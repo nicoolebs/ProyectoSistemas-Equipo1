@@ -1,1 +1,33 @@
-<p>confi-banco works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <label>Número de cuenta</label>
+            <br>
+            <input type="text" [(ngModel)]="nroCta">
+            {{nroCta}}
+            <hr>
+            <label>Nombre</label>
+            <br>
+            {{nombre}}
+            <hr>
+            <label>Apellido</label>
+            <br>
+            {{apellido}}
+            <hr>
+            <label>Cédula de Identidad</label>
+            <br>
+            <input type="text" [(ngModel)]="identidad">
+            {{identidad}}
+            <hr>
+            <label>Banco</label>
+            <br>
+            <input type="text" [(ngModel)]="banco">
+            {{banco}}
+            <hr>
+            <label>Tipo de cuenta</label>
+            <br>
+            <input type="text" [(ngModel)]="tipoCta">
+            {{tipoCta}}
+        </div>
+    </div>
+</div>
