@@ -8,15 +8,12 @@ import { AutentificacionService } from '../../../../services/autentificacion.ser
 })
 export class CrearPacienteComponent implements OnInit {
 
-  crear: boolean;
-
   registro: any;
   verificacion: any;
 
   constructor(private auth: AutentificacionService) { }
 
   ngOnInit(): void {
-    this.crear = false;
     this.registro = {
       email: '',
       contrasena: 'CoNtRaSeÑaRaNdOm',
@@ -34,10 +31,6 @@ export class CrearPacienteComponent implements OnInit {
       email: '',
       contrasena: ''
     };
-  }
-
-  verForm() {
-    this.crear = !this.crear;
   }
 
   crearPaciente() {

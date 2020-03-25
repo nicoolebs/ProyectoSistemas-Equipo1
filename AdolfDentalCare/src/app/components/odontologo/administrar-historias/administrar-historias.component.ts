@@ -18,5 +18,6 @@ export class AdministrarHistoriasComponent implements OnInit {
 
   verForm() {
     this.creacionPaciente = !this.creacionPaciente;
+
   }
 }
