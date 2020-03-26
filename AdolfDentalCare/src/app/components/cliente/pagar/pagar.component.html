@@ -80,85 +80,82 @@
         </div>
     </div>
 
-    <div class="row" *ngIf="metodoDePago === 'Zelle'">
-        <div class="col">
-            <h1>PAGO CON ZELLE</h1>
-        </div>
-    </div>
-
     <div class="row" *ngIf="metodoDePago === 'Transferencia Bancaria'">
         <div class="col">
-            <h1>PAGO CON BANCO</h1>
+
+            <div class="row">
+                <div class="col">
+                    <h5>REPORTAR PAGO VÍA TRANSFERENCIA BANCARIA</h5>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <h6>Titular de la cuenta:</h6>
+                    <input type="email" class="form-control" [(ngModel)]="titular" [ngModelOptions]="{standalone: true}">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <h6>Banco:</h6>
+                    <input type="text" class="form-control" [(ngModel)]="banco" [ngModelOptions]="{standalone: true}">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <h6>Referencia:</h6>
+                    <input type="text" class="form-control" [(ngModel)]="referencia" [ngModelOptions]="{standalone: true}">
+                </div>
+            </div>
+
+            <div class="row d-flex justify-content-center mb-3">
+                <div class="col-12 col-md-6">
+                    <button class="btn btn-dark h-100 w-100" (click)="reportarPagoBanco()">REPORTAR PAGO</button>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <!-- <div class="row">
+    <div class="row" *ngIf="metodoDePago === 'Zelle'">
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <h5>REPORTAR PAGO VÍA ZELLE</h5>
+                </div>
+            </div>
 
-        <div class="col-12 titulosRosa text-center"> titulo estado de cuenta
-            <br>
-            <h4>Método de Pago </h4>
-            <br>
+            <div class="row">
+                <div class="col">
+                    <h6>Email:</h6>
+                    <input type="email" class="form-control" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <h6>Nombre:</h6>
+                    <input type="text" class="form-control" [(ngModel)]="nombre" [ngModelOptions]="{standalone: true}">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <h6>Referencia:</h6>
+                    <input type="text" class="form-control" [(ngModel)]="referencia" [ngModelOptions]="{standalone: true}">
+                </div>
+            </div>
+
+            <div class="row d-flex justify-content-center mb-3">
+                <div class="col-12 col-md-6">
+                    <button class="btn btn-dark h-100 w-100" (click)="reportarPagoZelle()">REPORTAR PAGO</button>
+                </div>
+            </div>
+
         </div>
-
-        <div class="col-12">
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Formas de Pago</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row"><img src="../../../../assets/images/banco-2.png" width= "30%" class="img-fluid text-center" alt="">
-                    </th>
-                    <td><img src="../../../../assets/images/paypal.png" width= "30%" class="img-fluid text-center" alt="">
-                    </td>
-                    <td><img src="../../../../assets/images/zelleSI.png" class="img-fluid text-center" width= "100%" alt="">
-                    </td>
-
-                </tbody>
-              </table>
-        </div>
-
-        <div class="col-12 textoALaIzquierda titulosRosa">
-            <h5>Reportar Pago o Transferencia</h5>
-        </div>
-        <div class="col-12">
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col"><h5 class="textoAzul">Pago</h5></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row"><h5 class="textoAzul">Fecha de la transferencia:</h5></th>
-                    <td>##</td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><h5 class="textoAzul">Nombre del Banco:</h5></th>
-                    <td>##</td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><h5 class="textoAzul">Titular:</h5></th>
-                    <td>##</td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><h5 class="textoAzul">Referencia:</h5></th>
-                    <td>##</td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><h5 class="textoAzul">Monto de la Transferencia:</h5></th>
-                    <td>##</td>
-                  </tr>
-                </tbody>
-              </table>
-        </div>
-        <div class="col-12">
-            <button type="submit" href="reportar pago" class="enlace h-100 w-100 btn btn-primary">Registrar Pago</button>
-
-        </div> -->
-
+    </div>
 
 
 
