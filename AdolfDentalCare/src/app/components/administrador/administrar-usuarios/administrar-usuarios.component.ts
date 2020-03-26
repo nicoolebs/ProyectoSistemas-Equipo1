@@ -4,6 +4,7 @@ import { FirestoreService } from './../../../services/firestore.service';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { Router } from '@angular/router';
+import { log } from 'util';
 
 
 @Component({
@@ -14,6 +15,13 @@ import { Router } from '@angular/router';
 export class AdministrarUsuariosComponent implements OnInit {
 
   usuariosDelSistema: any[] = [];
+
+  tipos: string[] = ['admin', 'doctor', 'paciente'];
+  tiposActivos: string[];
+  tipoActivo: any;
+  seleccionada = 0;
+
+  nuevoUsuario: any;
 
   emailActivo: any;
   accion: number[] = [];
@@ -60,7 +68,145 @@ export class AdministrarUsuariosComponent implements OnInit {
       this.accion[i] = 0;
     } else {
       this.accion[i] = 2;
+      this.tiposActivos = this.tipos.filter(filtro => filtro !== this.usuariosDelSistema[i].tipo);
     }
+  }
+
+  actualizar(i: number) {
+
+    if(this.tipoActivo === 'admin') {
+
+      this.nuevoUsuario = {
+        email: this.usuariosDelSistema[i].email,
+        habilitado: this.usuariosDelSistema[i].habilitado,
+        tipo: 'admin',
+        uid: this.usuariosDelSistema[i].uid
+      };
+
+      this.fire.deleteDocumento(this.nuevoUsuario.uid, 'Usuarios').then(corr => {
+
+        this.fire.createDocumento(this.nuevoUsuario, 'Usuarios', this.nuevoUsuario.uid).then(bien => {
+
+          alert('El rol del usuario ha sido actualizado correctamente');
+          this.router.navigate(['/dashboard-admin']);
+        }).catch(err => console.log(err));
+
+      }).catch(err => console.log(err));
+
+    } else if(this.tipoActivo === 'doctor') {
+
+      this.nuevoUsuario = {
+        email: this.usuariosDelSistema[i].email,
+        habilitado: this.usuariosDelSistema[i].habilitado,
+        uid: this.usuariosDelSistema[i].uid,
+        tipo: 'doctor',
+        doctor: {
+          agendaCitas: [],
+          apellido: '',
+          cronograma: [
+            {dia: 0, horas: [
+              {hora: '10:00', libre: true},
+              {hora: '11:00', libre: true},
+              {hora: '12:00', libre: true},
+              {hora: '13:00', libre: true},
+              {hora: '14:00', libre: true},
+              {hora: '15:00', libre: true},
+            ]},
+            {dia: 1, horas: [
+              {hora: '10:00', libre: true},
+              {hora: '11:00', libre: true},
+              {hora: '12:00', libre: true},
+              {hora: '13:00', libre: true},
+              {hora: '14:00', libre: true},
+              {hora: '15:00', libre: true},
+            ]},
+            {dia: 2, horas: [
+              {hora: '10:00', libre: true},
+              {hora: '11:00', libre: true},
+              {hora: '12:00', libre: true},
+              {hora: '13:00', libre: true},
+              {hora: '14:00', libre: true},
+              {hora: '15:00', libre: true},
+            ]},
+            {dia: 3, horas: [
+              {hora: '10:00', libre: true},
+              {hora: '11:00', libre: true},
+              {hora: '12:00', libre: true},
+              {hora: '13:00', libre: true},
+              {hora: '14:00', libre: true},
+              {hora: '15:00', libre: true},
+            ]},
+            {dia: 4, horas: [
+              {hora: '10:00', libre: true},
+              {hora: '11:00', libre: true},
+              {hora: '12:00', libre: true},
+              {hora: '13:00', libre: true},
+              {hora: '14:00', libre: true},
+              {hora: '15:00', libre: true},
+            ]},
+            {dia: 5, horas: [
+              {hora: '10:00', libre: true},
+              {hora: '11:00', libre: true},
+              {hora: '12:00', libre: true},
+              {hora: '13:00', libre: true},
+              {hora: '14:00', libre: true},
+              {hora: '15:00', libre: true},
+            ]},
+            {dia: 6, horas: [
+              {hora: '10:00', libre: true},
+              {hora: '11:00', libre: true},
+              {hora: '12:00', libre: true},
+              {hora: '13:00', libre: true},
+              {hora: '14:00', libre: true},
+              {hora: '15:00', libre: true},
+            ]}
+          ],
+          nombre: '',
+          pacientes: [],
+          porcentaje: 0,
+          mediosPago: '',
+        }
+      };
+
+      this.seleccionada = 1;
+
+    } else {
+
+      this.nuevoUsuario = {
+        email: this.usuariosDelSistema[i].email,
+        habilitado: this.usuariosDelSistema[i].habilitado,
+        uid: this.usuariosDelSistema[i].uid,
+        tipo: 'paciente',
+        paciente: {
+          alergias: '',
+          antecedentes: '',
+          apellido: '',
+          citaProx: '',
+          direccion: '',
+          genero: '',
+          historia: [],
+          nacimiento: '',
+          nombre: '',
+          telefono: ''
+        }
+      };
+
+      this.seleccionada = 2;
+
+    }
+  }
+
+  guardar() {
+
+    this.fire.deleteDocumento(this.nuevoUsuario.uid, 'Usuarios').then(corr => {
+
+      this.fire.createDocumento(this.nuevoUsuario, 'Usuarios', this.nuevoUsuario.uid).then(bien => {
+
+        alert('El rol del usuario ha sido actualizado correctamente');
+        this.router.navigate(['/dashboard-admin']);
+      }).catch(err => console.log(err));
+
+    }).catch(err => console.log(err));
   }
 
   cambiarClave(i: number) {
