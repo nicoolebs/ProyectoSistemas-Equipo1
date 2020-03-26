@@ -112,6 +112,7 @@ export class CrearCitaComponent implements OnInit {
         this.fechaActiva.getUTCFullYear().toString() + '-'
         + (this.fechaActiva.getUTCMonth() + 1) + '-' + this.fechaActiva.getUTCDate().toString()
         + this.horaActiva,
+        paga: false,
       };
 
       this.baseDatos.createDocumento(cita, 'Citas', cita.id).then(info => {

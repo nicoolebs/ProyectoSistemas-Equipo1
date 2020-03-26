@@ -8,4 +8,5 @@ export interface Cita {
   costo?: number;
   recipe?: string;
   id?: string;
+  paga: boolean;
 }
