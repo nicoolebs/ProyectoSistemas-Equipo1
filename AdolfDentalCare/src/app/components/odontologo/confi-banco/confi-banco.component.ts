@@ -1,3 +1,4 @@
+import { firestore } from 'firebase';
 import { Usuario } from './../../../models/usuario';
 import { AutentificacionService } from './../../../services/autentificacion.service';
 import { FirestoreService } from './../../../services/firestore.service';
@@ -24,6 +25,18 @@ export class ConfiBancoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+  }
+
+  guardarCambios(){
+    this.authentication.usuarioLogg.doctor.mediosPago.banco.banco = this.banco;
+    this.authentication.usuarioLogg.doctor.mediosPago.banco.nombre = this.nombre;
+    this.authentication.usuarioLogg.doctor.mediosPago.banco.apellido = this.apellido;
+    this.authentication.usuarioLogg.doctor.mediosPago.banco.tipoCta = this.tipoCta;
+    this.authentication.usuarioLogg.doctor.mediosPago.banco.nroCuenta = this.nroCta;
+    this.authentication.usuarioLogg.doctor.mediosPago.banco.identidad = this.identidad;
+
+    this.firestore.updateDocumento(this.authentication.usuarioLogg.uid,this.authentication.usuarioLogg,'Usuarios');
+    alert('Datos guardados con exito.');
   }
 
 }
