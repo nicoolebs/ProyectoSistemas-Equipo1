@@ -1,30 +1,46 @@
-<div class="container">
-   
-    <div class="row">  <!-- introducción(texto) -->
+<div class="container-fluid">
+
+    <div class="row mt-3 mb-3">
+        <!-- introducción(texto) -->
 
         <div class="col-12 textoAzul text-center">
-            <h4>Estadística de cantidad de citas en un rango de fechas</h4>
-            <br>
-            <p>Seleccione el lapso de tiempo que desea ver en la estadística de citas</p>
-            <br>
+            <h4>ESTADÍSITCA: CITAS POR RANGO DE FECHA</h4>
+            <h5>Seleccione el lapso de tiempo que desea ver en la estadística de citas</h5>
         </div>
-        
+
     </div>
 
-
-    <div class="row textoALaIzquierda textoAzul">
-
-        <div class="col-6">
-
-            <h6>rango de fechas seleccionar(no se como lo trabajaran)</h6>
-
-        </div>
-        <div class="col-6">
-            <button type="button" class="btn btn-dark">Ver estadística</button>
-
+    <div class="row">
+        <div class="col">
+            <h5>Fecha inicial:</h5>
+            <input type="date" class="form-control" [(ngModel)]="fechaInicial" [ngModelOptions]="{standalone: true}">
         </div>
     </div>
 
+    <div class="row">
+        <div class="col">
+            <h5>Fecha final:</h5>
+            <input type="date" class="form-control" [(ngModel)]="fechaFinal" [ngModelOptions]="{standalone: true}">
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col">
+            <button class="btn btn-dark h-100 w-100" (click)="verEstadistica()">VER ESTADÍSTICA</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <hr>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="ver">
+        <div class="col">
+            <h5>Cantidad de citas en el rango de fecha especificado: {{ cantidad }}</h5>
+        </div>
+    </div>
 
 
 
