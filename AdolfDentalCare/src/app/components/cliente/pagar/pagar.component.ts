@@ -118,7 +118,7 @@ export class PagarComponent implements OnInit {
       paciente: this.auth.usuarioLogg.uid,
       monto: this.monto,
       ref: this.referencia,
-      fecha: new Date(),
+      fecha: new Date().toString(),
       medio: 'Zelle'
     };
 
@@ -146,7 +146,7 @@ export class PagarComponent implements OnInit {
       paciente: this.auth.usuarioLogg.uid,
       monto: this.monto,
       ref: this.referencia,
-      fecha: new Date(),
+      fecha: new Date().toString(),
       medio: 'Banco'
     };
 

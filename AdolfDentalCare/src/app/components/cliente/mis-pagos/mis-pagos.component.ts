@@ -13,6 +13,8 @@ export class MisPagosComponent implements OnInit{
 
   deuda: number;
   pagosPendientes: any[] = [];
+  facturas: any[] = [];
+  detalle: boolean[] = [];
 
 
   constructor(
@@ -32,6 +34,31 @@ export class MisPagosComponent implements OnInit{
 
     }
 
+    this.baseDatos.getDocumentos('Facturas').subscribe(facturas => {
+
+      for (let index = 0; index < facturas.length; index++) {
+
+        this.facturas.push(facturas[index].payload.doc.data());
+
+      }
+
+      this.facturas = this.facturas.filter(filtro => filtro.paciente == this.auth.usuarioLogg.uid);
+
+      for (let index = 0; index < this.facturas.length; index++) {
+        this.detalle.push(false);
+      }
+
+      console.log(this.detalle);
+
+    });
+
+
+
+  }
+
+  verDetalle(i: number) {
+
+    this.detalle[i] = !this.detalle[i];
   }
 
 }

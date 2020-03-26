@@ -11,7 +11,7 @@
 
     <div class="row">
 
-        <div class="col-12 textoAzul text-center mt-3">
+        <div class="col-12 titulosRosa text-center mt-3">
             <!-- titulo estado de cuenta -->
             <h5>PAGOS PENDIENTES</h5>
         </div>
@@ -39,6 +39,72 @@
 
             </li>
         </div>
+
+    </div>
+    <div class="row">
+
+        <div class="col-12 titulosRosa text-center mt-3">
+            <!-- titulo estado de cuenta -->
+            <h5>FACTURAS PAGAS</h5>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-12">
+            <li class="list-group-item" *ngFor="let factura of facturas; index as i">
+
+                <div class="row textoAzul text-center">
+                    <div class="col-12 col-lg-8">
+                        <h5>Referencia:</h5>
+                        <h6>{{ factura.ref }}</h6>
+                        <h5>Costo:</h5>
+                        <h6>{{ factura.monto }} $</h6>
+                    </div>
+
+                    <div class="col-12 col-lg-4">
+                        <button class="btn btn-dark h-100 w-100" (click)="verDetalle(i)">DETALLES</button>
+                    </div>
+                </div>
+
+                <div class="row" *ngIf="detalle[i]">
+                    <div class="col-12">
+
+                        <table class="table textoAzul text-center">
+
+                            <!-- tabla que muestra datos de la cita -->
+                            <tbody>
+
+                                <tr>
+                                    <th scope="row">
+                                        <h6 class="textoAzul">Información:</h6>
+                                    </th>
+                                    <td class="textoAzul">{{ factura.info }}</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        <h6 class="textoAzul">Fecha:</h6>
+                                    </th>
+                                    <td class="textAzul">{{ factura.fecha }}</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        <h6 class="textoAzul">Medio de pago:</h6>
+                                    </th>
+                                    <td class="textAzul">{{ factura.medio }}</td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+                    </div>
+                </div>
+            </li>
+        </div>
+
 
     </div>
 
