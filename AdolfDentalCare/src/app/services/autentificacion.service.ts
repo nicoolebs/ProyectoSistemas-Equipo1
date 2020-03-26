@@ -129,11 +129,21 @@ export class AutentificacionService {
                   {hora: '15:00', libre: true},
                 ]}
               ],
-              mediosPago: [
-                'Paypal',
-                'Zelle',
-                'Banco'
-              ],
+              mediosPago: {
+                paypal: '',
+                zelle: {
+                  nombre: '',
+                  email: '',
+                },
+                banco: {
+                  nombre: '',
+                  apellido: '',
+                  nroCuenta: '',
+                  tipoCta: '',
+                  identidad: '',
+                  banco: ''
+                }
+              },
               porcentaje: 0,
               agendaCitas: [],
             }

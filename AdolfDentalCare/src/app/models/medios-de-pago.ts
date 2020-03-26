@@ -13,7 +13,5 @@ export interface MediosDePago {
         nombre : string;
     }
 
-    paypall : {
-        //no se que necesita paypal
-    }
+    paypal : string;
 }
