@@ -14,3 +14,7 @@
 .altura {
     min-height: 100px;
 }
+
+.logo {
+    max-height: 70px;
+}
