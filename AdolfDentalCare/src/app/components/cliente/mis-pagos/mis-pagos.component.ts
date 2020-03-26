@@ -22,6 +22,7 @@ export class MisPagosComponent implements OnInit{
     private baseDatos: FirestoreService) { }
 
   ngOnInit(): void {
+
     for (let index = 0; index < this.auth.usuarioLogg.paciente.historia.length; index++) {
 
       this.baseDatos.getDocumento(this.auth.usuarioLogg.paciente.historia[index], 'Citas').subscribe(cita => {
