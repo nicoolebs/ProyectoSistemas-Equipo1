@@ -1,8 +1,100 @@
-<div class="container">
+<div class="container-fluid">
 
     <div class="row">
 
-        <div class="col-12 titulosRosa text-center"> <!-- titulo estado de cuenta -->
+        <div class="col-12 titulosRosa text-center mt-3">
+            <!-- titulo estado de cuenta -->
+            <h4>PAGAR</h4>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-12 textoAzul text-center mt-3">
+            <!-- titulo estado de cuenta -->
+            <h5>PAGOS PENDIENTES</h5>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col">
+            <li class="list-group-item" *ngFor="let pagoPen of pagosPendientes; index as i">
+
+                <div class="row textoAzul text-center">
+                    <div class="col-12">
+                        <h5>Tratamiento:</h5>
+                        <h6>{{ pagoPen.tratamiento }}</h6>
+                    </div>
+                </div>
+
+                <div class="row textoAzul text-center">
+                    <div class="col-12">
+                        <h5>Costo:</h5>
+                        <h6>{{ pagoPen.costo }} $</h6>
+                    </div>
+                </div>
+
+                <div class="row textoAzul text-center">
+                    <div class="col-12">
+                        <input class="form-control" type="checkbox" [(ngModel)]="citaSeleccionada[i]" [ngModelOptions]="{standalone: true}">
+                    </div>
+                </div>
+
+            </li>
+        </div>
+
+    </div>
+
+    <div class="row d-flex justify-content-center" *ngIf="pagosPendientes.length !== 0">
+        <div class="col-12 col-md-6">
+            <button class="btn btn-dark h-100 w-100" (click)="seleccionarCitas()">PAGAR CITAS</button>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="pago">
+        <div class="col text-center textoAzul mt-3">
+            <h5>MÉTODOS DE PAGO</h5>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="pago">
+        <div class="col mt-3">
+            <form action="">
+                <div class="form-group">
+                    <select class="form-control" [(ngModel)]="metodoDePago" [ngModelOptions]="{standalone: true}">
+                      <option>Paypal</option>
+                      <option>Zelle</option>
+                      <option>Transferencia Bancaria</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="metodoDePago === 'Paypal'">
+        <div class="col">
+            <h1>PAGO CON PAYPAL</h1>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="metodoDePago === 'Zelle'">
+        <div class="col">
+            <h1>PAGO CON ZELLE</h1>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="metodoDePago === 'Transferencia Bancaria'">
+        <div class="col">
+            <h1>PAGO CON BANCO</h1>
+        </div>
+    </div>
+
+    <!-- <div class="row">
+
+        <div class="col-12 titulosRosa text-center"> titulo estado de cuenta
             <br>
             <h4>Método de Pago </h4>
             <br>
@@ -23,7 +115,7 @@
                     </td>
                     <td><img src="../../../../assets/images/zelleSI.png" class="img-fluid text-center" width= "100%" alt="">
                     </td>
-                
+
                 </tbody>
               </table>
         </div>
@@ -64,20 +156,20 @@
         </div>
         <div class="col-12">
             <button type="submit" href="reportar pago" class="enlace h-100 w-100 btn btn-primary">Registrar Pago</button>
-                
-        </div>
+
+        </div> -->
 
 
 
 
 
-<!-- PAYPAL MÉTODO -->
-            <!-- <input type="number" [(ngModel)]="finalAmount" style="padding-bottom: 10px;">
+    <!-- PAYPAL MÉTODO -->
+    <!-- <input type="number" [(ngModel)]="finalAmount" style="padding-bottom: 10px;">
             <h2 *ngIf="paypalLoad">Paypal button is loading</h2>
             <div id="paypal-checkout-btn"></div> -->
 
 
 
-    
+
 
 </div>

@@ -1,4 +1,6 @@
 import { Component, OnInit, AfterViewChecked } from '@angular/core';
+import { AutentificacionService } from '../../../services/autentificacion.service';
+import { FirestoreService } from '../../../services/firestore.service';
 
 @Component({
   selector: 'app-pagar',
@@ -54,10 +56,47 @@ export class PagarComponent implements OnInit {
   //   })
   // }
 
+  deuda: number;
+  pagosPendientes: any[] = [];
+  citaSeleccionada: boolean[] = [];
+  citasPagar: any[] = [];
+  pago = false;
+  metodoDePago: any;
 
-  constructor() { }
+
+  constructor(
+    private auth: AutentificacionService,
+    private baseDatos: FirestoreService
+  ) { }
 
   ngOnInit(): void {
+    for (let index = 0; index < this.auth.usuarioLogg.paciente.historia.length; index++) {
+
+      this.baseDatos.getDocumento(this.auth.usuarioLogg.paciente.historia[index], 'Citas').subscribe(cita => {
+
+        if (cita.data().paga === false && cita.data().costo !== 0) {
+          this.pagosPendientes.push(cita.data());
+          this.citaSeleccionada.push(false);
+        }
+
+      });
+
+    }
   }
 
+  seleccionarCitas() {
+
+    this.citasPagar = [];
+
+    for (let index = 0; index < this.citaSeleccionada.length; index++) {
+
+      if (this.citaSeleccionada[index] === true) {
+        this.citasPagar.push(this.pagosPendientes[index]);
+      }
+
+    }
+
+    this.pago = true;
+
+  }
 }
