@@ -16,6 +16,7 @@ import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AdministradorModule } from './components/administrador/administrador.module';
+import { AngularFireStorageModule } from '@angular/fire/storage'
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AdministradorModule } from './components/administrador/administrador.mo
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
