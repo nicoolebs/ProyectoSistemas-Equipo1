@@ -1,13 +1,240 @@
 <div class="container-fluid">
+
     <div class="row textoAzul">
+
         <div class="col-12 text-center mb-2">
             <h4>Administrar usuarios</h4>
+            <hr class="separar">
         </div>
-        <div class="col-12" *ngFor="let usuario of usuariosDelSistema">
-            <!-- <p> Nombre : {{usuario.nombre}} </p>
-            <p> Apellido: {{usuario.apellido}} </p> -->
-            <p> Correo electronico: {{usuario.email}}</p>
-            <a class="btn btn-dark h-50" (click)='deleteUserOfSistem(usuario.uid)'>Borrar</a>
+
+        <div class="col-12" *ngFor="let usuario of usuariosDelSistema; index as i">
+
+            <div class="row">
+                <div class="col">
+                    <h6> Correo electronico: {{usuario.email}}</h6>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-4 d-flex justify-content-center mt-2">
+                    <button class="btn btn-dark h-100 w-100" (click)="bloquearUsuario(i)">BLOQUEAR</button>
+                </div>
+                <div class="col-12 col-md-4 d-flex justify-content-center mt-2">
+                    <button class="btn btn-dark h-100 w-100" (click)="cambiarRol(i)">CAMBIAR ROL</button>
+                </div>
+                <div class="col-12 col-md-4 d-flex justify-content-center mt-2">
+                    <button class="btn btn-dark h-100 w-100" (click)="cambiarClave(i)">CAMBIAR CLAVE</button>
+                </div>
+            </div>
+
+            <div class="row" *ngIf="accion[i] === 1">
+                <div class="col">
+
+                    <div class="row">
+                        <div class="col text-center">
+                            <h5>¿Está seguro que desea bloquear este usuario?</h5>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <button class="btn btn-dark h-100 w-100" (click)="inhabilitarUsuario(i)">SÍ</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-dark h-100 w-100" (click)="bloquearUsuario(i)">NO</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" *ngIf="accion[i] === 2">
+                <div class="col">
+
+                    <div class="row">
+                        <div class="col">
+                            <h5>Seleccione el tipo de usuario:</h5>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <form action="">
+                                <div class="form-group">
+                                    <select class="form-control" [(ngModel)]="tipoActivo" [ngModelOptions]="{standalone: true}">
+                          <option></option>
+                          <option *ngFor="let tipo of tiposActivos">{{ tipo }}</option>
+                        </select>
+                                </div>
+                            </form>
+                            <button (click)="actualizar(i)" class="btn btn-dark h-50">CAMBIAR</button>
+                        </div>
+                    </div>
+
+                    <div class="row" *ngIf="seleccionada === 2">
+                        <div class="col">
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5>Nombre:</h5>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="text" class="form-control" [(ngModel)]="nuevoUsuario.paciente.nombre" [ngModelOptions]="{standalone: true}">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5>Apellido:</h5>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="text" class="form-control" [(ngModel)]="nuevoUsuario.paciente.apellido" [ngModelOptions]="{standalone: true}">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5>Nacimiento:</h5>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="date" class="form-control" [(ngModel)]="nuevoUsuario.paciente.nacimiento" [ngModelOptions]="{standalone: true}">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5>Género:</h5>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="text" class="form-control" [(ngModel)]="nuevoUsuario.paciente.genero" [ngModelOptions]="{standalone: true}">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5>Direccion:</h5>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="text" class="form-control" [(ngModel)]="nuevoUsuario.paciente.direccion" [ngModelOptions]="{standalone: true}">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5>Teléfono:</h5>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="number" class="form-control" [(ngModel)]="nuevoUsuario.paciente.telefono" [ngModelOptions]="{standalone: true}">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5>Antecedentes clínicos:</h5>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="text" class="form-control" [(ngModel)]="nuevoUsuario.paciente.antecedentes" [ngModelOptions]="{standalone: true}">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5>Alergias medicamentosas:</h5>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="text" class="form-control" [(ngModel)]="nuevoUsuario.paciente.alergias" [ngModelOptions]="{standalone: true}">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6 d-flex justify-content-center">
+                                    <button class="btn btn-dark h-100 w-100" (click)="guardar()">GUARDAR</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row" *ngIf="seleccionada === 1">
+                        <div class="col">
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5>Nombre:</h5>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="text" class="form-control" [(ngModel)]="nuevoUsuario.doctor.nombre" [ngModelOptions]="{standalone: true}">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5>Apellido:</h5>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="text" class="form-control" [(ngModel)]="nuevoUsuario.doctor.apellido" [ngModelOptions]="{standalone: true}">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6 d-flex justify-content-center">
+                                    <button class="btn btn-dark h-100 w-100" (click)="guardar()">GUARDAR</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" *ngIf="accion[i] === 3">
+                <div class="col">
+
+                    <div class="row">
+                        <div class="col textoAzul">
+                            <h5>¿Está seguro que desea solicitar un cambio de clave para este usuario?</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <button class="btn btn-dark h-100 w-100" (click)="resetUserPassword(i)">SÍ</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-dark h-100 w-100" (click)="cambiarClave(i)">NO</button>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
             <hr>
         </div>
     </div>
