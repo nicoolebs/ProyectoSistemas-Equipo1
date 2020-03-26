@@ -1,6 +1,6 @@
 <div class="row">
-    <div class="col text-center textoAzul mb-2">
-        <h4>LISTA DE USUARIOS</h4>
+    <div class="col text-center  mb-2">
+        <h4 class="titulosRosa">LISTA DE USUARIOS</h4>
     </div>
 </div>
 
@@ -25,36 +25,36 @@
                               <!-- tabla que muestra datos de usuario -->
                                 <tbody>
                                   <tr>
-                                    <th scope="row">Nombre:</th>
-                                    <td>{{ usuario.data.paciente.nombre }}</td>
+                                    <th scope="row"><h5 class="textoAzul">Nombre:</h5></th>
+                                    <td><p class="textoAzul">{{ usuario.data.paciente.nombre }}</p></td>
                                   </tr>
                                   <tr>
-                                    <th scope="row">Apellido:</th>
-                                    <td>{{ usuario.data.paciente.apellido }}</td>
+                                    <th scope="row"><h5 class="textoAzul">Apellido:</h5></th>
+                                    <td><p class="textoAzul">{{ usuario.data.paciente.apellido }}</p></td>
                                   </tr>
                                   <tr>
-                                    <th scope="row">Género:</th>
-                                    <td>{{ usuario.data.paciente.genero }}</td>
+                                    <th scope="row"><h5 class="textoAzul">Género:</h5></th>
+                                    <td><p class="textoAzul">{{ usuario.data.paciente.genero }}</p></td>
                                   </tr>
                                   <tr>
-                                    <th scope="row">Nacimiento:</th>
-                                    <td>{{ usuario.data.paciente.nacimiento }}</td>
+                                    <th scope="row"><h5 class="textoAzul">Nacimiento:</h5></th>
+                                    <td><p class="textoAzul">{{ usuario.data.paciente.nacimiento }}</p></td>
                                   </tr>
                                   <tr>
-                                    <th scope="row">Teléfono:</th>
-                                    <td>{{ usuario.data.paciente.telefono }}</td>
+                                    <th scope="row"><h5 class="textoAzul">Teléfono:</h5></th>
+                                    <td><p class="textoAzul">{{ usuario.data.paciente.telefono }}</p></td>
                                   </tr>
                                   <tr>
-                                    <th scope="row">Dirección:</th>
-                                    <td>{{ usuario.data.paciente.direccion }}</td>
+                                    <th scope="row"><h5 class="textoAzul">Dirección:</h5></th>
+                                    <td><p class="textoAzul">{{ usuario.data.paciente.direccion }}</p></td>
                                   </tr>
                                   <tr>
-                                    <th scope="row">Antecedentes:</th>
-                                    <td>{{ usuario.data.paciente.antecedentes }}</td>
+                                    <th scope="row"><h5 class="textoAzul">Antecedentes:</h5></th>
+                                    <td><p class="textoAzul">{{ usuario.data.paciente.antecedentes }}</p></td>
                                   </tr>
                                   <tr>
-                                    <th scope="row">Alergias:</th>
-                                    <td>{{ usuario.data.paciente.alergias }}</td>
+                                    <th scope="row"><h5 class="textoAzul">Alergias:</h5></th>
+                                    <td><p class="textoAzul">{{ usuario.data.paciente.alergias }}</p></td>
                                   </tr>
                                 </tbody>
                               </table>
@@ -64,10 +64,10 @@
                     
                 </div>
             </div>
-            <div class="col" *ngIf="usuario.data.tipo === 'doctor'">
+            <div class="col textoAzul" *ngIf="usuario.data.tipo === 'doctor'">
                 <h1>Soy un doctor</h1>
             </div>
-            <div class="col" *ngIf="usuario.data.tipo === 'admin'">
+            <div class="col textoAzul" *ngIf="usuario.data.tipo === 'admin'">
                 <h1>Soy un administrador</h1>
             </div>
         </div>

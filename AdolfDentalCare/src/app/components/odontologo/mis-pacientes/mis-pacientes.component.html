@@ -1,17 +1,17 @@
 <div class="row">
-    <div class="col text-center textoAzul mb-2">
-        <h4>MIS PACIENTES</h4>
+    <div class="col text-center textoAzul mt-2 mb-2">
+        <h4 class="titulosRosa">MIS PACIENTES</h4>
     </div>
 </div>
 
 <ul class="list-group">
     <li class="list-group-item" *ngFor="let usuario of pacientesDoc; let i = index">
         <div class="row textoAzul">
-            <div class="col-7 col-sm-8">
-                <h5>Email: {{ usuario.data.email }}</h5>
-                <h5>Nombre y apellido: {{ usuario.data.paciente.nombre }} {{ usuario.data.paciente.apellido }}</h5>
+            <div class="col-12">
+                <h5 class="textoAzul">Email: {{ usuario.data.email }}</h5>
+                <h5 class="textoAzul">Nombre y apellido: {{ usuario.data.paciente.nombre }} {{ usuario.data.paciente.apellido }}</h5>
             </div>
-            <div class="col-5 col-sm-4 d-flex ">
+            <div class="col-12 ">
                 <button class="h-75 w-100 btn btn-primary text-center align-self-center" (click)="mostrarPerfil(i)">PERFIL</button>
             </div>
         </div>
@@ -25,28 +25,28 @@
                                 <!-- tabla que muestra datos de usuario -->
                                 <tbody>
                                     <tr>
-                                        <th scope="row">Género:</th>
-                                        <td>{{ usuario.data.paciente.genero }}</td>
+                                        <th scope="row"><h5 class="textoAzul">Género:</h5></th>
+                                        <td><p class="textoAzul">{{ usuario.data.paciente.genero }}</p></td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Nacimiento:</th>
-                                        <td>{{ usuario.data.paciente.nacimiento }}</td>
+                                        <th scope="row"><h5 class="textoAzul">Nacimiento:</h5></th>
+                                        <td><p class="textoAzul">{{ usuario.data.paciente.nacimiento }}</p></td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Teléfono:</th>
-                                        <td>{{ usuario.data.paciente.telefono }}</td>
+                                        <th scope="row"><h5 class="textoAzul">Teléfono:</h5></th>
+                                        <td><p class="textoAzul">{{ usuario.data.paciente.telefono }}</p></td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Dirección:</th>
-                                        <td>{{ usuario.data.paciente.direccion }}</td>
+                                        <th scope="row"><h5 class="textoAzul">Dirección:</h5></th>
+                                        <td><p class="textoAzul">{{ usuario.data.paciente.direccion }}</p></td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Antecedentes:</th>
-                                        <td>{{ usuario.data.paciente.antecedentes }}</td>
+                                        <th scope="row"><h5 class="textoAzul">Antecedentes:</h5></th>
+                                        <td><p class="textoAzul">{{ usuario.data.paciente.antecedentes }}</p></td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Alergias:</th>
-                                        <td>{{ usuario.data.paciente.alergias }}</td>
+                                        <th scope="row"><h5 class="textoAzul">Alergias:</h5></th>
+                                        <td><p class="textoAzul">{{ usuario.data.paciente.alergias }}</p></td>
                                     </tr>
                                 </tbody>
                             </table>

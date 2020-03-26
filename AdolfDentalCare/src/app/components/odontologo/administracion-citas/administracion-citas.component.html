@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row m-3">
-        <div class="col textoAzul text-center">
-            <h4>ADMINISTRAR CITAS</h4>
+        <div class="col text-center">
+            <h4 class="titulosRosa">ADMINISTRAR CITAS</h4>
         </div>
     </div>
 
@@ -13,13 +13,13 @@
         <li class="list-group-item" *ngFor="let cita of agendaCitas; index as i">
 
             <div class="row textoAzul text-center">
-                <div class="col-12 col-sm-8">
-                    <h5>Paciente:</h5>
-                    <h6>{{ pacientes[i].paciente.nombre }} {{ pacientes[i].paciente.apellido }}</h6>
-                    <h5>Id de cita:</h5>
-                    <h6>{{ cita.id }}</h6>
+                <div class="col-12">
+                    <h5 class="textoAzul">Paciente:</h5>
+                    <h6 class="textoAzul">{{ pacientes[i].paciente.nombre }} {{ pacientes[i].paciente.apellido }}</h6>
+                    <h5 class="textoAzul">Id de cita:</h5>
+                    <h6 class="textoAzul">{{ cita.id }}</h6>
                 </div>
-                <div class="col-12 col-sm-4 d-flex">
+                <div class="col-12 ">
                     <button class="h-100 w-100 btn btn-primary text-center align-self-center" (click)="mostrarCita(i)">DETALLES</button>
                 </div>
             </div>
@@ -35,25 +35,25 @@
                                 <tbody>
 
                                     <tr>
-                                        <th scope="row">Cita confirmada:</th>
+                                        <th scope="row"><h5 class="textoAzul">Cita confirmada:</h5></th>
                                         <td *ngIf="cita.confirmada; then confirmada else noConfirmada" class="align-items-center"></td>
 
                                         <ng-template #confirmada>
-                                            <p>Sí</p>
+                                            <p class="textoAzul">Sí</p>
                                         </ng-template>
                                         <ng-template #noConfirmada>
-                                            <p>No</p>
+                                            <p class="textoAzul">No</p>
                                         </ng-template>
                                     </tr>
 
                                     <tr>
-                                        <th scope="row">Tratamiento:</th>
-                                        <td>{{ cita.tratamiento }}</td>
+                                        <th scope="row"><h5 class="textoAzul">Tratamiento:</h5></th>
+                                        <td><p class="textoAzul">{{ cita.tratamiento }}</p></td>
                                     </tr>
 
                                     <tr>
-                                        <th scope="row">Fecha y hora:</th>
-                                        <td>{{ cita.fecha }} a las {{ cita.hora }} hrs</td>
+                                        <th scope="row"><h5 class="textoAzul">Fecha y hora:</h5></th>
+                                        <td><p class="textoAzul">{{ cita.fecha }} a las {{ cita.hora }} hrs</p></td>
                                     </tr>
                                 </tbody>
 
@@ -82,7 +82,7 @@
                     <div class="row">
 
                         <div class="col-12 textoAzul">
-                            <h5>Seleccione una fecha:</h5>
+                            <h5 class="textoAzul">Seleccione una fecha:</h5>
                             <input type="date" name="" id="" class="form-control" [(ngModel)]="fechaActiva" [ngModelOptions]="{standalone: true}" value="hoy">
                         </div>
 
@@ -100,7 +100,7 @@
                     <div class="row m-3">
 
                         <div class="col-12 textoAzul" *ngIf="seleccionada[i]">
-                            <h5>Seleccione la hora de su cita:</h5>
+                            <h5 class="textoAzul">Seleccione la hora de su cita:</h5>
                             <form action="">
                                 <div class="form-group">
                                     <select class="form-control" [(ngModel)]="horaActiva" [ngModelOptions]="{standalone: true}">
@@ -123,7 +123,7 @@
 
             <div class="row" *ngIf="accion[i] === 2">
                 <div class="col-12 text-center textoAzul">
-                    <h5>¿Está seguro que desea cancelar esta cita?</h5>
+                    <h5 class="textoAzul">¿Está seguro que desea cancelar esta cita?</h5>
                 </div>
                 <div class="col-12 col-md-6 mt-2">
                     <button class="btn btn-dark text-center h-100" (click)="cancelar(i)">SÍ</button>
@@ -135,7 +135,7 @@
 
             <div class="row" *ngIf="accion[i] === 3">
                 <div class="col-12 text-center textoAzul">
-                    <h5>¿Está seguro que desea confirmar esta cita?</h5>
+                    <h5 class="textoAzul">¿Está seguro que desea confirmar esta cita?</h5>
                 </div>
                 <div class="col-12 col-md-6 mt-2">
                     <button class="btn btn-dark text-center h-100" (click)="confirmar(i)">SÍ</button>
@@ -149,7 +149,7 @@
 
     <ng-template #elseBlock>
         <div class="col textoAzul text-center mb-3">
-            <h5>No tiene citas próximas</h5>
+            <h5 class="textoAzul">No tiene citas próximas</h5>
         </div>
     </ng-template>
 
