@@ -9,7 +9,7 @@
             <div class="col-12 col-sm-8">
                 <h5>Paciente:</h5>
                 <h6>{{ pacientes[i].paciente.nombre }} {{ pacientes[i].paciente.apellido }}</h6>
-                <h5>Id de cita:</h5>
+                <h5>ID de la cita:</h5>
                 <h6>{{ cita.id }}</h6>
             </div>
             <div class="col-12 col-sm-4">
@@ -29,13 +29,13 @@
                             <tbody>
 
                                 <tr>
-                                    <th scope="row">Tratamiento:</th>
-                                    <td>{{ cita.tratamiento }}</td>
+                                    <th scope="row"><h5 class="textoAzul">Tratamiento:</h5></th>
+                                    <td><p class="textoAzul">{{ cita.tratamiento }}</p></td>
                                 </tr>
 
                                 <tr>
-                                    <th scope="row">Fecha y hora:</th>
-                                    <td>{{ cita.fecha }} a las {{ cita.hora }} hrs</td>
+                                    <th scope="row"><h5 class="textoAzul">Fecha y hora:</h5></th>
+                                    <td><p class="textoAzul">{{ cita.fecha }} a las {{ cita.hora }} hrs</p></td>
                                 </tr>
                             </tbody>
 
@@ -53,15 +53,15 @@
                 <div class="row">
 
                     <div class="col-12 textoAzul">
-                        <h5>Tratamiento aplicado:</h5>
+                        <h6>Tratamiento aplicado:</h6>
                         <input type="text" class="form-control" [(ngModel)]="tratamientoActivo" [ngModelOptions]="{standalone: true}">
                     </div>
                     <div class="col-12 textoAzul">
-                        <h5>Récipe:</h5>
+                        <h6>Récipe:</h6>
                         <input type="text" class="form-control" [(ngModel)]="recipeActivo" [ngModelOptions]="{standalone: true}">
                     </div>
                     <div class="col-12 textoAzul">
-                        <h5>Costo de consulta:</h5>
+                        <h6>Costo de consulta:</h6>
                         <input type="number" class="form-control" [(ngModel)]="costoActivo" [ngModelOptions]="{standalone: true}">
                     </div>
 
