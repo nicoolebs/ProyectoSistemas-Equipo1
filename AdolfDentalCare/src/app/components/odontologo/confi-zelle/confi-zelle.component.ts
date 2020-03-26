@@ -8,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./confi-zelle.component.css']
 })
 export class ConfiZelleComponent implements OnInit {
-  
+
   doctor = this.auth.usuarioLogg;
   email = '';
-  nombre = this.doctor.doctor.nombre;
+  nombre: any;
 
   constructor(
     private firebase : FirestoreService,
@@ -22,11 +22,14 @@ export class ConfiZelleComponent implements OnInit {
   }
 
   guardarCambios(){
+
     this.doctor.doctor.mediosPago.zelle.nombre = this.nombre;
     this.doctor.doctor.mediosPago.zelle.email = this.email;
-    
-    this.firebase.updateDocumento(this.doctor.uid,this.doctor,'Usuarios');
-    alert('Datos guardados con exito');
+
+    this.firebase.updateDocumento(this.doctor.uid,this.doctor,'Usuarios').then(corr => {
+
+      alert('Datos guardados con exito');
+    });
   }
 
 }
