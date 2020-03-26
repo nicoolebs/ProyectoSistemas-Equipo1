@@ -5,7 +5,7 @@ export interface Odontologo {
   apellido: string;
   pacientes: string[];
   cronograma: Cronograma[];
-  mediosPago: string[];
+  mediosPago: any[];
   porcentaje: number;
   agendaCitas: any[];
 }

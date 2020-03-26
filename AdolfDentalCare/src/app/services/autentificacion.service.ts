@@ -43,6 +43,7 @@ export class AutentificacionService {
             uid: credencialUsuario.user.uid,
             email: credencialUsuario.user.email,
             tipo: 'paciente',
+            habilitado: true,
             paciente: {
               nombre: usuario.nombre,
               apellido: usuario.apellido,
@@ -67,6 +68,7 @@ export class AutentificacionService {
             uid: credencialUsuario.user.uid,
             email: credencialUsuario.user.email,
             tipo: 'doctor',
+            habilitado: true,
             doctor: {
               nombre: usuario.nombre,
               apellido: usuario.apellido,
@@ -162,6 +164,7 @@ export class AutentificacionService {
         uid: credencialUsuario.user.uid,
         email: credencialUsuario.user.email,
         tipo: 'paciente',
+        habilitado: false,
         paciente: {
           nombre: usuario.nombre,
           apellido: usuario.apellido,
@@ -188,7 +191,6 @@ export class AutentificacionService {
         asunto: 'Bienvenido a Adolf Dental Care',
         texto: 'Sea bienvenido a la página de Adolf Dental Care <br>Su usuario es: '
         + this.nuevoUsuario.email
-        +'<br>Su contraseña es: CoNtRaSeÑaRaNdOm'
         +'<br>Por favor, antes de iniciar sesión cambie su clave.'
       };
 
@@ -220,62 +222,79 @@ export class AutentificacionService {
         // Busca el documento en la base de datos
         this.baseDatos.getDocumento(usuario.user.uid, 'Usuarios').subscribe( documento => {
 
-          // Si la data de documento en el atributo tipo es igual a paciente
-          if (documento.data().tipo === 'paciente') {
-
-            // Entonces crea la interfaz del usuario con su atributo paciente
-            this.usuarioLogg = {
-              uid: usuario.user.uid,
-              email: usuario.user.email,
-              tipo: documento.data().tipo,
-              // Como es un paciente se activa el atributo de paciente y se establecen los atributos propios de la interfaz paciente
-              paciente: {
-                nombre: documento.data().paciente.nombre,
-                apellido: documento.data().paciente.apellido,
-                nacimiento: documento.data().paciente.nacimiento,
-                telefono: documento.data().paciente.telefono,
-                genero: documento.data().paciente.genero,
-                direccion: documento.data().paciente.direccion,
-                antecedentes: documento.data().paciente.antecedentes,
-                alergias: documento.data().paciente.alergias,
-                citaProx: documento.data().paciente.citaProx,
-                historia: documento.data().paciente.historia
-              }
-
-            };
-
-            // Luego de crear el usuario navega a la vista del dashboard del paciente
-            this.router.navigate(['dashboard-paciente/mi-perfil']);
-
-            // En cambio, si el atributo data del documento es igual a doctor
-          } else if (documento.data().tipo === 'doctor') {
-
-            this.usuarioLogg = {
-              uid: usuario.user.uid,
-              email: usuario.user.email,
-              tipo: documento.data().tipo,
-              // Como es un doctor se activa el atributo de doctor y se establecen los atributos propios de la interfaz paciente
-              doctor: {
-                nombre: documento.data().doctor.nombre,
-                apellido: documento.data().doctor.apellido,
-                pacientes: documento.data().doctor.pacientes,
-                cronograma: documento.data().doctor.cronograma,
-                mediosPago: documento.data().doctor.mediosPago,
-                porcentaje: documento.data().doctor.porcentaje,
-                agendaCitas: documento.data().doctor.agendaCitas
-              }
-            };
-
-            // Navega a la ruta del dashboard del odontólogo
-            this.router.navigate(['dashboard-odontólogo/administrar-citas']);
-
-            // En cambio, si el atributo data del documento es igual a admin
+          if (documento.data().habilitado === false){
+            alert ('Estimado usuario, su cuenta se encuentra bloqueada. Proceda a comunicarse con un administrador para desbloquearla.');
+            this.cerrarSesion();
           } else {
 
-            // Navega a la ruta del administrador
-            this.router.navigate(['dashboard-admin']);
+            // Si la data de documento en el atributo tipo es igual a paciente
+            if (documento.data().tipo === 'paciente') {
+
+              // Entonces crea la interfaz del usuario con su atributo paciente
+              this.usuarioLogg = {
+                uid: usuario.user.uid,
+                email: usuario.user.email,
+                tipo: documento.data().tipo,
+                habilitado: documento.data().habilitado,
+                // Como es un paciente se activa el atributo de paciente y se establecen los atributos propios de la interfaz paciente
+                paciente: {
+                  nombre: documento.data().paciente.nombre,
+                  apellido: documento.data().paciente.apellido,
+                  nacimiento: documento.data().paciente.nacimiento,
+                  telefono: documento.data().paciente.telefono,
+                  genero: documento.data().paciente.genero,
+                  direccion: documento.data().paciente.direccion,
+                  antecedentes: documento.data().paciente.antecedentes,
+                  alergias: documento.data().paciente.alergias,
+                  citaProx: documento.data().paciente.citaProx,
+                  historia: documento.data().paciente.historia
+                }
+
+              };
+
+              // Luego de crear el usuario navega a la vista del dashboard del paciente
+              this.router.navigate(['dashboard-paciente/mi-perfil']);
+
+              // En cambio, si el atributo data del documento es igual a doctor
+            } else if (documento.data().tipo === 'doctor') {
+
+              this.usuarioLogg = {
+                uid: usuario.user.uid,
+                email: usuario.user.email,
+                tipo: documento.data().tipo,
+                habilitado: documento.data().habilitado,
+                // Como es un doctor se activa el atributo de doctor y se establecen los atributos propios de la interfaz paciente
+                doctor: {
+                  nombre: documento.data().doctor.nombre,
+                  apellido: documento.data().doctor.apellido,
+                  pacientes: documento.data().doctor.pacientes,
+                  cronograma: documento.data().doctor.cronograma,
+                  mediosPago: documento.data().doctor.mediosPago,
+                  porcentaje: documento.data().doctor.porcentaje,
+                  agendaCitas: documento.data().doctor.agendaCitas
+                }
+              };
+
+              // Navega a la ruta del dashboard del odontólogo
+              this.router.navigate(['dashboard-odontólogo/administrar-citas']);
+
+              // En cambio, si el atributo data del documento es igual a admin
+            } else {
+
+              this.usuarioLogg = {
+                uid: documento.data().uid,
+                email: documento.data().email,
+                tipo: documento.data().tipo,
+                habilitado: documento.data().habilitado
+              }
+
+              // Navega a la ruta del administrador
+              this.router.navigate(['dashboard-admin']);
+            }
           }
+
         });
+
 
         // Si ocurre algun error, lo muestra en consola
       }, err => {
@@ -302,7 +321,7 @@ export class AutentificacionService {
     if (email !== '' || email !== undefined) {
 
       this.autentificacion.auth.sendPasswordResetEmail(email).then(corr => {
-        alert('Estimado usuario, le hemos enviado un correo electrónico para que restablezca su contraseña');
+        alert('Un correo electrónico ha sido enviado para proceder a la modificación de la contraseña.');
       }).catch(err => {
         alert(err);
       });
