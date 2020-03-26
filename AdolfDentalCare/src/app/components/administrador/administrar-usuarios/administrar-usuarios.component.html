@@ -52,7 +52,24 @@
             </div>
 
             <div class="row" *ngIf="accion[i] === 3">
-                <div class="col"></div>
+                <div class="col">
+
+                    <div class="row">
+                        <div class="col textoAzul">
+                            <h5>¿Está seguro que desea solicitar un cambio de clave para este usuario?</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <button class="btn btn-dark h-100 w-100" (click)="resetUserPassword(i)">SÍ</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-dark h-100 w-100" (click)="cambiarClave(i)">NO</button>
+                        </div>
+                    </div>
+
+
+                </div>
             </div>
 
             <hr>

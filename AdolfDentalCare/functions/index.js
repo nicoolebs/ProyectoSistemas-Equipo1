@@ -34,39 +34,6 @@ exports.sendEmailNotification = functions.firestore.document('Correos/{docId}')
 
     });
 
-const cors = require('cors')({ origin: true });
-
-const resetUserPassword = functions.https.onRequest(async(req, res) => {
-
-    return cors(req, res, async() => {
-        const email = req.body.data.email;
-        const password = req.body.data.password;
-
-        // eslint-disable-next-line promise/always-return
-        admin.auth().getUserByEmail(email).then(getUserRecord => {
-
-            // eslint-disable-next-line promise/no-nesting
-            admin.auth().updateUser(getUserRecord.uid, {
-                email,
-                password
-                // eslint-disable-next-line promise/always-return
-            }).then((userRecord) => {
-                res.send({
-                    status: 200,
-                    data: userRecord
-                });
-            }).catch((error) => {
-                res.send({
-                    status: 500,
-                    data: error
-                });
-            });
-        }).catch((error) => {
-            console.log('Error al buscar los datos del usuario', error);
-        });
-    })
-});
-
 
 // // Create and Deploy Your First Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions

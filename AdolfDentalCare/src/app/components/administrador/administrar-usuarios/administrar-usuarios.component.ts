@@ -15,7 +15,6 @@ export class AdministrarUsuariosComponent implements OnInit {
   usuariosDelSistema: any[] = [];
 
   emailActivo: any;
-  contraseñaActiva: any;
   accion: number[] = [];
 
   constructor(private fire: FirestoreService, private auth: AutentificacionService, private functions: AngularFireFunctions) { }
@@ -61,18 +60,12 @@ export class AdministrarUsuariosComponent implements OnInit {
     }
   }
 
-  resetUserPassword() {
+  resetUserPassword(i: number) {
 
-        const userNewCredential = {email: this.emailActivo, password: this.contraseñaActiva};
+    this.emailActivo = this.usuariosDelSistema[i].email;
 
-        this.functions.httpsCallable('resetUserPassword')
-        (userNewCredential).toPromise().then((updatedUser) => {
-          console.log(updatedUser);
-        }).catch((error) => console.log(error));
-  }
+    this.auth.cambiarClave(this.emailActivo);
 
-  deleteUserOfSistem(usuario){
-    this.fire.deleteUser(usuario);
   }
 
 }
