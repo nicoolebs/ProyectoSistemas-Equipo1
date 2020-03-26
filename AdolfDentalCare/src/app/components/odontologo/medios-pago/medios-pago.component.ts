@@ -1,3 +1,5 @@
+import { AutentificacionService } from './../../../services/autentificacion.service';
+import { FirestoreService } from './../../../services/firestore.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./medios-pago.component.css']
 })
 export class MediosPagoComponent implements OnInit {
-
-  constructor() { }
+  doctor = this.auth.usuarioLogg;
+  banco = this.doctor.doctor.mediosPago.banco;
+  zelle = this.doctor.doctor.mediosPago.zelle;
+  
+  constructor(
+    private firebase : FirestoreService,
+    private auth : AutentificacionService
+  ) { }
 
   ngOnInit(): void {
   }
