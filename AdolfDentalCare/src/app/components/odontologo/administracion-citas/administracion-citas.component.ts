@@ -43,6 +43,9 @@ export class AdministracionCitasComponent implements OnInit {
       });
     }
 
+    console.log(this.pacientes);
+
+
   }
 
   mostrarCita(i: number) {
@@ -123,9 +126,10 @@ export class AdministracionCitasComponent implements OnInit {
 
       this.agendaCitas = this.agendaCitas.filter(filtro => filtro.id !== cancelada);
       this.idCitas = this.idCitas.filter(filtro => filtro !== cancelada);
-      console.log(this.idCitas);
 
       this.auth.usuarioLogg.doctor.agendaCitas = this.idCitas;
+
+      console.log(this.auth.usuarioLogg);
 
       this.baseDatos.updateDocumento(this.auth.usuarioLogg.uid, this.auth.usuarioLogg, 'Usuarios').then(corr => {
 

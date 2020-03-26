@@ -19,7 +19,6 @@ export class MiPerfilComponent implements OnInit {
     private router: Router
   ) {
     this.usuarioActivo = autentificacion.usuarioLogg;
-    console.log(autentificacion.usuarioLogg);
 
   }
 
@@ -27,7 +26,7 @@ export class MiPerfilComponent implements OnInit {
   }
 
   modificarPerfil(){
-    this.modificar =!this.modificar
-    
+    this.modificar = !this.modificar;
+
   }
 }

@@ -60,6 +60,7 @@ export class CrearCitaComponent implements OnInit {
         uid: pac[0].data.uid,
         email: pac[0].data.email,
         tipo: pac[0].data.tipo,
+        habilitado: pac[0].data.habilitado,
         paciente: {
           nombre: pac[0].data.paciente.nombre,
           apellido: pac[0].data.paciente.apellido,
