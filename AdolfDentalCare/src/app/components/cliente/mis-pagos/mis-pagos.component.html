@@ -20,7 +20,7 @@
 
     <div class="row">
 
-        <div class="col">
+        <div class="col-12 d-flex justify-content-center">
             <li class="list-group-item" *ngFor="let pagoPen of pagosPendientes">
 
                 <div class="row textoAzul text-center">
@@ -57,14 +57,14 @@
             <li class="list-group-item" *ngFor="let factura of facturas; index as i">
 
                 <div class="row textoAzul text-center">
-                    <div class="col-12 col-lg-8">
+                    <div class="col-12">
                         <h5>Referencia:</h5>
                         <h6>{{ factura.ref }}</h6>
                         <h5>Costo:</h5>
                         <h6>{{ factura.monto }} $</h6>
                     </div>
 
-                    <div class="col-12 col-lg-12">
+                    <div class="col-12">
                         <button class="btn btn-dark h-100 w-100" (click)="verDetalle(i)">DETALLES</button>
                     </div>
                 </div>

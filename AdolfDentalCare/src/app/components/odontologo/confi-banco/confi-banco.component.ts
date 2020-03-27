@@ -14,11 +14,11 @@ export class ConfiBancoComponent implements OnInit {
   doctor = this.authentication.usuarioLogg;
   nombre = this.doctor.doctor.nombre;
   apellido = this.doctor.doctor.apellido;
-  banco = '';
-  tipoCta = '';
-  nroCta = '';
-  identidad = '';
-  
+  banco: any;
+  tipoCta: any;
+  nroCta: any;
+  identidad: any;
+
   constructor(
     private firestore : FirestoreService,
     private authentication : AutentificacionService

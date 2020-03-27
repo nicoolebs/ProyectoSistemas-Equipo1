@@ -1,1 +1,29 @@
-<p>confi-paypal works!</p>
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col titulosRosa text-center mt-3 mb-3">
+            <h4>PAYPAL CONFIGURACIÓN</h4>
+        </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+        <div class="col-12 col-md-10">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th class="textoAzul text-center" scope="row">Correo:</th>
+                        <td><input class="w-100 form-control" type="text " [(ngModel)]="email"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+        <div class="col-12 col-md-6">
+            <button class="w-100 btn btn-dark h-100" (click)="guardarCambios()">GUARDAR</button>
+
+        </div>
+    </div>
+</div>

@@ -1,55 +1,53 @@
 <div class="container">
     <div class="row">
         <div class="col-12 mt-3">
-            
-            <table class="table ">
-                <thead>
-                  <tr>
-                    <th class="titulosRosa"scope="col">Modificar perfil</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                  </tr>
-                </thead>
+
+            <table class="table">
                 <tbody>
-                  <tr>
-                    <th scope="row"><h6 class="textAzul">Nombre:</h6></th>
-                    <td> <input class="textAzul" type="text" [(ngModel)]="nombre" placeholder="Modifica tu nombre"></td>
-                    <td><button class="btn btn-dark h-100 w-100" (click)='guardarNombre()'>Guardar</button></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><h6 class="textAzul">Apellido: </h6></th>
-                    <td><input class="textAzul" type="text" [(ngModel)]="apellido" placeholder="Modifica tu Apellido"></td>
-                    <td><button  class="btn btn-dark h-100 w-100" (click)='guardarApellido()'>Guardar</button></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><h6 class="textAzul">Dirección: </h6></th>
-                    <td><input class="textAzul" type="text" [(ngModel)]="direccion" placeholder="Modifica tu Dirección"></td>
-                    <td><button class="btn btn-dark h-100 w-100" (click)='guardarDireccion()'>Guardar</button></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><h6 class="textAzul">Fecha de Nacimiento: </h6></th>
-                    <td><input class="textAzul" type="date" [(ngModel)]="fecha" placeholder="Modifica tu nacimiento"></td>
-                    <td><button class="btn btn-dark h-100 w-100" (click)='guardarFecha()'>Guardar</button></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><h6 class="textAzul">Género: </h6></th>
-                    <td><input class="textAzul" type="text" [(ngModel)]="sexo" placeholder="Modifica tu Género"></td>
-                    <td><button class="btn btn-dark h-100 w-100"  (click)='guardarSexo()'>Guardar</button></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><h6 class="textAzul">Teléfono: </h6></th>
-                    <td><input class="textAzul"  type="number" [(ngModel)]="telefono" placeholder="Modifica tu Teléfono"></td>
-                    <td><button class="btn btn-dark h-100 w-100" (click)='guardarTelefono()'>Guardar</button></td>
-                    <td></td>
-                  </tr>
+                    <tr>
+                        <th scope="row">
+                            <h6 class="textAzul">Nombre:</h6>
+                        </th>
+                        <td> <input class="textAzul form-control" type="text" [(ngModel)]="nombre" placeholder="Modifica tu nombre"></td>
+                        <td><button class="btn btn-dark h-100 w-100" (click)='guardarNombre()'>Guardar</button></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <h6 class="textAzul">Apellido: </h6>
+                        </th>
+                        <td><input class="textAzul form-control" type="text" [(ngModel)]="apellido" placeholder="Modifica tu Apellido"></td>
+                        <td><button class="btn btn-dark h-100 w-100" (click)='guardarApellido()'>Guardar</button></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <h6 class="textAzul">Dirección: </h6>
+                        </th>
+                        <td><input class="textAzul form-control" type="text" [(ngModel)]="direccion" placeholder="Modifica tu Dirección"></td>
+                        <td><button class="btn btn-dark h-100 w-100" (click)='guardarDireccion()'>Guardar</button></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <h6 class="textAzul">Fecha de Nacimiento: </h6>
+                        </th>
+                        <td><input class="textAzul form-control" type="date" [(ngModel)]="fecha" placeholder="Modifica tu nacimiento"></td>
+                        <td><button class="btn btn-dark h-100 w-100" (click)='guardarFecha()'>Guardar</button></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <h6 class="textAzul">Género: </h6>
+                        </th>
+                        <td><input class="textAzul form-control" type="text" [(ngModel)]="sexo" placeholder="Modifica tu Género"></td>
+                        <td><button class="btn btn-dark h-100 w-100" (click)='guardarSexo()'>Guardar</button></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <h6 class="textAzul">Teléfono: </h6>
+                        </th>
+                        <td><input class="textAzul form-control" type="number" [(ngModel)]="telefono" placeholder="Modifica tu Teléfono"></td>
+                        <td><button class="btn btn-dark h-100 w-100" (click)='guardarTelefono()'>Guardar</button></td>
+                    </tr>
                 </tbody>
-              </table>
+            </table>
 
 
 

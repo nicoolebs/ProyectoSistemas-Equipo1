@@ -12,7 +12,7 @@
                 <h5 class="textoAzul">Nombre y apellido: {{ usuario.data.paciente.nombre }} {{ usuario.data.paciente.apellido }}</h5>
             </div>
             <div class="col-12 ">
-                <button class="h-75 w-50 btn btn-primary text-center align-self-center" (click)="mostrarPerfil(i)">Perfil del paciente</button>
+                <button class="h-100 w-50 btn btn-primary text-center align-self-center" (click)="mostrarPerfil(i)">Perfil del paciente</button>
             </div>
         </div>
         <div class="row" *ngIf="perfilActivo[i]">
@@ -25,28 +25,52 @@
                                 <!-- tabla que muestra datos de usuario -->
                                 <tbody>
                                     <tr>
-                                        <th scope="row"><h5 class="textoAzul">Género:</h5></th>
-                                        <td><p class="textoAzul">{{ usuario.data.paciente.genero }}</p></td>
+                                        <th scope="row">
+                                            <h5 class="textoAzul">Género:</h5>
+                                        </th>
+                                        <td>
+                                            <p class="textoAzul">{{ usuario.data.paciente.genero }}</p>
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <th scope="row"><h5 class="textoAzul">Nacimiento:</h5></th>
-                                        <td><p class="textoAzul">{{ usuario.data.paciente.nacimiento }}</p></td>
+                                        <th scope="row">
+                                            <h5 class="textoAzul">Nacimiento:</h5>
+                                        </th>
+                                        <td>
+                                            <p class="textoAzul">{{ usuario.data.paciente.nacimiento }}</p>
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <th scope="row"><h5 class="textoAzul">Teléfono:</h5></th>
-                                        <td><p class="textoAzul">{{ usuario.data.paciente.telefono }}</p></td>
+                                        <th scope="row">
+                                            <h5 class="textoAzul">Teléfono:</h5>
+                                        </th>
+                                        <td>
+                                            <p class="textoAzul">{{ usuario.data.paciente.telefono }}</p>
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <th scope="row"><h5 class="textoAzul">Dirección:</h5></th>
-                                        <td><p class="textoAzul">{{ usuario.data.paciente.direccion }}</p></td>
+                                        <th scope="row">
+                                            <h5 class="textoAzul">Dirección:</h5>
+                                        </th>
+                                        <td>
+                                            <p class="textoAzul">{{ usuario.data.paciente.direccion }}</p>
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <th scope="row"><h5 class="textoAzul">Antecedentes:</h5></th>
-                                        <td><p class="textoAzul">{{ usuario.data.paciente.antecedentes }}</p></td>
+                                        <th scope="row">
+                                            <h5 class="textoAzul">Antecedentes:</h5>
+                                        </th>
+                                        <td>
+                                            <p class="textoAzul">{{ usuario.data.paciente.antecedentes }}</p>
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <th scope="row"><h5 class="textoAzul">Alergias:</h5></th>
-                                        <td><p class="textoAzul">{{ usuario.data.paciente.alergias }}</p></td>
+                                        <th scope="row">
+                                            <h5 class="textoAzul">Alergias:</h5>
+                                        </th>
+                                        <td>
+                                            <p class="textoAzul">{{ usuario.data.paciente.alergias }}</p>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>

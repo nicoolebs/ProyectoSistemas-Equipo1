@@ -1,45 +1,48 @@
-<div class="container">
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col text-center titulosRosa mt-3 mb-3">
+            <h4>CUENTA BANCARIA CONFIGURACIÓN</h4>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-12">
             <table class="table">
-                <thead>
-                  <tr>
-                    <th class="titulosRosa"scope="col">CUENTA BANCARIA</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                  </tr>
-                </thead>
                 <tbody>
-                  <tr>
-                    <th class="textoAzul"scope="row">Número de cuenta: </th>
-                    <td> <input class="textoAzul" type="text" [(ngModel)]="nroCta">
-                        <p class="textoAzul">{{nroCta}}</p></td><td></td><td></td>
-                  </tr>
-                  <tr>
-                    <th class="textoAzul"scope="row">Nombre y apellido: </th>
-                    <td><p class="textoAzul">{{nombre}}  {{apellido}}</p></td><td></td><td></td>
-                  </tr>
-                  <tr>
-                    <th class="textoAzul"scope="row">Cédula de identidad: </th>
-                    <td><input class="textoAzul" type="text" [(ngModel)]="identidad">
-                        <p class="textoAzul">{{identidad}}</p></td><td></td><td></td>
-                  </tr>
-                  <tr>
-                    <th class="textoAzul"scope="row">Banco: </th>
-                    <td><input class="textoAzul" type="text" [(ngModel)]="banco">
-                        <p class="textoAzul">{{banco}}</p></td><td></td><td></td>
-                  </tr>
-                  <tr>
-                    <th class="textoAzul"scope="row">Tipo de Cuenta: </th>
-                    <td><input class="textoAzul" type="text" [(ngModel)]="tipoCta">
-                        <p class="textoAzul">{{tipoCta}}</p></td><td></td><td></td>
-                  </tr>
+                    <tr>
+                        <th class="textoAzul" scope="row">Número de cuenta: </th>
+                        <td> <input class="textoAzul form-control" type="text" [(ngModel)]="nroCta">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="textoAzul" scope="row">Nombre y apellido: </th>
+                        <td class="textoAzul">{{nombre}} {{apellido}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="textoAzul" scope="row">Cédula de identidad: </th>
+                        <td><input class="textoAzul form-control" type="text" [(ngModel)]="identidad">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="textoAzul" scope="row">Banco: </th>
+                        <td><input class="textoAzul form-control" type="text" [(ngModel)]="banco">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="textoAzul" scope="row">Tipo de Cuenta: </th>
+                        <td><input class="textoAzul form-control" type="text" [(ngModel)]="tipoCta">
+                        </td>
+                    </tr>
                 </tbody>
-              </table>
+            </table>
         </div>
-        <div class="col-12">
-            <button class="btn btn-dark h-100 w-100"(click)='guardarCambios()'>Guardar cambios</button>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-dark h-100 w-100" (click)='guardarCambios()'>Guardar cambios</button>
         </div>
     </div>
 
