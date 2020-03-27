@@ -9,4 +9,5 @@ export interface Cita {
   recipe?: string;
   id?: string;
   paga: boolean;
+  archivo: string;
 }

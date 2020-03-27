@@ -1,7 +1,8 @@
 import { AutentificacionService } from './../../../services/autentificacion.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Form } from '@angular/forms';
 import { FirestoreService } from '../../../services/firestore.service';
+import { AngularFireStorage } from '@angular/fire/storage';
+import 'firebase/storage';
 
 @Component({
   selector: 'app-administrar-historias',
@@ -17,7 +18,7 @@ export class AdministrarHistoriasComponent implements OnInit {
   seleccionado = false;
   historia: any[] = [];
 
-  constructor(private auth: AutentificacionService, private baseDatos: FirestoreService) { }
+  constructor(private auth: AutentificacionService, private baseDatos: FirestoreService, private storage: AngularFireStorage) { }
 
   ngOnInit(): void {
     for (let index = 0; index < this.auth.usuarioLogg.doctor.pacientes.length; index++) {
@@ -55,4 +56,25 @@ export class AdministrarHistoriasComponent implements OnInit {
 
 
   }
+
+  uploadFile(event, i) {
+    console.log(this.historia[i]);
+    const file = event.target.files[0];
+    const filePath = this.historia[i].id;
+    const ref = this.storage.ref(filePath);
+    const task = ref.put(file).then( snapshot => {
+
+      snapshot.ref.getDownloadURL().then(link => {
+
+        this.historia[i].archivo = link;
+        this.baseDatos.updateDocumento(this.historia[i].id, this.historia[i], 'Citas').then(corr => {
+          alert('Archivo modificado con éxito.');
+        });
+
+      });
+
+    });
+
+  }
+
 }
