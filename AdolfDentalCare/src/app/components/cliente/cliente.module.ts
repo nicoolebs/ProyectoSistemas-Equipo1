@@ -13,11 +13,12 @@ import { PagarComponent } from './pagar/pagar.component';
 import { CrearCitaComponent } from './mis-citas/crear-cita/crear-cita.component';
 import { CitasComponent } from './mis-citas/citas/citas.component';
 import { ModificarPerfilComponent } from './mi-perfil/modificar-perfil/modificar-perfil.component';
+import { PaypalComponent } from './pagar/paypal/paypal.component';
 
 
 
 @NgModule({
-  declarations: [MiPerfilComponent, MisCitasComponent, MisPagosComponent, MiHistoriaComponent, ClienteComponent, PagarComponent, CrearCitaComponent, CitasComponent, ModificarPerfilComponent],
+  declarations: [MiPerfilComponent, MisCitasComponent, MisPagosComponent, MiHistoriaComponent, ClienteComponent, PagarComponent, CrearCitaComponent, CitasComponent, ModificarPerfilComponent, PaypalComponent],
   imports: [
     CommonModule,
     SharedModule,
