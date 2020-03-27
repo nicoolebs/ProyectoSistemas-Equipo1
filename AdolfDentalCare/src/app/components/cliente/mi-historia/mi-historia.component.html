@@ -16,26 +16,46 @@
 
             <table class="table">
                 <tbody>
-                  <tr>
-                    <th scope="row"><h5 class="textAzul ">Nombre y Apellido:</h5></th>
-                    <td><h5 class="textAzul ">{{ usuario.paciente.nombre }} {{ usuario.paciente.apellido }}</h5></td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><h5 class="textAzul">Ref. historia clínica:</h5></th>
-                    <td><h5 *ngIf="usuario" class="textAzul">{{usuario.uid}}</h5></td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><h5 class="textAzul">Fecha de nacimiento:</h5></th>
-                    <td><h5 class="textAzul ">{{ usuario.paciente.nacimiento }}</h5></td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><h5 class="textAzul">Género:</h5></th>
-                    <td><h5 class="textAzul ">{{ usuario.paciente.genero }}</h5></td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><h5 class="textAzul">Teléfono:</h5></th>
-                    <td><h5 class="textAzul">{{ usuario.paciente.telefono }}</h5></td>
-                  </tr>
+                    <tr>
+                        <th scope="row">
+                            <h5 class="textAzul ">Nombre y Apellido:</h5>
+                        </th>
+                        <td>
+                            <h5 class="textAzul ">{{ usuario.paciente.nombre }} {{ usuario.paciente.apellido }}</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <h5 class="textAzul">Ref. historia clínica:</h5>
+                        </th>
+                        <td>
+                            <h5 *ngIf="usuario" class="textAzul">{{usuario.uid}}</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <h5 class="textAzul">Fecha de nacimiento:</h5>
+                        </th>
+                        <td>
+                            <h5 class="textAzul ">{{ usuario.paciente.nacimiento }}</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <h5 class="textAzul">Género:</h5>
+                        </th>
+                        <td>
+                            <h5 class="textAzul ">{{ usuario.paciente.genero }}</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <h5 class="textAzul">Teléfono:</h5>
+                        </th>
+                        <td>
+                            <h5 class="textAzul">{{ usuario.paciente.telefono }}</h5>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
 
@@ -46,21 +66,29 @@
         <div class="col-12">
             <h4 class="titulosRosa textoALaIzquierda">Antecedentes clínicos:</h4>
         </div>
-        
+
 
         <div class="col-12 text-center">
 
             <table class="table">
                 <tbody>
-                  <tr>
-                    <th scope="row"><h5 class="textAzul">Antecedente patológico:</h5></th>
-                    <td><h5 class="textAzul">{{ usuario.paciente.antecedentes }}</h5></td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><h5 class="textAzul ">Alergias medicamentosas:</h5></th>
-                    <td><h5 class="textAzul ">{{ usuario.paciente.alergias }}</h5></td>
-                  </tr>
-                  
+                    <tr>
+                        <th scope="row">
+                            <h5 class="textAzul">Antecedente patológico:</h5>
+                        </th>
+                        <td>
+                            <h5 class="textAzul">{{ usuario.paciente.antecedentes }}</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <h5 class="textAzul ">Alergias medicamentosas:</h5>
+                        </th>
+                        <td>
+                            <h5 class="textAzul ">{{ usuario.paciente.alergias }}</h5>
+                        </td>
+                    </tr>
+
                 </tbody>
             </table>
 
@@ -91,32 +119,56 @@
                 <tbody>
 
                     <tr>
-                        <th scope="row"><h5 class="textAzul ">ID:</h5></th>
-                        <td><h5 class="textAzul ">{{ cita.id }}</h5></td>
+                        <th scope="row">
+                            <h5 class="textAzul ">ID:</h5>
+                        </th>
+                        <td>
+                            <h5 class="textAzul ">{{ cita.id }}</h5>
+                        </td>
                     </tr>
 
                     <tr>
-                        <th scope="row"><h5 class="textAzul ">Fecha y Hora:</h5></th>
-                        <td><h5 class="textAzul ">{{ cita.fecha }} a las {{ cita.hora }} hrs</h5></td>
+                        <th scope="row">
+                            <h5 class="textAzul ">Fecha y Hora:</h5>
+                        </th>
+                        <td>
+                            <h5 class="textAzul ">{{ cita.fecha }} a las {{ cita.hora }} hrs</h5>
+                        </td>
                     </tr>
 
                     <tr>
-                        <th scope="row"><h5 class="textAzul ">Tratamiento:</h5></th>
-                        <td><h5 class="textAzul ">{{ cita.tratamiento }}</h5></td>
+                        <th scope="row">
+                            <h5 class="textAzul ">Tratamiento:</h5>
+                        </th>
+                        <td>
+                            <h5 class="textAzul ">{{ cita.tratamiento }}</h5>
+                        </td>
                     </tr>
 
                     <tr>
-                        <th scope="row"><h5 class="textAzul ">Costo:</h5></th>
-                        <td><h5 class="textAzul ">{{ cita.costo }}</h5></td>
+                        <th scope="row">
+                            <h5 class="textAzul ">Costo:</h5>
+                        </th>
+                        <td>
+                            <h5 class="textAzul ">{{ cita.costo }}</h5>
+                        </td>
                     </tr>
 
                     <tr>
-                        <th scope="row"><h5 class="textAzul ">Récipe:</h5></th>
-                        <td><h5 class="textAzul ">{{ cita.recipe }}</h5></td>
+                        <th scope="row">
+                            <h5 class="textAzul ">Récipe:</h5>
+                        </th>
+                        <td>
+                            <h5 class="textAzul ">{{ cita.recipe }}</h5>
+                        </td>
                     </tr>
                     <tr>
-                        <th scope="row"><h5 class="textAzul ">Archivos:</h5></th>
-                        <td>Archivo.archivo</td>
+                        <th scope="row">
+                            <h5 class="textAzul ">Archivo:</h5>
+                        </th>
+                        <td>
+                            <a [href]="cita.archivo" target="blank">Enlace de descarga</a>
+                        </td>
                     </tr>
                 </tbody>
 

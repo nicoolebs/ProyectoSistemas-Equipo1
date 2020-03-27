@@ -44,7 +44,8 @@ export class CitasComponent implements OnInit {
           costo: data.data().costo,
           recipe: data.data().recipe,
           id: data.data().id,
-          paga: data.data().paga
+          paga: data.data().paga,
+          archivo: data.data().archivo
         };
 
         this.baseDatos.getDocumento(this.cita.doctor, 'Usuarios').subscribe(doctor => {
