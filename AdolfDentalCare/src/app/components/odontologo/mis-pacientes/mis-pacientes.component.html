@@ -12,7 +12,7 @@
                 <h5 class="textoAzul">Nombre y apellido: {{ usuario.data.paciente.nombre }} {{ usuario.data.paciente.apellido }}</h5>
             </div>
             <div class="col-12 ">
-                <button class="h-75 w-100 btn btn-primary text-center align-self-center" (click)="mostrarPerfil(i)">PERFIL</button>
+                <button class="h-75 w-50 btn btn-primary text-center align-self-center" (click)="mostrarPerfil(i)">Perfil del paciente</button>
             </div>
         </div>
         <div class="row" *ngIf="perfilActivo[i]">
