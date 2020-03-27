@@ -1,15 +1,16 @@
 <div class="container-fluid">
 
     <div class="row">
-        <div class="col-12 textAzul text-center">
-            <h4>ESTADÍSTICAS: CANTIDAD DE CITAS POR ODONTÓLOGO</h4>
+        <div class="col-12 titulosRosa text-center">
+            <h5>ESTADÍSTICAS: cantidad de citas por odontológo</h5>
+            <br><br>
         </div>
     </div>
 
     <div class="row" *ngFor="let odontologo of odontologos; index as i">
-        <div class="col">
-            <h5>Odontólogo: {{ odontologo.doctor.nombre }} {{ odontologo.doctor.apellido }}</h5>
-            <h5>Cantidad de Citas: {{ cantidadCitas[i] }}</h5>
+        <div class="col textoAzul">
+            <h6>Odontólogo: {{ odontologo.doctor.nombre }} {{ odontologo.doctor.apellido }}</h6>
+            <h6>Cantidad de Citas: {{ cantidadCitas[i] }}</h6>
             <hr class="separar">
         </div>
     </div>

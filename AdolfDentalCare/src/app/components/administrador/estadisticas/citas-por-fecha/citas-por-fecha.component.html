@@ -3,30 +3,31 @@
     <div class="row mt-3 mb-3">
         <!-- introducción(texto) -->
 
-        <div class="col-12 textoAzul text-center">
-            <h4>ESTADÍSITCA: CITAS POR RANGO DE FECHA</h4>
-            <h5>Seleccione el lapso de tiempo que desea ver en la estadística de citas</h5>
+        <div class="col-12 titulosRosa text-center">
+            <h5>ESTADÍSTICAS: citas por rango de fecha</h5>
+            <br>
+            <h6 class="textoALaIzquierda textoAzul">Seleccione el lapso de tiempo en el que desea ver en la estadística de citas</h6>
         </div>
 
     </div>
 
     <div class="row">
-        <div class="col">
-            <h5>Fecha inicial:</h5>
-            <input type="date" class="form-control" [(ngModel)]="fechaInicial" [ngModelOptions]="{standalone: true}">
+        <div class="col textoAzul">
+            <h6>Fecha inicial:</h6>
+            <input type="date" class="form-control textoAzul" [(ngModel)]="fechaInicial" [ngModelOptions]="{standalone: true}">
         </div>
     </div>
 
     <div class="row">
-        <div class="col">
-            <h5>Fecha final:</h5>
-            <input type="date" class="form-control" [(ngModel)]="fechaFinal" [ngModelOptions]="{standalone: true}">
+        <div class="col textoAzul">
+            <h6>Fecha final:</h6>
+            <input type="date" class="form-control textoAzul" [(ngModel)]="fechaFinal" [ngModelOptions]="{standalone: true}">
         </div>
     </div>
 
     <div class="row mt-3">
         <div class="col">
-            <button class="btn btn-dark h-100 w-100" (click)="verEstadistica()">VER ESTADÍSTICA</button>
+            <button class="btn btn-dark h-100 w-100" (click)="verEstadistica()">Ver estadística</button>
         </div>
     </div>
 
@@ -37,7 +38,7 @@
     </div>
 
     <div class="row" *ngIf="ver">
-        <div class="col">
+        <div class="col textoAzul">
             <h5>Cantidad de citas en el rango de fecha especificado: {{ cantidad }}</h5>
         </div>
     </div>
