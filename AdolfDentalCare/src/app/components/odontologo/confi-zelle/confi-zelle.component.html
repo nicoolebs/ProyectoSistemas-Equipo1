@@ -1,12 +1,28 @@
 <div class="container">
     <div class="row">
-        <div class="col">
-            <label>Nombre:</label>
-            <input type="text" [(ngModel)]="nombre">
-            <hr>
-            <label>Correo</label>
-            <input type="text" [(ngModel)]="email">
-            <button (click)="guardarCambios()">GUARDAR</button>
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th class="titulosRosa" scope="col">ZELLE CONFIGURACIÓN</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th class="textoAzul text-center"scope="row">Nombre:</th>
+                    <td> <input class="w-100" type="text " [(ngModel)]="nombre"></td><td></td><td></td>
+                  </tr>
+                  <tr>
+                    <th class="textoAzul text-center"scope="row">Correo:</th>
+                    <td><input class="w-100" type="text " [(ngModel)]="email"></td> <td><button class="w-100"(click)="guardarCambios()">GUARDAR</button></td><td></td>
+                  </tr>
+                </tbody>
+              </table>
+
         </div>
     </div>
+
 </div>

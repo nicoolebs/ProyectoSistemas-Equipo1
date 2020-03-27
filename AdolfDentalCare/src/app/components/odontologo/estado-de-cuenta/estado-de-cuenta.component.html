@@ -14,12 +14,10 @@
 
     <div class="row">
         <div class="col-12 col-md-6 text-center">
-            <h5 class="titulosRosa">Deuda pendiente de pacientes:</h5>
-            <h6 class="textoAzul">{{ deuda }}</h6>
+            <h6 class="textoAzul textoALaIzquierda">Deuda pendiente de pacientes: {{ deuda }}</h6>
         </div>
         <div class="col-12 col-md-6 text-center">
-            <h5 class="titulosRosa">Ingresos generados por pacientes:</h5>
-            <h6 class="textoAzul">{{ ingresos }}</h6>
+            <h6 class="textoAzul textoALaIzquierda">Ingresos generados por pacientes: {{ ingresos }}</h6>
         </div>
     </div>
 
@@ -33,8 +31,8 @@
         <div class="col">
 
             <div class="row">
-                <div class="col">
-                    <h5>Seleccione un paciente:</h5>
+                <div class="col textAzul text-center">
+                    <h6>Seleccione un paciente:</h6>
                 </div>
             </div>
 
@@ -50,9 +48,10 @@
                     </form>
                 </div>
             </div>
+
             <div class="row">
-                <div class="col-12">
-                    <button class="btn btn-dark h-100" (click)="verEstado()">VER ESTADO DE CUENTA</button>
+                <div class="col-12 col-xs-12">
+                    <button class="btn btn-dark w-100 h-100" (click)="verEstado()">Ver estado de cuenta</button>
                 </div>
             </div>
 
@@ -61,7 +60,7 @@
 
     <div class="row" *ngIf="seleccionado">
 
-        <div class="col-12 titulosRosa text-center mt-3">
+        <div class="col-12 titulosRosa text-center mt-4">
             <h5>PAGOS PENDIENTES</h5>
         </div>
 

@@ -1,20 +1,59 @@
 
 <div class="container">
     <div class="row">
-        <div class="col">
-            <h4>Banco</h4>
-            <br>
-            {{banco.banco}}
-            <br>
-            {{banco.identidad}}
-            <br>
-            {{banco.tipoCta}}
-            <br>
-            <!-- {{banco.nroCta}} -->
-            <hr>
-            <h4>Zelle</h4>
-            <br>
-            {{zelle.email}}
+        <div class="col-12 titulosRosa textoALaIzquierda mt-3">
+            <h5>BANCO</h5>
         </div>
     </div>
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col"><h6 class="textoAzul">Banco</h6></th>
+                    <th scope="col"><h6 class="textoAzul">N° de cuenta</h6></th>
+                    <th scope="col"><h6 class="textoAzul">Tipo de cuenta</h6></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><p class="textoAzul"> {{banco.banco}}</p></td>
+                    <td><p class="textoAzul"> {{banco.identidad}}</p></td>
+                    <td><p class="textoAzul">{{banco.tipoCta}}</p></td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 titulosRosa textoALaIzquierda">
+            <h5>ZELLE</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col"><h6 class="textoAzul">Correo Zelle</h6></th>
+                    <th scope="col"><h6 class="textoAzul"></h6></th>
+                    <th scope="col"><h6 class="textoAzul"></h6></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><p class="textoAzul"> {{zelle.email}}</p></td>
+                    <td><p class="textoAzul"> </p></td>
+                    <td><p class="textoAzul"></p></td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+        </div>
+    </div>
+
+
 </div>

@@ -1,35 +1,47 @@
 <div class="container">
     <div class="row">
-        <div class="col">
-            <label>Número de cuenta</label>
-            <br>
-            <input type="text" [(ngModel)]="nroCta">
-            {{nroCta}}
-            <hr>
-            <label>Nombre</label>
-            <br>
-            {{nombre}}
-            <hr>
-            <label>Apellido</label>
-            <br>
-            {{apellido}}
-            <hr>
-            <label>Cédula de Identidad</label>
-            <br>
-            <input type="text" [(ngModel)]="identidad">
-            {{identidad}}
-            <hr>
-            <label>Banco</label>
-            <br>
-            <input type="text" [(ngModel)]="banco">
-            {{banco}}
-            <hr>
-            <label>Tipo de cuenta</label>
-            <br>
-            <input type="text" [(ngModel)]="tipoCta">
-            {{tipoCta}}
-            <br>
-            <button (click)='guardarCambios()'>Guardar cambios</button>
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th class="titulosRosa"scope="col">CUENTA BANCARIA</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th class="textoAzul"scope="row">Número de cuenta: </th>
+                    <td> <input class="textoAzul" type="text" [(ngModel)]="nroCta">
+                        <p class="textoAzul">{{nroCta}}</p></td><td></td><td></td>
+                  </tr>
+                  <tr>
+                    <th class="textoAzul"scope="row">Nombre y apellido: </th>
+                    <td><p class="textoAzul">{{nombre}}  {{apellido}}</p></td><td></td><td></td>
+                  </tr>
+                  <tr>
+                    <th class="textoAzul"scope="row">Cédula de identidad: </th>
+                    <td><input class="textoAzul" type="text" [(ngModel)]="identidad">
+                        <p class="textoAzul">{{identidad}}</p></td><td></td><td></td>
+                  </tr>
+                  <tr>
+                    <th class="textoAzul"scope="row">Banco: </th>
+                    <td><input class="textoAzul" type="text" [(ngModel)]="banco">
+                        <p class="textoAzul">{{banco}}</p></td><td></td><td></td>
+                  </tr>
+                  <tr>
+                    <th class="textoAzul"scope="row">Tipo de Cuenta: </th>
+                    <td><input class="textoAzul" type="text" [(ngModel)]="tipoCta">
+                        <p class="textoAzul">{{tipoCta}}</p></td><td></td><td></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-dark h-100 w-100"(click)='guardarCambios()'>Guardar cambios</button>
         </div>
     </div>
+
+
 </div>
