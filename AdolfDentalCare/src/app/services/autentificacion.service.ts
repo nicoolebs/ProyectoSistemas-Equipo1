@@ -161,7 +161,7 @@ export class AutentificacionService {
 
         // Si existe algún error entonces muestra en consola el error
       }).catch((error) => {
-        console.log(error);
+        alert(error);
       });
   }
 
@@ -207,6 +207,8 @@ export class AutentificacionService {
       this.baseDatos.createDocumento(mensaje, 'Correos', this.nuevoUsuario.uid).then(() => {
         console.log('Documento mensaje creado en Correos');
       });
+    }).catch(err => {
+      alert(err);
     });
   }
 
@@ -308,7 +310,7 @@ export class AutentificacionService {
 
         // Si ocurre algun error, lo muestra en consola
       }, err => {
-        console.log(err);
+        alert(err);
       });
     });
   }

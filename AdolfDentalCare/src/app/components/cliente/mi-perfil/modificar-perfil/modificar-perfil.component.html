@@ -36,7 +36,12 @@
                         <th scope="row">
                             <h6 class="textAzul">Género: </h6>
                         </th>
-                        <td><input class="textAzul form-control" type="text" [(ngModel)]="sexo" placeholder="Modifica tu Género"></td>
+                        <td>
+                            <select class="form-control" [(ngModel)]="sexo" required>
+                            <option>Masculino</option>
+                            <option>Femenino</option>
+                          </select>
+                        </td>
                         <td><button class="btn btn-dark h-100 w-100" (click)='guardarSexo()'>Guardar</button></td>
                     </tr>
                     <tr>

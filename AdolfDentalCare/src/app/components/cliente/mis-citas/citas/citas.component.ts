@@ -110,6 +110,7 @@ export class CitasComponent implements OnInit {
 
     this.baseDatos.updateDocumento(this.cita.id, this.cita, 'Citas').then(corr => {
       alert('La fecha de su cita ha sido modificada correctamente');
+      this.router.navigate(['dashboard-paciente/mi-perfil']);
     });
   }
 

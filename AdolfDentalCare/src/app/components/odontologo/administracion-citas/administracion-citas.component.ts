@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AutentificacionService } from '../../../services/autentificacion.service';
 import { FirestoreService } from '../../../services/firestore.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-administracion-citas',
@@ -22,7 +23,8 @@ export class AdministracionCitasComponent implements OnInit {
 
   constructor(
     private auth: AutentificacionService,
-    private baseDatos: FirestoreService
+    private baseDatos: FirestoreService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -113,6 +115,7 @@ export class AdministracionCitasComponent implements OnInit {
 
     this.baseDatos.updateDocumento(this.agendaCitas[i].id, this.agendaCitas[i], 'Citas').then(corr => {
       alert('La fecha de su cita ha sido modificada correctamente');
+      this.router.navigate(['dashboard-odontólogo/mis-pacientes']);
     });
 
   }

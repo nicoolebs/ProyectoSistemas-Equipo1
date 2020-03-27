@@ -18,6 +18,12 @@
 
     </div>
 
+    <div class="row mt-3 mb-3" *ngIf="pagosPendientes.length === 0">
+        <div class="col">
+            <h5 class="textoAzul text-center">No tiene pagos pendientes.</h5>
+        </div>
+    </div>
+
     <div class="row">
 
         <div class="col-12  justify-content-center">
@@ -49,6 +55,12 @@
             <h5>Facturas pagada:</h5>
         </div>
 
+    </div>
+
+    <div class="row" *ngIf="facturas.length === 0">
+        <div class="col">
+            <h5 class="textoAzul text-center">No tiene facturas pagas</h5>
+        </div>
     </div>
 
     <div class="row">

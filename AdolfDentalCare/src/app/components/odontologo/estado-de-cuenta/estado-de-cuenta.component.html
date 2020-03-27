@@ -66,6 +66,12 @@
 
     </div>
 
+    <div class="row mt-3 mb-3" *ngIf="pagosPendientes.length === 0 && seleccionado">
+        <div class="col">
+            <h5 class="textoAzul text-center">No tiene pagos pendientes.</h5>
+        </div>
+    </div>
+
     <div class="col" *ngIf="seleccionado">
         <li class="list-group-item" *ngFor="let pagoPen of pagosPendientes">
 
@@ -92,6 +98,12 @@
             <h5>FACTURAS PAGAS</h5>
         </div>
 
+    </div>
+
+    <div class="row" *ngIf="facturas.length === 0 && seleccionado">
+        <div class="col">
+            <h5 class="textoAzul text-center">No tiene facturas pagas</h5>
+        </div>
     </div>
 
     <div class="row">
