@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
 import { AutentificacionService } from '../../../services/autentificacion.service';
 import { FirestoreService } from '../../../services/firestore.service';
 import { Router } from '@angular/router';
+
+declare var paypal;
 
 @Component({
   selector: 'app-pagar',
@@ -9,53 +11,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./pagar.component.css']
 })
 export class PagarComponent implements OnInit {
-// COLOCAR AfterViewChecked EN IMPLEMENTS
 
-  // addScript: boolean = false;
-  // paypalLoad: boolean = true;
-  // finalAmount: number = 1;
-
-  // paypalConfig = {
-  //   env: 'sandbox',
-  //   client: {
-  //     sandbox: 'Acfn54kFJGzkmDRZAkDiRnSOnRtc05xLcuo1-3wShC8ri_zg60PPRX3yO1oM4TN6PhSWeEBq2ymNIn_v',
-  //     production: '<your-production-key here>'
-  //   },
-  //   commit: true,
-  //   payment: (data, actions) => {
-  //     return actions.payment.create({
-  //       payment: {
-  //         transactions: [
-  //           { amount: { total: this.finalAmount, currency: 'UDS' } }
-  //         ]
-  //       }
-  //     });
-  //   },
-  //   onAuthorize: (data, actions) => {
-  //     return actions.payment.execute().then((payment) => {
-  //       //Do something when payment is successful.
-  //     })
-  //   }
-  // };
-
-  // ngAfterViewChecked(): void {
-  //   if (!this.addScript) {
-  //     this.addPaypalScript().then(() => {
-  //       paypal.Button.render(this.paypalConfig, '#paypal-checkout-btn');
-  //       this.paypalLoad = false;
-  //     })
-  //   }
-  // }
-
-  // addPaypalScript() {
-  //   this.addScript = true;
-  //   return new Promise((resolve, reject) => {
-  //     let scripttagElement = document.createElement('script');
-  //     scripttagElement.src = 'https://www.paypalobjects.com/api/checkout.js';
-  //     scripttagElement.onload = resolve;
-  //     document.body.appendChild(scripttagElement);
-  //   })
-  // }
+  @ViewChild('paypal', {static: true}) paypalElement: ElementRef;
 
   deuda: number;
   pagosPendientes: any[] = [];
@@ -65,12 +22,13 @@ export class PagarComponent implements OnInit {
   pago = false;
   metodoDePago: any;
 
+  pagado = false;
+
   email: any;
   nombre: any;
   referencia: any;
   titular: any;
   banco: any;
-
 
   constructor(
     private auth: AutentificacionService,
@@ -79,6 +37,7 @@ export class PagarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
     for (let index = 0; index < this.auth.usuarioLogg.paciente.historia.length; index++) {
 
       this.baseDatos.getDocumento(this.auth.usuarioLogg.paciente.historia[index], 'Citas').subscribe(cita => {
@@ -91,6 +50,30 @@ export class PagarComponent implements OnInit {
       });
 
     }
+
+    paypal.Buttons({
+      createOrder: (data, actions) => {
+        return actions.order.create({
+          purchase_units: [{
+            description: 'Pago de citas con paypal',
+            amount: {
+              currency_code: 'USD',
+              value: this.monto
+            }
+          }]
+        });
+      },
+      onApprove: async (data, actions) => {
+        const order = await actions.order.capture();
+        this.pagado = true;
+        console.log(order);
+        this.reportarPagoPaypal(order);
+      },
+      onError: err => {
+        console.log(err);
+      }
+    }).render(this.paypalElement.nativeElement);
+
   }
 
   seleccionarCitas() {
@@ -109,6 +92,36 @@ export class PagarComponent implements OnInit {
 
     this.pago = true;
 
+  }
+
+  reportarPagoPaypal(order) {
+
+    let factura = {
+      info:
+      'Email: ' + this.auth.usuarioLogg.email +
+      ', Nombre: ' + this.auth.usuarioLogg.paciente.nombre +
+      ' ' + this.auth.usuarioLogg.paciente.apellido + ', Referencia: ' + order.id,
+      paciente: this.auth.usuarioLogg.uid,
+      monto: this.monto,
+      ref: order.id,
+      fecha: new Date().toString(),
+      medio: 'Paypal'
+    };
+
+    this.baseDatos.createDocumento(factura, 'Facturas', factura.paciente + factura.fecha.toString()).then( corr => {
+
+      for (let index = 0; index < this.citasPagar.length; index++) {
+
+        this.citasPagar[index].paga = true;
+
+        this.baseDatos.updateDocumento(this.citasPagar[index].id, this.citasPagar[index], 'Citas');
+
+      }
+
+      alert('Pago reportado con éxito.');
+
+      this.router.navigate(['dashboard-paciente/mi-perfil']);
+    });
   }
 
   reportarPagoZelle() {
@@ -132,9 +145,9 @@ export class PagarComponent implements OnInit {
 
       }
 
-      console.log('Pago reportado con éxito.');
+      alert('Pago reportado con éxito.');
 
-      this.router.navigate(['dashboard-paciente/mis-pagos']);
+      this.router.navigate(['dashboard-paciente/mi-perfil']);
     });
 
   }
@@ -160,9 +173,9 @@ export class PagarComponent implements OnInit {
 
       }
 
-      console.log('Pago reportado con éxito.');
+      alert('Pago reportado con éxito.');
 
-      this.router.navigate(['dashboard-paciente/mis-pagos']);
+      this.router.navigate(['dashboard-paciente/mi-perfil']);
     });
 
   }

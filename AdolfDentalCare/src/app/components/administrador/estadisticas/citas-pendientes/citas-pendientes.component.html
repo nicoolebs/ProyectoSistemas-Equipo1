@@ -1,20 +1,27 @@
-<div class="container">
- 
-        <div class="row"><!-- texto introductorio -->
+<div class="container-fluid">
 
-            <div class="col-12 text-center textoAzul">
-                <h4>Estadística de Citas Pendientes</h4>
-                <br><br>
-            </div>
-            
+    <div class="row mt-3 mb-3">
+        <!-- texto introductorio -->
+        <div class="col-12 text-center textoAzul">
+            <h4>ESTADÍSITCA: CITAS PENDIENTES</h4>
         </div>
 
-        <div class="row">
+    </div>
+
+    <li class="list-group-item" *ngFor="let cita of citasPendientes">
+
+        <div class="row textoAzul text-center">
             <div class="col-12">
-                <p>AQUI ESTADÍSTICA</p>
+                <h5>Tratamiento:</h5>
+                <h6>{{ cita.tratamiento }}</h6>
+                <h5>ID:</h5>
+                <h6>{{ cita.id }}</h6>
+                <h5>Fecha:</h5>
+                <h6>{{ cita.fecha }}</h6>
             </div>
-
         </div>
+
+    </li>
 
 
 
