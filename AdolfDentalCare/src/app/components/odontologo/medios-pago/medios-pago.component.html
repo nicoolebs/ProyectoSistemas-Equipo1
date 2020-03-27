@@ -1,4 +1,3 @@
-
 <div class="container">
     <div class="row">
         <div class="col-12 titulosRosa textoALaIzquierda mt-3">
@@ -9,21 +8,33 @@
         <div class="col">
             <table class="table">
                 <thead>
-                  <tr>
-                    <th scope="col"><h6 class="textoAzul">Banco</h6></th>
-                    <th scope="col"><h6 class="textoAzul">N° de cuenta</h6></th>
-                    <th scope="col"><h6 class="textoAzul">Tipo de cuenta</h6></th>
-                  </tr>
+                    <tr>
+                        <th scope="col">
+                            <h6 class="textoAzul">Banco</h6>
+                        </th>
+                        <th scope="col">
+                            <h6 class="textoAzul">N° de cuenta</h6>
+                        </th>
+                        <th scope="col">
+                            <h6 class="textoAzul">Tipo de cuenta</h6>
+                        </th>
+                    </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td><p class="textoAzul"> {{banco.banco}}</p></td>
-                    <td><p class="textoAzul"> {{banco.identidad}}</p></td>
-                    <td><p class="textoAzul">{{banco.tipoCta}}</p></td>
-                  </tr>
-                  
+                    <tr>
+                        <td>
+                            <p class="textoAzul"> {{banco.banco}}</p>
+                        </td>
+                        <td>
+                            <p class="textoAzul"> {{banco.identidad}}</p>
+                        </td>
+                        <td>
+                            <p class="textoAzul">{{banco.tipoCta}}</p>
+                        </td>
+                    </tr>
+
                 </tbody>
-              </table>
+            </table>
 
         </div>
     </div>
@@ -37,21 +48,48 @@
         <div class="col">
             <table class="table">
                 <thead>
-                  <tr>
-                    <th scope="col"><h6 class="textoAzul">Correo Zelle</h6></th>
-                    <th scope="col"><h6 class="textoAzul"></h6></th>
-                    <th scope="col"><h6 class="textoAzul"></h6></th>
-                  </tr>
+                    <tr>
+                        <th scope="col">
+                            <h6 class="textoAzul">Correo Zelle</h6>
+                        </th>
+                    </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td><p class="textoAzul"> {{zelle.email}}</p></td>
-                    <td><p class="textoAzul"> </p></td>
-                    <td><p class="textoAzul"></p></td>
-                  </tr>
-                  
+                    <tr>
+                        <td>
+                            <p class="textoAzul"> {{zelle.email}}</p>
+                        </td>
+                    </tr>
+
                 </tbody>
-              </table>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 titulosRosa textoALaIzquierda">
+            <h5>PAYPAL</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            <h6 class="textoAzul">Correo Paypal</h6>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <p class="textoAzul">{{ paypal }}</p>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
         </div>
     </div>
 
