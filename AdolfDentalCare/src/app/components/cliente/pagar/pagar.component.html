@@ -74,10 +74,8 @@
         </div>
     </div>
 
-    <div class="row" *ngIf="metodoDePago === 'Paypal'">
-        <div class="col">
-            <h1>PAGO CON PAYPAL</h1>
-        </div>
+    <div class="row" [hidden]="metodoDePago !== 'Paypal'">
+        <div class="col d-flex justify-content-center" #paypal></div>
     </div>
 
     <div class="row" *ngIf="metodoDePago === 'Transferencia Bancaria'">
@@ -160,10 +158,6 @@
 
 
 
-    <!-- PAYPAL MÉTODO -->
-    <!-- <input type="number" [(ngModel)]="finalAmount" style="padding-bottom: 10px;">
-            <h2 *ngIf="paypalLoad">Paypal button is loading</h2>
-            <div id="paypal-checkout-btn"></div> -->
 
 
 
